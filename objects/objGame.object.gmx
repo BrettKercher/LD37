@@ -30,6 +30,7 @@ selected = noone
 scrollSpeed = 4 * (60/room_speed)
 resources = 0
 
+scrPlaceResources()
 </string>
           </argument>
         </arguments>

@@ -18,7 +18,6 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scrGetKeyboardInput.gml</script>
     <scripts name="States">
       <script>scripts\scrStateIdle.gml</script>
       <script>scripts\scrStateInspired.gml</script>
@@ -26,6 +25,8 @@
       <script>scripts\scrStateReturning.gml</script>
       <script>scripts\scrStateDropping.gml</script>
     </scripts>
+    <script>scripts\scrGetKeyboardInput.gml</script>
+    <script>scripts\scrPlaceResources.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\objResource</object>
@@ -35,6 +36,7 @@
     <object>objects\objGame</object>
     <object>objects\objWaypoint</object>
     <object>objects\objBucket</object>
+    <object>objects\objResourceSpawner</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Outside</room>
