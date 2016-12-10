@@ -6,10 +6,37 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\sprite0</sprite>
+    <sprite>sprites\sprGround</sprite>
+    <sprites name="RoomSprites">
+      <sprite>sprites\sprRoomOutside</sprite>
+      <sprite>sprites\sprBucket</sprite>
+    </sprites>
+    <sprite>sprites\sprMan</sprite>
+    <sprite>sprites\sprResource</sprite>
+    <sprite>sprites\sprWaypoint</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scrStateIdle.gml</script>
+    <script>scripts\scrStateInspired.gml</script>
+    <script>scripts\scrStateGathering.gml</script>
+    <script>scripts\scrStateReturning.gml</script>
+    <script>scripts\scrStateDropping.gml</script>
+    <script>scripts\scrGetKeyboardInput.gml</script>
+  </scripts>
+  <objects name="objects">
+    <object>objects\objResource</object>
+    <object>objects\objGround</object>
+    <object>objects\objRoomOutside</object>
+    <object>objects\objMan</object>
+    <object>objects\objGame</object>
+    <object>objects\objWaypoint</object>
+    <object>objects\objBucket</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\room0</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
