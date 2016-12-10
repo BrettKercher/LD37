@@ -651,11 +651,15 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="4">
+    <constants number="8">
       <constant name="BEINGGATHERED">1</constant>
       <constant name="WOOD">0</constant>
       <constant name="ROCK">1</constant>
       <constant name="FOOD">2</constant>
+      <constant name="DAWN">0</constant>
+      <constant name="DAY">1</constant>
+      <constant name="DUSK">2</constant>
+      <constant name="NIGHT">3</constant>
     </constants>
   </ConfigConstants>
 </Config>
