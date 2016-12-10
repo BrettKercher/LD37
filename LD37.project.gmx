@@ -14,6 +14,7 @@
     <sprite>sprites\sprMan</sprite>
     <sprite>sprites\sprResource</sprite>
     <sprite>sprites\sprWaypoint</sprite>
+    <sprite>sprites\sprLightSourceGlow</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -41,6 +42,7 @@
     <object>objects\objWaypoint</object>
     <object>objects\objBucket</object>
     <object>objects\objResourceSpawner</object>
+    <object>objects\objNightCycle</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Outside</room>
