@@ -26,6 +26,10 @@
       <script>scripts\scrStateReturning.gml</script>
       <script>scripts\scrStateDropping.gml</script>
     </scripts>
+    <scripts name="View">
+      <script>scripts\scrClampView.gml</script>
+      <script>scripts\scrZoomView.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\objResource</object>

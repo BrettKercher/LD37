@@ -30,6 +30,15 @@ selected = noone
 scrollSpeed = 4 * (60/room_speed)
 resources = 0
 
+//view parameters
+viewwMin = view_wview/2
+viewhMin = view_hview/2
+viewwMax = view_wview*2
+viewhMax = view_hview*2
+
+//smaller = faster
+zoomSpeed = 5
+
 </string>
           </argument>
         </arguments>
@@ -62,14 +71,11 @@ if right {
     view_xview -= scrollSpeed
 }
 
-//cant go that far
-if view_xview &lt;= 0 {
-    view_xview = 0
-}
+//zoom view
+scrZoomView()
 
-if view_xview + view_wview &gt;= room_width {
-    view_xview = room_width - view_wview
-}
+//cant go that far
+scrClampView()
 
 //resest the game
 if restart {
