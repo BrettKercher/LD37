@@ -117,14 +117,13 @@ if selected != noone {
             instance_destroy()
         }
     }
-    
     //create new
     var waypointHeight = room_height - 32 - sprite_get_height(sprWaypoint)
     instance_create(mouse_x, waypointHeight, objWaypoint)
     
     //inspire man
     if instance_exists(objMan) {
-        with objMan {
+        with objGame.selected {
             state = scrStateInspired
         }
     }
