@@ -11,3 +11,5 @@ while !ds_stack_empty(held) {
     weight -- 
 }
 
+state = scrStateIdle
+

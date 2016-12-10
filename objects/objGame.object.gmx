@@ -111,15 +111,17 @@ if restart {
             <string>
 //inspires if someone is selected
 if selected != noone {
-    //delete existing
+    //delete existing waypoints for the selected dude
     if instance_exists(objWaypoint) {
         with objWaypoint {
-            instance_destroy()
+            if owner == objGame.selected {
+                instance_destroy()
+            }
         }
     }
     //create new
-    var waypointHeight = room_height - 32 - sprite_get_height(sprWaypoint)
-    instance_create(mouse_x, waypointHeight, objWaypoint)
+    var waypointHeight = room_height - 32 - sprite_get_height(sprWaypoint);
+    objGame.selected.waypoint = instance_create(mouse_x, waypointHeight, objWaypoint)
     
     //inspire man
     if instance_exists(objMan) {
