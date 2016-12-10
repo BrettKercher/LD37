@@ -28,6 +28,10 @@
             <string>
 gathered = false
 player = noone;
+image_speed = 0;
+
+//Default to wood. Chanced when placed via scrPlaceResources
+type = WOOD;
 
 </string>
           </argument>
@@ -91,8 +95,8 @@ if player != noone {
 }
 
 if place_meeting(x, y, objBucket) {
+    objGame.resources[type] ++
     instance_destroy()
-    objGame.resources ++
 }
 
 </string>

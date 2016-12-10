@@ -5,6 +5,14 @@ var churchX = objRoomOutside.x;
 var churchLeftX = churchX - (sprite_get_width(sprRoomOutside) / 2);
 var churchRightX = churchX + (sprite_get_width(sprRoomOutside) / 2);
 
+//Chance for a spawner to not spawn
+var emptyChance = 0.25;
+//Define Percent Threshold for each resource to appear
+var resourceChance;
+resourceChance[WOOD] = 0.45;
+resourceChance[ROCK] = 0.90;
+resourceChance[FOOD] = 1.00;
+
 //get all instances of spawner, save its X position to a list
 var spawners = ds_list_create();
 var spawner = noone;
@@ -29,18 +37,31 @@ ds_list_sort(spawners, true);
 var prevX = 0;
 var curX = 0;
 var nextX = ds_list_find_value(spawners, 0);
+
 var wiggleRoomLeft = 0;
 var wiggleRoomRight = 0;
+
 var actualX = 0;
 var actualY = room_height - 32 - sprite_get_width(sprResource);
+
 var separationConstant = 4;
 var resoureceHalfWidth = sprite_get_width(sprResource) / 2;
+
+var randomPercent = 0;
+var resourceType = 0;
+var resource = noone;
 
 for(i = 0; i < ds_list_size(spawners);  i++)
 {
     prevX = curX;
     curX = ds_list_find_value(spawners, i);
     nextX = ds_list_find_value(spawners, i + 1);
+    
+    randomPercent = random(1);
+    if(randomPercent < emptyChance)
+    {
+        continue;
+    }
     
     if(is_undefined(nextX))
     {
@@ -61,12 +82,23 @@ for(i = 0; i < ds_list_size(spawners);  i++)
     wiggleRoomRight = (((nextX - resoureceHalfWidth) - (curX + resoureceHalfWidth)) / 2);
     actualX = random_range(curX - wiggleRoomLeft, curX + wiggleRoomRight);
     
-    if(i = 0)
+    resource = instance_create(actualX, actualY, objResource);
+    
+    randomPercent = random(1);
+    for(resourceType = 0; resourceType < array_length_1d(resourceChance); resourceType++)
     {
-        show_debug_message(prevX);
-        show_debug_message(churchRightX);
-        show_debug_message(wiggleRoomLeft);
+        if(randomPercent < resourceChance[resourceType])
+        {
+            break;
+        }
     }
     
-    instance_create(actualX, actualY, objResource);
+    resource.image_index = resourceType;
+    resource.type = resourceType;
 }
+
+
+
+
+
+

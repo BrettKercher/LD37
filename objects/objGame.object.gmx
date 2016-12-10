@@ -28,7 +28,10 @@
             <string>
 selected = noone
 scrollSpeed = 4 * (60/room_speed)
-resources = 0
+
+resources[WOOD] = 0;
+resources[ROCK] = 0;
+resources[FOOD] = 0;
 
 scrPlaceResources()
 
@@ -40,7 +43,6 @@ viewhMax = view_hview*2
 
 //smaller = faster
 zoomSpeed = 5
-
 </string>
           </argument>
         </arguments>
@@ -150,7 +152,9 @@ if selected != noone {
           <argument>
             <kind>1</kind>
             <string>
-draw_text(0 , 0, resources)
+draw_text(0 , 0, resources[WOOD])
+draw_text(0 , 32, resources[ROCK])
+draw_text(0 , 64, resources[FOOD])
 
 </string>
           </argument>
