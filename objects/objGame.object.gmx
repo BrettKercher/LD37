@@ -3,8 +3,8 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
-  <persistent>0</persistent>
+  <depth>-3</depth>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -43,6 +43,14 @@ viewhMax = view_hview*2
 
 //smaller = faster
 zoomSpeed = 5
+
+//If not noone, begin transitioning to new room
+newRoom = noone;
+fadeAlpha = 0;
+fadeOut = true; //true for in, false for out
+fadeSpeed = 0.01;
+//roomTransitionSurface = surface_create(view_wview, view_hview);
+roomTransitionSurface = surface_create(room_width, room_height);
 </string>
           </argument>
         </arguments>
@@ -84,6 +92,28 @@ scrClampView()
 //resest the game
 if restart {
     room_restart()
+}
+
+if(newRoom != noone)
+{
+    if(fadeOut)
+    {
+        fadeAlpha += fadeSpeed;
+        if(fadeAlpha &gt;= 1.0)
+        {
+            room_goto(newRoom);
+            fadeOut = false;
+        }
+    }
+    else 
+    {
+        fadeAlpha -= fadeSpeed;
+        if(fadeAlpha &lt;= 0.0)
+        {
+            fadeOut = true;
+            newRoom = noone;
+        }
+    }
 }
 
 </string>
@@ -157,6 +187,35 @@ draw_text(0 , 0, resources[WOOD])
 draw_text(0 , 32, resources[ROCK])
 draw_text(0 , 64, resources[FOOD])
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(newRoom != noone)
+{
+    surface_set_target(roomTransitionSurface);
+    draw_clear(c_black);
+    surface_reset_target();
+    draw_surface_ext(roomTransitionSurface, 0, 0, 1, 1, 0, c_white, fadeAlpha);
+}
 </string>
           </argument>
         </arguments>

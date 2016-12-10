@@ -10,6 +10,7 @@
     <sprites name="RoomSprites">
       <sprite>sprites\sprRoomOutside</sprite>
       <sprite>sprites\sprBucket</sprite>
+      <sprite>sprites\sprIdol</sprite>
     </sprites>
     <sprite>sprites\sprMan</sprite>
     <sprite>sprites\sprResource</sprite>
@@ -43,9 +44,11 @@
     <object>objects\objBucket</object>
     <object>objects\objResourceSpawner</object>
     <object>objects\objNightCycle</object>
+    <object>objects\objIdol</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Outside</room>
+    <room>rooms\Inside</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
