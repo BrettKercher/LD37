@@ -1,9 +1,9 @@
 
 //find waypoint, move towards it
-if instance_exists(objWaypoint) {
+if objGame.selected == self and instance_exists(objWaypoint) {
     target = objWaypoint.x
     dir = point_direction(x, y, target, y)
-    speed = lengthdir_x((normalSpeed - weight), dir)
+    hspeed = lengthdir_x((normalSpeed/(2*weight)), dir)
 }
 
 //destroy it when there

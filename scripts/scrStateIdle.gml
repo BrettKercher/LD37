@@ -9,3 +9,15 @@ if ds_stack_size(held) > 0 and idleTime >= 300 {
     idleTime = 0
 }
 
+//keeps them from overlapping too much
+if place_meeting(x, y, objMan) {
+    var overlap = instance_place(x, y, objMan);
+    if overlap.state = scrStateIdle {
+        var tempDir = point_direction(overlap.x, overlap.y, x, y)
+        hspeed = lengthdir_x(normalSpeed/(2*weight), tempDir)
+    }
+} else {
+    hspeed = 0
+}
+
+
