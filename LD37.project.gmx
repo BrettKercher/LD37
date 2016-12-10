@@ -19,12 +19,12 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scrGetKeyboardInput.gml</script>
-    <script>scripts\scrStateDropping.gml</script>
     <scripts name="States">
       <script>scripts\scrStateIdle.gml</script>
       <script>scripts\scrStateInspired.gml</script>
       <script>scripts\scrStateGathering.gml</script>
       <script>scripts\scrStateReturning.gml</script>
+      <script>scripts\scrStateDropping.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
