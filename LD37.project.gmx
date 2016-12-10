@@ -27,6 +27,10 @@
     </scripts>
     <script>scripts\scrGetKeyboardInput.gml</script>
     <script>scripts\scrPlaceResources.gml</script>
+    <scripts name="View">
+      <script>scripts\scrClampView.gml</script>
+      <script>scripts\scrZoomView.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\objResource</object>
