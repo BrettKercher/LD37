@@ -70,6 +70,12 @@ if view_xview &lt;= 0 {
 if view_xview + view_wview &gt;= room_width {
     view_xview = room_width - view_wview
 }
+
+//resest the game
+if restart {
+    room_restart()
+}
+
 </string>
           </argument>
         </arguments>

@@ -59,7 +59,7 @@ if player != noone {
         weight ++
         ds_stack_push(held, other.id)
         other.y = y - 32*ds_stack_size(held)
-        state = scrStateReturning
+        state = scrStateIdle
     }
 }
 

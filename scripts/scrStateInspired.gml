@@ -14,9 +14,11 @@ if abs(x - target) <= 5 {
     speed = 0
     if place_meeting(x, y, objResource) {
         state = scrStateGathering
+        idleTime = 0
         show_debug_message("Gathering")
     } else {
         state = scrStateIdle
+        idleTime = idleTime/2
         show_debug_message("Idle")
     }
 }
