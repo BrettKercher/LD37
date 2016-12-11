@@ -5,13 +5,14 @@ while !ds_stack_empty(held) {
     with trash {
         y = room_height - 32 - sprite_get_height(sprite_index)
         x = player.x + irandom_range(-1*sprite_get_width(player.sprite_index),sprite_get_width(player.sprite_index))
-        gathered = false
         player = noone
     }
     weight -- 
 }
 
 state = scrStateIdle
+canAttack = true
+
 if objGame.selected = id {
     sprite_index = sprManSelected
 } else {

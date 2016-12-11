@@ -26,8 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>
-gathered = false
 requiredTool = noone;
+beingGathered = false
 player = noone;
 image_speed = 0;
 
@@ -56,9 +56,10 @@ type = WOOD;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///resource has been gathered after alarm goes off
+            <string>///resource picks up after alarm
 
 player = instance_place(x, y, objMan)
+
 if player != noone {
     with player {
         weight ++
@@ -73,8 +74,9 @@ if player != noone {
         }
     }
     image_index = 1
+} else {
+    beingGathered = false
 }
-
 </string>
           </argument>
         </arguments>
