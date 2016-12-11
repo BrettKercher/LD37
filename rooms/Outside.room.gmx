@@ -136,8 +136,8 @@
     <instance objName="objIdol" x="1024" y="832" name="inst_7C000A0A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objDoor" x="1088" y="992" name="inst_DA14774A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objAxeBox" x="832" y="928" name="inst_5B335F2B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objPickBox" x="768" y="928" name="inst_CEC80830" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSpearBox" x="704" y="928" name="inst_DFEE9108" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objPickBox" x="800" y="928" name="inst_CEC80830" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpearBox" x="768" y="928" name="inst_DFEE9108" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objRoomOutside" x="1024" y="800" name="inst_F1DC9D44" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
