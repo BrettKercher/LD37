@@ -63,30 +63,75 @@ else
             <kind>1</kind>
             <string>
 //Start transition
-if room == Outside or (room == Inside and !objSmokeMenu.open) {
+if (room == Outside or (room == Inside and !objSmokeMenu.open)) {
     var nextRoom = noone;
     if(room == Outside)
     {
         image_index = 1;
         nextRoom = Inside;
     }
-    else
+    else if(room == Inside)
     {
         image_index = 0;
         nextRoom = Outside;
     }
     objGame.newRoom = nextRoom;
-    
+    objGame.fadeDirection = 1;
     //Start returning everyone home
-    //Also save them for recreation inside
     var i;
     var person = noone;
     for(i = 0; i &lt; instance_number(objMan); i++)
     {
         person = instance_find(objMan, i);
-        person.state = scrStateGoingHome;
+        with(person)
+        {
+            state = scrStateGoingHome;
+            scrDropResources();
+        }
+    }
+    
+    //Remove all waypoints
+    with(objWaypoint)
+    {
+        instance_destroy();
     }
 }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Initialize
+
+image_speed = 0;
+
+if(room == Outside)
+{
+    image_index = 0;
+}
+else
+{
+    image_index = 1;
+}
+
 
 </string>
           </argument>

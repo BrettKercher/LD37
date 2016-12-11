@@ -60,7 +60,7 @@ attacking = false
 
 //for inventory
 tool = noone;
-held = ds_stack_create()
+held = ds_stack_create();
 
 //for day/night fx
 baseGlowIntensity = 1.5;
@@ -302,9 +302,11 @@ image_alpha = 1.0;
 hspeed = 0;
 image_speed = 0;
 image_index = 0;
+sprite_index = sprMan;
 target = noone;
 waypoint = noone;
-
+ds_stack_clear(held);
+tool = noone;
 </string>
           </argument>
         </arguments>
