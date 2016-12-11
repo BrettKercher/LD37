@@ -52,7 +52,7 @@ image_index = clamp(numTools, 0, 2);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>numTools = objGame.tools[AXE];
+            <string>numTools = objGame.tools[SPEAR];
 image_index = clamp(numTools, 0, 2);
 </string>
           </argument>

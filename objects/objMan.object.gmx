@@ -40,6 +40,7 @@ target = noone;
 weight = 1
 dir = 0
 waypoint = noone
+collided = false
 distanceHome = point_distance(x, y, objDoor.x, objDoor.y)
 normalSpeed = 3 * (60/room_speed)
 wanderSpeed = .5 * (60/room_speed)
@@ -47,6 +48,9 @@ wanderSpeed = .5 * (60/room_speed)
 //for state/statechange
 state = scrStateIdle
 idleTime = 0
+interactingWith = noone;
+actionDelay = 0;
+gateDestroyDelayTime = 2 * room_speed;
 
 //for inventory
 tool = noone;
@@ -120,6 +124,13 @@ if hspeed &lt; 0 {
     image_xscale = -1
 } else if hspeed &gt; 0 {
     image_xscale = 1
+}
+
+//collision
+if(!place_free(x + hspeed, y))
+{
+    hspeed = 0;
+    collided = true;
 }
 
 //Light Flickering
