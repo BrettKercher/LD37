@@ -202,7 +202,7 @@ draw_text(0 , 96, string(hours) + ":" + timeString + AmPm);
           <argument>
             <kind>1</kind>
             <string>
-if(room == Outside)
+if(room == Outside) and surface_exists(nightSurface)
 {
     surface_set_target(nightSurface);
     draw_clear(c_black);
