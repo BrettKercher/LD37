@@ -16,10 +16,17 @@
       <sprite>sprites\sprManSelected</sprite>
     </sprites>
     <sprites name="RoomSprites">
+      <sprites name="Smoke Menu">
+        <sprite>sprites\sprPickButton</sprite>
+        <sprite>sprites\sprAxeButton</sprite>
+        <sprite>sprites\sprSmokeMenu</sprite>
+      </sprites>
       <sprite>sprites\sprRoomOutside</sprite>
       <sprite>sprites\sprBucket</sprite>
       <sprite>sprites\sprIdol</sprite>
+      <sprite>sprites\sprFire</sprite>
       <sprite>sprites\sprDoor</sprite>
+      <sprite>sprites\sprAltar</sprite>
     </sprites>
     <sprite>sprites\sprGround</sprite>
     <sprite>sprites\sprResource</sprite>
@@ -36,6 +43,7 @@
       <script>scripts\scrStateDropping.gml</script>
       <script>scripts\scrStateGoingHome.gml</script>
     </scripts>
+    <script>scripts\scrImageClamp.gml</script>
     <script>scripts\scrGetKeyboardInput.gml</script>
     <script>scripts\scrPlaceResources.gml</script>
     <scripts name="View">
@@ -44,17 +52,26 @@
     </scripts>
   </scripts>
   <objects name="objects">
-    <object>objects\objResource</object>
-    <object>objects\objGround</object>
-    <object>objects\objRoomOutside</object>
-    <object>objects\objMan</object>
     <object>objects\objGame</object>
-    <object>objects\objWaypoint</object>
-    <object>objects\objBucket</object>
-    <object>objects\objResourceSpawner</object>
+    <object>objects\objGround</object>
+    <object>objects\objMan</object>
     <object>objects\objNightCycle</object>
-    <object>objects\objIdol</object>
-    <object>objects\objDoor</object>
+    <object>objects\objResource</object>
+    <object>objects\objResourceSpawner</object>
+    <object>objects\objWaypoint</object>
+    <objects name="RoomObjects">
+      <objects name="SmokeMenuObjects">
+        <object>objects\objButtonParent</object>
+        <object>objects\objPickButton</object>
+        <object>objects\objAxeButton</object>
+        <object>objects\objSmokeMenu</object>
+      </objects>
+      <object>objects\objFire</object>
+      <object>objects\objDoor</object>
+      <object>objects\objBucket</object>
+      <object>objects\objIdol</object>
+      <object>objects\objRoomOutside</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\Outside</room>
