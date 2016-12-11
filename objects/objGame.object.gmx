@@ -31,9 +31,9 @@ scrollSpeed = 4 * (60/room_speed)
 
 manList = ds_list_create()
 
-resources[WOOD] = 0;
-resources[ROCK] = 0;
-resources[FOOD] = 0;
+resources[WOOD] = 9990;
+resources[ROCK] = 9990;
+resources[FOOD] = 9990;
 
 tools[AXE] = 0;
 tools[PICK] = 0;
@@ -52,6 +52,9 @@ zoomSpeed = 5
 
 //If not noone, begin transitioning to new room
 newRoom = noone;
+
+//How many new guys to add at end of day
+newPersonCount = 0;
 
 fadeAlpha = 0;
 fadeDirection = 0;  //1 for in, -1 for out, 0 for nothing
@@ -294,9 +297,17 @@ if selected != noone {
             <kind>1</kind>
             <string>randomize();
 
-if(room == Outside and needsResourcePlacement)
+if(room == Outside)
 {
-    scrPlaceResources();
+    if(needsResourcePlacement)
+    {
+        scrPlaceResources();
+    }
+    while(newPersonCount &gt; 0)
+    {
+        instance_create(objDoor.x,objDoor.y,objMan);
+        newPersonCount--;
+    }
 }
 </string>
           </argument>

@@ -182,7 +182,9 @@ if(hours == 0)
 var timeString = string_format(minutes, 2, 0);
 timeString = string_replace(timeString, ' ', '0');
 
+draw_set_alpha(1 - objGame.fadeAlpha);
 draw_text(0 , 96, string(hours) + ":" + timeString + AmPm);
+draw_set_alpha(1);
 
 </string>
           </argument>
