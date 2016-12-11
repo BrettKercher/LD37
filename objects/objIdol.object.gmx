@@ -28,6 +28,17 @@
             <string>///Initialize
 
 image_speed = 0;
+
+if(room == Outside)
+{
+    image_index = 0;
+}
+else
+{
+    image_index = 1;
+}
+
+
 </string>
           </argument>
         </arguments>
@@ -51,11 +62,18 @@ image_speed = 0;
           <argument>
             <kind>1</kind>
             <string>
-//Light up idol
-image_index = 1;
-
-//Tell game object to start switching scenes
-objGame.newRoom = Inside;
+var nextRoom = noone;
+if(room == Outside)
+{
+    image_index = 1;
+    nextRoom = Inside;
+}
+else
+{
+    image_index = 0;
+    nextRoom = Outside;
+}
+objGame.newRoom = nextRoom;
 
 //Start returning everyone home
 
