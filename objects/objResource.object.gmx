@@ -64,6 +64,11 @@ if player != noone {
         ds_stack_push(held, other.id)
         other.y = y - 32*ds_stack_size(held)
         state = scrStateIdle
+        if objGame.selected = id {
+            sprite_index = sprManCollectingSelected
+        } else {
+            sprite_index = sprManCollecting
+        }
     }
 }
 

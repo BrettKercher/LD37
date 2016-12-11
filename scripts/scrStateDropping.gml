@@ -12,4 +12,9 @@ while !ds_stack_empty(held) {
 }
 
 state = scrStateIdle
+if objGame.selected = id {
+    sprite_index = sprManSelected
+} else {
+    sprite_index = sprMan
+}
 

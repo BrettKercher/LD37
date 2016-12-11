@@ -6,14 +6,21 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\sprGround</sprite>
+    <sprites name="WaypointSprites">
+      <sprite>sprites\sprWaypoint</sprite>
+    </sprites>
+    <sprites name="ManSprites">
+      <sprite>sprites\sprManCollecting</sprite>
+      <sprite>sprites\sprManCollectingSelected</sprite>
+      <sprite>sprites\sprMan</sprite>
+      <sprite>sprites\sprManSelected</sprite>
+    </sprites>
     <sprites name="RoomSprites">
       <sprite>sprites\sprRoomOutside</sprite>
       <sprite>sprites\sprBucket</sprite>
     </sprites>
-    <sprite>sprites\sprMan</sprite>
+    <sprite>sprites\sprGround</sprite>
     <sprite>sprites\sprResource</sprite>
-    <sprite>sprites\sprWaypoint</sprite>
     <sprite>sprites\sprLightSourceGlow</sprite>
   </sprites>
   <backgrounds name="background"/>

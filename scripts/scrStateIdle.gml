@@ -20,4 +20,8 @@ if place_meeting(x, y, objMan) {
     hspeed = 0
 }
 
+//if youre idle on the bucket, just shifts you straight to returning if you have something
+if place_meeting(x, y, objBucket) and !ds_stack_empty(held) {
+    state = scrStateReturning
+}
 
