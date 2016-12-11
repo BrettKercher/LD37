@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>
-image_blend = objGame.selected.colorID
+image_blend = objGame.selected.image_blend
 owner = objGame.selected
 image_speed = 0
 if place_meeting(x, y, objResource) {

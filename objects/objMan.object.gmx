@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>-2</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -30,7 +30,7 @@ image_speed = 0
 state = scrStateIdle
 target = noone;
 normalSpeed = 3 * (60/room_speed)
-colorID = choose(c_aqua, c_lime, c_orange)
+image_blend = choose(c_aqua, c_lime, c_orange)
 idleTime = 0
 weight = 1
 dir = 0
@@ -136,7 +136,7 @@ glowIntensity = clamp(glowIntensity, baseGlowIntensity - maxFlickerRange, baseGl
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -153,9 +153,15 @@ glowIntensity = clamp(glowIntensity, baseGlowIntensity - maxFlickerRange, baseGl
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-image_blend = colorID
-draw_self()
+            <string>state = scrStateIdle;
+x = objDoor.x;
+y = room_height - 32 - sprite_get_height(sprMan);
+image_alpha = 1.0;
+hspeed = 0;
+image_speed = 0;
+image_index = 0;
+target = noone;
+waypoint = noone;
 
 </string>
           </argument>

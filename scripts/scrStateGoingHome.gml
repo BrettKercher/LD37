@@ -1,6 +1,6 @@
 ///scrStateGoingHome
 
-//go back church door
+//go back to church door
 if instance_exists(objDoor) {
     target = objDoor.x
     dir = point_direction(x, y, target, y)
@@ -14,4 +14,3 @@ if abs(x - target) <= 5 {
     image_speed = 0
     image_index = 0
 }
-

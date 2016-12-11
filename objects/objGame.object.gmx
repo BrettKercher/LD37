@@ -112,7 +112,7 @@ if(newRoom != noone)
         {
             fadeOut = true;
             
-            //If newRoom != room, idol was clicked again during fade
+            //If newRoom != room, idol was clicked again during fade in
             if(newRoom == room)
             {
                 newRoom = noone;
