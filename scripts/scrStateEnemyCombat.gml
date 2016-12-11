@@ -18,12 +18,6 @@ if instance_exists(objMan) {
         attacking = true
     }
 
-} else {
-    //go back to idle
-    state = scrStateEnemyIdle
-    hspeed = 0
-    inCombat = false
-    combatTarget = noone
 }
 
 

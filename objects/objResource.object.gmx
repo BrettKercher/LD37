@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>
+gatherPercent = 0
 requiredTool = noone;
 beingGathered = false
 player = noone;
@@ -34,49 +35,6 @@ image_speed = 0;
 //Default to wood. Chanced when placed via scrPlaceResources
 type = WOOD;
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///resource picks up after alarm
-
-player = instance_place(x, y, objMan)
-
-if player != noone {
-    with player {
-        weight ++
-        energy -= 10
-        ds_stack_push(held, other.id)
-        other.y = y - 32*ds_stack_size(held) - 2
-        state = scrStateIdle
-        if objGame.selected = id {
-            sprite_index = sprManCollectingSelected
-        } else {
-            sprite_index = sprManCollecting
-        }
-    }
-    image_index = 1
-} else {
-    beingGathered = false
-}
 </string>
           </argument>
         </arguments>
@@ -100,15 +58,74 @@ if player != noone {
           <argument>
             <kind>1</kind>
             <string>
+//when in contact with gathering man, gets gathered
+if place_meeting(x, y, objMan) {
+    var gatherer = instance_place(x,y, objMan)
+    if gatherer.state == scrStateGathering {
+        //gains gathering percent when player is there
+        gatherPercent ++
+    }
+    //once it hits 100%, give player the resource
+    if gatherPercent &gt;= 100 {
+        with gatherer {
+            weight ++
+            energy -= 10
+            ds_stack_push(held, other.id)
+            other.y = y - 32*ds_stack_size(held) - 2
+            state = scrStateIdle
+            if objGame.selected = id {
+                sprite_index = sprManCollectingSelected
+            } else {
+                sprite_index = sprManCollecting
+            }
+        }
+        //turns into box
+        image_index = 1
+        player = gatherer
+    }
+} else {
+    //loses gathering percent when they leave, to an extent
+    gatherPercent --
+    if gatherPercent &lt;= 0 {
+        gatherPercent = 0
+    }
+}
+
+//carried by player
 if player != noone {
     x = player.x
 }
 
+//drops in bucket
 if place_meeting(x, y, objBucket) {
     objGame.resources[type] ++
     instance_destroy()
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self()
+draw_text(x,y,gatherPercent)
 </string>
           </argument>
         </arguments>

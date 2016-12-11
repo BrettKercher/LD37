@@ -149,7 +149,7 @@ if state = scrStateWandering {
 script_execute(state)
 
 //energy down
-energy -= 1
+energy -= .01
 if energy &lt;= 0 {
     energy = 0
 }
@@ -310,30 +310,6 @@ target = noone;
 waypoint = noone;
 ds_stack_clear(held);
 tool = noone;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_self()
-draw_text(x,y,energy)
 </string>
           </argument>
         </arguments>
