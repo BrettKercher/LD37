@@ -11,6 +11,7 @@
       <sprite>sprites\sprRoomOutside</sprite>
       <sprite>sprites\sprBucket</sprite>
       <sprite>sprites\sprIdol</sprite>
+      <sprite>sprites\sprDoor</sprite>
     </sprites>
     <sprite>sprites\sprMan</sprite>
     <sprite>sprites\sprResource</sprite>
@@ -26,6 +27,7 @@
       <script>scripts\scrStateGathering.gml</script>
       <script>scripts\scrStateReturning.gml</script>
       <script>scripts\scrStateDropping.gml</script>
+      <script>scripts\scrStateGoingHome.gml</script>
     </scripts>
     <script>scripts\scrGetKeyboardInput.gml</script>
     <script>scripts\scrPlaceResources.gml</script>
@@ -45,6 +47,7 @@
     <object>objects\objResourceSpawner</object>
     <object>objects\objNightCycle</object>
     <object>objects\objIdol</object>
+    <object>objects\objDoor</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Outside</room>
