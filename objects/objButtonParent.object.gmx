@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>
+depth = -10
+
+</string>
           </argument>
         </arguments>
       </action>
