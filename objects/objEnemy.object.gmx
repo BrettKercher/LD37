@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>
 image_speed = 0
+damage = 10
 dir = 0
 state = scrStateEnemyIdle
 wanderSpeed = .5 * (60/room_speed)
@@ -37,6 +38,7 @@ idleTime = 0
 inCombat = false
 attacking = false
 combatTarget = noone;
+energy = 20
 
 </string>
           </argument>
@@ -99,11 +101,17 @@ if place_meeting(x, y, objMan) and !inCombat {
     idleTime = 0
 }
 
-//sttacking stop
+//attacking stop
 if attacking = true {
     hspeed = 0
     image_speed = .1
 }
+
+//die when dead
+if energy &lt;= 0 {
+    instance_destroy()
+}
+
 
 </string>
           </argument>
@@ -132,10 +140,19 @@ attacking = false
 image_speed = 0
 
 if combatTarget != noone {
-    combatTarget.energy -= 10
+    //does damage and follows the target
+    combatTarget.energy -= damage
     var len = normalSpeed
     dir = point_direction(x, y, combatTarget.x, combatTarget.y)
-    hspeed = lengthdir_x(len, dir)  
+    hspeed = lengthdir_x(len, dir)
+    //triggers counterattack 
+    with combatTarget {
+        if canAttack = true{
+            state = scrStateCombat
+            idleTime = 0
+            combatTarget = other
+        }
+    } 
 }
 </string>
           </argument>

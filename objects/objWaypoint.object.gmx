@@ -26,9 +26,14 @@
           <argument>
             <kind>1</kind>
             <string>
+//variable inti
+image_alpha = .5
 image_blend = objGame.selected.image_blend
 owner = objGame.selected
 image_speed = 0
+enemyTarget = noone;
+
+//changes sprite if directed towards a resource
 if place_meeting(x, y, objResource) {
     var hit = instance_place(x, y, objResource);
     switch (hit.type) {
@@ -59,12 +64,18 @@ else if place_meeting(x, y, objToolBox) {
     }
     x = hit.x
 }
+
+if place_meeting(x, y, objEnemy) {
+    enemyTarget = instance_place(x, y, objEnemy)
+}
+
+
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -82,8 +93,9 @@ else if place_meeting(x, y, objToolBox) {
           <argument>
             <kind>1</kind>
             <string>
-image_alpha = .5
-draw_self()
+if enemyTarget != noone {
+    x = enemyTarget.x
+}
 
 </string>
           </argument>

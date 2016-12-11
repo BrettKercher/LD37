@@ -55,8 +55,10 @@ event_inherited()
             <kind>1</kind>
             <string>
 event_inherited()
-with objMan {
-    energy = fullEnergy
+if image_index = 0 {
+    with objMan {
+        energy = fullEnergy
+    }
 }
 
 </string>

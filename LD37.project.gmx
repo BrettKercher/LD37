@@ -14,6 +14,8 @@
     </sprites>
     <sprites name="ManSprites">
       <sprite>sprites\sprEnergyBar</sprite>
+      <sprite>sprites\sprManAttacking</sprite>
+      <sprite>sprites\sprManAttackingSelected</sprite>
       <sprite>sprites\sprManCollecting</sprite>
       <sprite>sprites\sprManCollectingSelected</sprite>
       <sprite>sprites\sprMan</sprite>

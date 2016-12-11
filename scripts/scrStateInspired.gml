@@ -53,6 +53,13 @@ if (abs(x - target) <= 5 or collided) {
         idleTime = 0;
         show_debug_message("Equipping");
     } 
+    else if place_meeting(x, y, objEnemy) {
+        if canAttack {
+            state = scrStateCombat
+            idleTime = 0
+            combatTarget = instance_place(x, y, objEnemy)
+        }
+    }
     else {
         state = scrStateIdle
         idleTime = idleTime/2
