@@ -9,8 +9,25 @@ if objGame.selected == self and instance_exists(objWaypoint) {
 }
 
 //destroy it when there
-if abs(x - target) <= 5 {
+if (abs(x - target) <= 5 or collided) {
     with waypoint {
+        if(other.collided)
+        {
+            other.collided = false;
+            if place_meeting(x, y, objGate)
+            {
+                other.state = scrStateRemovingGate;
+                other.idleTime = 0;
+                other.interactingWith = instance_position(x, y, objGate);
+                other.actionDelay = other.gateDestroyDelayTime;
+                other.hspeed = 0;
+                other.image_index = 0;
+                other.image_speed = 0;
+                show_debug_message("Removing Gate");
+                instance_destroy();
+                exit;
+            }
+        }
         instance_destroy()
     }
     hspeed = 0
@@ -24,6 +41,11 @@ if abs(x - target) <= 5 {
             state = scrStateGathering;
             idleTime = 0;
             show_debug_message("Gathering");
+        }
+        else {
+            state = scrStateIdle;
+            idleTime = idleTime/2;
+            show_debug_message("Idle");
         }
     } 
     else if(place_meeting(x, y, objToolBox)) {

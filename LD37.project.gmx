@@ -68,6 +68,7 @@
       <script>scripts\scrStateGoingHome.gml</script>
       <script>scripts\scrStateWandering.gml</script>
       <script>scripts\scrStateEquipping.gml</script>
+      <script>scripts\scrStateRemovingGate.gml</script>
     </scripts>
     <script>scripts\scrImageClamp.gml</script>
     <script>scripts\scrGetKeyboardInput.gml</script>

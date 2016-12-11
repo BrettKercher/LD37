@@ -12,7 +12,18 @@ var leftGate = instance_create(gateLeftX, gateY, objGate);
 var rightGate = instance_create(gateRightX, gateY, objGate);
 
 leftGate.sprite_index = choose(sprAxeGate, sprPickGate);
+//Defaults to axe, so don't have to explicitly state it
+if(leftGate.sprite_index == sprPickGate)
+{
+    leftGate.requiredTool = PICK;
+}
+
 rightGate.sprite_index = choose(sprAxeGate, sprPickGate);
+//Defaults to axe, so don't have to explicitly state it
+if(rightGate.sprite_index == sprPickGate)
+{
+    rightGate.requiredTool = PICK;
+}
 
 //Chance for a spawner to not spawn
 var emptyChance = 0.05;
