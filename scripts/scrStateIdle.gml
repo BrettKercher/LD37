@@ -15,12 +15,22 @@ if(room == Outside)
         state = scrStateWandering
         alarm[0] = irandom_range(60, 180)
         idleTime = 0
+        //wander around home
         if distanceHome < sprite_get_width(sprRoomOutside) {
             dir = choose(180, 0)
+        //if youre home, stay around there
         } else if distanceHome < 2*sprite_get_width(sprRoomOutside){
             dir = point_direction(x, y, objDoor.x, objDoor.y)
+        //if youre far away, make sure you arent about to walk out of the room
         } else {
-            dir = choose(180, 0)
+            if (x < 200) {
+                dir = 0
+            } else if ((room_width - x) < 200) {
+                dir = 180
+            } else {
+                //random direction if you aren't in danger of escaping
+                dir = choose(0, 180)
+            }
         }
     }
 }

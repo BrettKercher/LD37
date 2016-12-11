@@ -62,6 +62,7 @@ player = instance_place(x, y, objMan)
 if player != noone {
     with player {
         weight ++
+        energy -= 10
         ds_stack_push(held, other.id)
         other.y = y - 32*ds_stack_size(held) - 2
         state = scrStateIdle
@@ -71,6 +72,7 @@ if player != noone {
             sprite_index = sprManCollecting
         }
     }
+    image_index = 1
 }
 
 </string>

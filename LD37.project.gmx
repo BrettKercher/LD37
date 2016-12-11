@@ -54,10 +54,12 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="EnemyStates">
+      <script>scripts\scrStateEnemyCombat.gml</script>
       <script>scripts\scrStateEnemyIdle.gml</script>
       <script>scripts\scrStateEnemyWandering.gml</script>
     </scripts>
     <scripts name="ManStates">
+      <script>scripts\scrStateCombat.gml</script>
       <script>scripts\scrStateIdle.gml</script>
       <script>scripts\scrStateInspired.gml</script>
       <script>scripts\scrStateGathering.gml</script>

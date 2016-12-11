@@ -168,6 +168,7 @@ if selected != noone {
     if instance_exists(objMan) {
         with objGame.selected {
             state = scrStateInspired
+            show_debug_message("Inspired")
         }
     }
 }

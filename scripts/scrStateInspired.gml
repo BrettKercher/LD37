@@ -2,6 +2,7 @@
 //find waypoint, move towards it
 if objGame.selected == self and instance_exists(objWaypoint) {
     target = waypoint.x
+    idleTime = 0
     dir = point_direction(x, y, target, y)
     hspeed = lengthdir_x((normalSpeed/(2*weight)), dir)
     image_speed = animationSpeed
@@ -15,6 +16,7 @@ if abs(x - target) <= 5 {
     hspeed = 0
     image_speed = 0
     image_index = 0
+    target = noone
     if place_meeting(x, y, objResource) {
         var res = instance_place(x, y, objResource);
         if(res.requiredTool == noone or res.requiredTool == tool)
