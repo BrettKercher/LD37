@@ -29,9 +29,14 @@
 image_speed = 0
 dir = 0
 state = scrStateEnemyIdle
-wanderSpeed = 1 * (60/room_speed)
-normalSpeed = 3 * (60/room_speed)
+wanderSpeed = .5 * (60/room_speed)
+normalSpeed = 1 * (60/room_speed)
 idleTime = 0
+
+//combat stuff
+inCombat = false
+attacking = false
+combatTarget = noone;
 
 </string>
           </argument>
@@ -56,9 +61,10 @@ idleTime = 0
           <argument>
             <kind>1</kind>
             <string>///wandering -&gt; idle
-
-state = scrStateEnemyIdle
-hspeed = 0
+if state == scrStateEnemyWandering {
+    state = scrStateEnemyIdle
+    hspeed = 0
+}
 
 </string>
           </argument>
@@ -85,6 +91,52 @@ hspeed = 0
             <string>
 script_execute(state)
 
+//engage in combat
+if place_meeting(x, y, objMan) and !inCombat {
+    combatTarget = instance_place(x,y,objMan)
+    inCombat = true
+    state = scrStateEnemyCombat
+    idleTime = 0
+}
+
+//sttacking stop
+if attacking = true {
+    hspeed = 0
+    image_speed = .1
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+attacking = false
+image_speed = 0
+
+if combatTarget != noone {
+    combatTarget.energy -= 10
+    var len = normalSpeed
+    dir = point_direction(x, y, combatTarget.x, combatTarget.y)
+    hspeed = lengthdir_x(len, dir)  
+}
 </string>
           </argument>
         </arguments>
