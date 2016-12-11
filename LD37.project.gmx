@@ -22,8 +22,10 @@
       <sprite>sprites\sprDoor</sprite>
     </sprites>
     <sprite>sprites\sprGround</sprite>
-    <sprite>sprites\sprResource</sprite>
+    <sprite>sprites\sprWood</sprite>
     <sprite>sprites\sprLightSourceGlow</sprite>
+    <sprite>sprites\sprCarrots</sprite>
+    <sprite>sprites\sprRocks</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>

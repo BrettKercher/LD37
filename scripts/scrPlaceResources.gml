@@ -42,10 +42,10 @@ var wiggleRoomLeft = 0;
 var wiggleRoomRight = 0;
 
 var actualX = 0;
-var actualY = room_height - 32 - sprite_get_width(sprResource);
+var actualY = room_height - 32 - sprite_get_width(sprWood);
 
 var separationConstant = 4;
-var resoureceHalfWidth = sprite_get_width(sprResource) / 2;
+var resoureceHalfWidth = sprite_get_width(sprWood) / 2;
 
 var randomPercent = 0;
 var resourceType = 0;
@@ -93,7 +93,21 @@ for(i = 0; i < ds_list_size(spawners);  i++)
         }
     }
     
-    resource.image_index = resourceType;
+    if(resourceType == WOOD)
+    {
+        resource.sprite_index = sprWood;
+    }
+    else if(resourceType == ROCK)
+    {
+        resource.sprite_index = sprRocks;
+    }
+    else
+    {
+        resource.sprite_index = sprCarrots;
+    }
+    
+    
+    
     resource.type = resourceType;
 }
 
