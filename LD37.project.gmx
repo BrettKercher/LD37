@@ -79,6 +79,7 @@
       <script>scripts\scrClampView.gml</script>
       <script>scripts\scrZoomView.gml</script>
     </scripts>
+    <script>scripts\scrDropResources.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\objGame</object>

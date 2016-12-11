@@ -53,10 +53,35 @@ zoomSpeed = 5
 //If not noone, begin transitioning to new room
 newRoom = noone;
 fadeAlpha = 0;
+fadeDirection = 0;  //1 for in, -1 for out, 0 for nothing
 fadeOut = true; //true for in, false for out
 fadeSpeed = 0.01;
-//roomTransitionSurface = surface_create(view_wview, view_hview);
+endOfDay = false;
+endOfDayScreenTime = 2 * room_speed;
 roomTransitionSurface = surface_create(room_width, room_height);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>fadeDirection = -1;
 </string>
           </argument>
         </arguments>
@@ -100,29 +125,49 @@ if restart {
     room_restart()
 }
 
-if(newRoom != noone)
+
+if(fadeDirection == 1)
 {
-    if(fadeOut)
+    fadeAlpha += fadeSpeed;
+    if(fadeAlpha &gt;= 1.0)
     {
-        fadeAlpha += fadeSpeed;
-        if(fadeAlpha &gt;= 1.0)
+        if(newRoom != noone)
         {
             room_goto(newRoom);
-            fadeOut = false;
+            newRoom = noone;
+            fadeDirection = -1;
+        }
+        else if(endOfDay)
+        {
+            fadeDirection = 0;
+            scrPlaceResources();
+            objNightCycle.currentTime = objNightCycle.dawnStartTime;
+            if(room == Outside)
+            {
+                room_goto(Inside);
+            }
+            else {
+                room_restart();
+            }
+            alarm[0] = endOfDayScreenTime;
         }
     }
-    else 
+}
+else if(fadeDirection == -1)
+{
+    fadeAlpha -= fadeSpeed;
+    if(fadeAlpha &lt;= 0.0)
     {
-        fadeAlpha -= fadeSpeed;
-        if(fadeAlpha &lt;= 0.0)
+        fadeDirection = 0;
+        //If newRoom != room, idol was clicked again during fade in
+        if(newRoom == room)
         {
-            fadeOut = true;
-            
-            //If newRoom != room, idol was clicked again during fade in
-            if(newRoom == room)
-            {
-                newRoom = noone;
-            }
+            newRoom = noone;
+            fadeDirection = 1;
+        }
+        if(endOfDay)
+        {
+            endOfDay = false;
         }
     }
 }
@@ -218,9 +263,9 @@ if selected != noone {
           <argument>
             <kind>1</kind>
             <string>
-draw_text(0 , 0, resources[WOOD])
-draw_text(0 , 32, resources[ROCK])
-draw_text(0 , 64, resources[FOOD])
+draw_text(0 , 0, "Wood:" + string(resources[WOOD]));
+draw_text(0 , 32, "Rock:" + string(resources[ROCK]));
+draw_text(0 , 64, "Food:" + string(resources[FOOD]));
 
 
 var sprnum = sprite_get_number(sprEnergyBar)
@@ -228,7 +273,7 @@ var size = ds_list_size(manList)
 var buffer = sprite_get_height(sprEnergyBar)
 for (i = 0; i &lt; size; i++) {
    var next = ds_list_find_value(manList, i);
-   draw_sprite_ext(sprEnergyBar,sprnum-ceil(sprnum*(next.energy/next.fullEnergy)),view_wport - 10,0+((2*i+1)*buffer),1,1,0,next.image_blend,1)
+   draw_sprite_ext(sprEnergyBar,sprnum-ceil(sprnum*(next.energy/next.fullEnergy)),view_wport - 10,0+((2*i+1)*buffer),1,1,0,next.image_blend, 1 - fadeAlpha)
 }
 
 </string>
@@ -253,13 +298,11 @@ for (i = 0; i &lt; size; i++) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(newRoom != noone)
-{
-    surface_set_target(roomTransitionSurface);
-    draw_clear(c_black);
-    surface_reset_target();
-    draw_surface_ext(roomTransitionSurface, 0, 0, 1, 1, 0, c_white, fadeAlpha);
-}
+            <string>
+surface_set_target(roomTransitionSurface);
+draw_clear(c_black);
+surface_reset_target();
+draw_surface_ext(roomTransitionSurface, 0, 0, 1, 1, 0, c_white, fadeAlpha);
 </string>
           </argument>
         </arguments>

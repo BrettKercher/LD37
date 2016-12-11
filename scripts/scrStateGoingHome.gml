@@ -7,6 +7,7 @@ if instance_exists(objDoor) {
     hspeed = lengthdir_x((normalSpeed/(2*weight)), dir)
     image_speed = animationSpeed
 }
+
 //goin' inside
 if abs(x - target) <= 5 {
     image_alpha -= 0.05;
