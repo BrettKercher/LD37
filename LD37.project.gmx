@@ -32,10 +32,17 @@
       <sprite>sprites\sprDoor</sprite>
       <sprite>sprites\sprAltar</sprite>
     </sprites>
+    <sprites name="Resources">
+      <sprite>sprites\sprWood</sprite>
+      <sprite>sprites\sprCarrots</sprite>
+      <sprite>sprites\sprRocks</sprite>
+      <sprite>sprites\sprTree</sprite>
+      <sprite>sprites\sprBoulder</sprite>
+      <sprite>sprites\sprWildlife</sprite>
+      <sprite>sprites\sprAxeGate</sprite>
+      <sprite>sprites\sprPickGate</sprite>
+    </sprites>
     <sprite>sprites\sprGround</sprite>
-    <sprite>sprites\sprWood</sprite>
-    <sprite>sprites\sprCarrots</sprite>
-    <sprite>sprites\sprRocks</sprite>
     <sprite>sprites\sprPickBox</sprite>
     <sprite>sprites\sprAxeBox</sprite>
     <sprite>sprites\sprSpearBox</sprite>
@@ -66,8 +73,17 @@
     <object>objects\objMan</object>
     <object>objects\objNightCycle</object>
     <object>objects\objResource</object>
-    <object>objects\objResourceSpawner</object>
     <object>objects\objWaypoint</object>
+    <object>objects\objToolBox</object>
+    <object>objects\objAxeBox</object>
+    <object>objects\objPickBox</object>
+    <object>objects\objSpearBox</object>
+    <objects name="ResourcePlacement">
+      <object>objects\objChurchZoneMarker</object>
+      <object>objects\objResourceSpawner</object>
+      <object>objects\objGateMarker</object>
+      <object>objects\objGate</object>
+    </objects>
     <objects name="RoomObjects">
       <objects name="SmokeMenuObjects">
         <object>objects\objButtonParent</object>
@@ -83,10 +99,6 @@
       <object>objects\objIdol</object>
       <object>objects\objRoomOutside</object>
     </objects>
-    <object>objects\objToolBox</object>
-    <object>objects\objAxeBox</object>
-    <object>objects\objPickBox</object>
-    <object>objects\objSpearBox</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Outside</room>

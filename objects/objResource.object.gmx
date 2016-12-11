@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>
 gathered = false
+requiredTool = noone;
 player = noone;
 image_speed = 0;
 
