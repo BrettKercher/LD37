@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>objButtonParent</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -33,8 +33,8 @@ image_yscale = 0
 
 menuButton[0] = objAxeButton
 menuButton[1] = objPickButton
-menuButton[2] = objAxeButton
-menuButton[3] = objAxeButton
+menuButton[2] = objSpearButton
+menuButton[3] = objStewButton
 menuButton[4] = objAxeButton
 menuButton[5] = objAxeButton
 menuButton[6] = objAxeButton
@@ -60,9 +60,9 @@ for (var i = 0; i &lt; buttonCount; i ++) {
     }
     //y pos
     if i &lt;= 7 {
-        buttonyPos = y - sprite_get_height(sprSmokeMenu) + buttonBuffer
+        buttonyPos = y - sprite_get_height(sprSmokeMenu)/2 - buttonBuffer - sprite_get_width(sprPickButton)
     } else {
-        buttonyPos = y - sprite_get_height(sprSmokeMenu) + buttonBuffer*2 + sprite_get_height(sprPickButton)
+        buttonyPos = y - sprite_get_height(sprSmokeMenu)/2 + buttonBuffer*2
     }
     button[i] = instance_create(buttonxPos, buttonyPos, menuButton[i])
     instance_deactivate_object(button[i])

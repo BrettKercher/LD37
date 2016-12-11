@@ -29,13 +29,15 @@
 selected = noone
 scrollSpeed = 4 * (60/room_speed)
 
+manList = ds_list_create()
+
 resources[WOOD] = 0;
 resources[ROCK] = 0;
 resources[FOOD] = 0;
 
-tools[AXE] = 2;
-tools[PICK] = 2;
-tools[SPEAR] = 2;
+tools[AXE] = 0;
+tools[PICK] = 0;
+tools[SPEAR] = 0;
 
 scrPlaceResources()
 
@@ -195,6 +197,15 @@ if selected != noone {
 draw_text(0 , 0, resources[WOOD])
 draw_text(0 , 32, resources[ROCK])
 draw_text(0 , 64, resources[FOOD])
+
+
+var sprnum = sprite_get_number(sprEnergyBar)
+var size = ds_list_size(manList)
+var buffer = sprite_get_height(sprEnergyBar)
+for (i = 0; i &lt; size; i++) {
+   var next = ds_list_find_value(manList, i);
+   draw_sprite_ext(sprEnergyBar,sprnum-ceil(sprnum*(next.energy/next.fullEnergy)),view_wport - 10,0+((2*i+1)*buffer),1,1,0,next.image_blend,1)
+}
 
 </string>
           </argument>

@@ -10,15 +10,19 @@
       <sprite>sprites\sprWaypoint</sprite>
     </sprites>
     <sprites name="ManSprites">
+      <sprite>sprites\sprEnergyBar</sprite>
       <sprite>sprites\sprManCollecting</sprite>
       <sprite>sprites\sprManCollectingSelected</sprite>
       <sprite>sprites\sprMan</sprite>
       <sprite>sprites\sprManSelected</sprite>
+      <sprite>sprites\sprLightSourceGlow</sprite>
     </sprites>
     <sprites name="RoomSprites">
       <sprites name="Smoke Menu">
+        <sprite>sprites\sprStew</sprite>
         <sprite>sprites\sprPickButton</sprite>
         <sprite>sprites\sprAxeButton</sprite>
+        <sprite>sprites\sprSpearButton</sprite>
         <sprite>sprites\sprSmokeMenu</sprite>
       </sprites>
       <sprite>sprites\sprRoomOutside</sprite>
@@ -30,7 +34,6 @@
     </sprites>
     <sprite>sprites\sprGround</sprite>
     <sprite>sprites\sprWood</sprite>
-    <sprite>sprites\sprLightSourceGlow</sprite>
     <sprite>sprites\sprCarrots</sprite>
     <sprite>sprites\sprRocks</sprite>
     <sprite>sprites\sprPickBox</sprite>
@@ -69,7 +72,9 @@
       <objects name="SmokeMenuObjects">
         <object>objects\objButtonParent</object>
         <object>objects\objPickButton</object>
+        <object>objects\objStewButton</object>
         <object>objects\objAxeButton</object>
+        <object>objects\objSpearButton</object>
         <object>objects\objSmokeMenu</object>
       </objects>
       <object>objects\objFire</object>

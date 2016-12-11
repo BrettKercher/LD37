@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>
+ds_list_add(objGame.manList, self)
 image_speed = 0
 state = scrStateIdle
 target = noone;
@@ -37,6 +38,9 @@ weight = 1
 dir = 0
 held = ds_stack_create()
 waypoint = noone
+
+fullEnergy = 100
+energy = fullEnergy
 
 baseGlowIntensity = 1.5;
 glowIntensity = baseGlowIntensity;
@@ -67,6 +71,9 @@ maxFlickerRange = 0.05;
             <kind>1</kind>
             <string>
 script_execute(state)
+
+//energy down
+energy--
 
 //facing
 if hspeed &lt; 0 {

@@ -62,7 +62,7 @@ if player != noone {
     with player {
         weight ++
         ds_stack_push(held, other.id)
-        other.y = y - 32*ds_stack_size(held)
+        other.y = y - 32*ds_stack_size(held) - 2
         state = scrStateIdle
         if objGame.selected = id {
             sprite_index = sprManCollectingSelected
