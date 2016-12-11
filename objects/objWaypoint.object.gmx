@@ -28,6 +28,22 @@
             <string>
 image_blend = objGame.selected.colorID
 owner = objGame.selected
+image_speed = 0
+if place_meeting(x, y, objResource) {
+    var hit = instance_place(x, y, objResource);
+    switch (hit.type) {
+        case WOOD:
+            image_index = 1
+            break;
+        case ROCK:
+            image_index = 2
+            break;
+        case FOOD:
+            image_index = 3
+            break;
+    }
+    x = hit.x
+}
 
 </string>
           </argument>
