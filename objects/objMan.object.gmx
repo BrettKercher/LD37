@@ -150,6 +150,9 @@ script_execute(state)
 
 //energy down
 energy -= .01
+if energy &lt;= 0 {
+    energy = 0
+}
 
 //facing
 if hspeed &lt; 0 {
