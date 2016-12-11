@@ -4,7 +4,7 @@ if objGame.selected == self and instance_exists(objWaypoint) {
     target = waypoint.x
     dir = point_direction(x, y, target, y)
     hspeed = lengthdir_x((normalSpeed/(2*weight)), dir)
-    image_speed = .1
+    image_speed = animationSpeed
 }
 
 //destroy it when there

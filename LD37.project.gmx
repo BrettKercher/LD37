@@ -9,6 +9,9 @@
     <sprites name="WaypointSprites">
       <sprite>sprites\sprWaypoint</sprite>
     </sprites>
+    <sprites name="EnemySprites">
+      <sprite>sprites\sprEnemy</sprite>
+    </sprites>
     <sprites name="ManSprites">
       <sprite>sprites\sprEnergyBar</sprite>
       <sprite>sprites\sprManCollecting</sprite>
@@ -50,13 +53,18 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <scripts name="States">
+    <scripts name="EnemyStates">
+      <script>scripts\scrStateEnemyIdle.gml</script>
+      <script>scripts\scrStateEnemyWandering.gml</script>
+    </scripts>
+    <scripts name="ManStates">
       <script>scripts\scrStateIdle.gml</script>
       <script>scripts\scrStateInspired.gml</script>
       <script>scripts\scrStateGathering.gml</script>
       <script>scripts\scrStateReturning.gml</script>
       <script>scripts\scrStateDropping.gml</script>
       <script>scripts\scrStateGoingHome.gml</script>
+      <script>scripts\scrStateWandering.gml</script>
       <script>scripts\scrStateEquipping.gml</script>
     </scripts>
     <script>scripts\scrImageClamp.gml</script>
@@ -70,6 +78,7 @@
   <objects name="objects">
     <object>objects\objGame</object>
     <object>objects\objGround</object>
+    <object>objects\objEnemy</object>
     <object>objects\objMan</object>
     <object>objects\objNightCycle</object>
     <object>objects\objResource</object>

@@ -5,7 +5,7 @@ if instance_exists(objBucket) {
     target = objBucket.x
     dir = point_direction(x, y, target, y)
     hspeed = lengthdir_x((normalSpeed/(2*weight)), dir)
-    image_speed = .1
+    image_speed = animationSpeed
 }
 //droppin' off
 if abs(x - target) <= 5 {
