@@ -120,24 +120,25 @@
     <instance objName="objGround" x="2048" y="992" name="inst_C94C7982" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objRoomOutside" x="1024" y="896" name="inst_F30DFA7D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBucket" x="960" y="992" name="inst_9808DA16" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objResourceSpawner" x="1248" y="960" name="inst_BBA9B570" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objResourceSpawner" x="1376" y="960" name="inst_BD799867" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objResourceSpawner" x="1504" y="960" name="inst_22C20F3F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objResourceSpawner" x="1632" y="960" name="inst_0278CCCD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objResourceSpawner" x="1760" y="960" name="inst_88FB7F22" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objResourceSpawner" x="1888" y="960" name="inst_DF1E94D4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objResourceSpawner" x="768" y="960" name="inst_FEC759D8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objResourceSpawner" x="640" y="960" name="inst_684BBBBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objResourceSpawner" x="512" y="960" name="inst_C18FE938" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objResourceSpawner" x="384" y="960" name="inst_50D1DF99" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objResourceSpawner" x="256" y="960" name="inst_1D153E9B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objResourceSpawner" x="128" y="960" name="inst_604C4972" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objResourceSpawner" x="1408" y="960" name="inst_BD799867" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objResourceSpawner" x="1536" y="960" name="inst_22C20F3F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objResourceSpawner" x="1664" y="960" name="inst_0278CCCD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objResourceSpawner" x="1792" y="960" name="inst_88FB7F22" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objResourceSpawner" x="1920" y="960" name="inst_DF1E94D4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objResourceSpawner" x="608" y="960" name="inst_684BBBBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objResourceSpawner" x="480" y="960" name="inst_C18FE938" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objResourceSpawner" x="352" y="960" name="inst_50D1DF99" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objResourceSpawner" x="224" y="960" name="inst_1D153E9B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objResourceSpawner" x="96" y="960" name="inst_604C4972" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMan" x="1120" y="960" name="inst_996D3FB9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMan" x="928" y="960" name="inst_612E9061" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objNightCycle" x="0" y="32" name="inst_4FB1EFE6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objIdol" x="1024" y="832" name="inst_7C000A0A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objDoor" x="1088" y="992" name="inst_DA14774A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objRoomOutside" x="1024" y="800" name="inst_EEB5BB2D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objAxeBox" x="832" y="928" name="inst_5B335F2B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objPickBox" x="768" y="928" name="inst_CEC80830" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSpearBox" x="704" y="928" name="inst_DFEE9108" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objRoomOutside" x="1024" y="800" name="inst_F1DC9D44" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

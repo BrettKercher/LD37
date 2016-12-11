@@ -33,6 +33,9 @@
     <sprite>sprites\sprLightSourceGlow</sprite>
     <sprite>sprites\sprCarrots</sprite>
     <sprite>sprites\sprRocks</sprite>
+    <sprite>sprites\sprPickBox</sprite>
+    <sprite>sprites\sprAxeBox</sprite>
+    <sprite>sprites\sprSpearBox</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -44,6 +47,7 @@
       <script>scripts\scrStateReturning.gml</script>
       <script>scripts\scrStateDropping.gml</script>
       <script>scripts\scrStateGoingHome.gml</script>
+      <script>scripts\scrStateEquipping.gml</script>
     </scripts>
     <script>scripts\scrImageClamp.gml</script>
     <script>scripts\scrGetKeyboardInput.gml</script>
@@ -74,6 +78,10 @@
       <object>objects\objIdol</object>
       <object>objects\objRoomOutside</object>
     </objects>
+    <object>objects\objToolBox</object>
+    <object>objects\objAxeBox</object>
+    <object>objects\objPickBox</object>
+    <object>objects\objSpearBox</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Outside</room>

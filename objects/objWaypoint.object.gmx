@@ -44,7 +44,21 @@ if place_meeting(x, y, objResource) {
     }
     x = hit.x
 }
-
+else if place_meeting(x, y, objToolBox) {
+    var hit = instance_place(x, y, objToolBox);
+    switch (hit.toolType) {
+        case AXE:
+            image_index = 1
+            break;
+        case PICK:
+            image_index = 2
+            break;
+        case SPEAR:
+            image_index = 3
+            break;
+    }
+    x = hit.x
+}
 </string>
           </argument>
         </arguments>

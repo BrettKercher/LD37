@@ -33,6 +33,10 @@ resources[WOOD] = 0;
 resources[ROCK] = 0;
 resources[FOOD] = 0;
 
+tools[AXE] = 2;
+tools[PICK] = 2;
+tools[SPEAR] = 2;
+
 scrPlaceResources()
 
 //view parameters

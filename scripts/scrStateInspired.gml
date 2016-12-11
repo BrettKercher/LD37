@@ -19,7 +19,13 @@ if abs(x - target) <= 5 {
         state = scrStateGathering
         idleTime = 0
         show_debug_message("Gathering")
-    } else {
+    } 
+    else if(place_meeting(x, y, objToolBox)) {
+        state = scrStateEquipping;
+        idleTime = 0;
+        show_debug_message("Equipping");
+    } 
+    else {
         state = scrStateIdle
         idleTime = idleTime/2
         show_debug_message("Idle")
