@@ -62,6 +62,7 @@ else
           <argument>
             <kind>1</kind>
             <string>
+//Start transition
 var nextRoom = noone;
 if(room == Outside)
 {
@@ -76,10 +77,15 @@ else
 objGame.newRoom = nextRoom;
 
 //Start returning everyone home
+//Also save them for recreation inside
+var i;
+var person = noone;
+for(i = 0; i &lt; instance_number(objMan); i++)
+{
+    person = instance_find(objMan, i);
+    person.state = scrStateGoingHome;
+}
 
-//Start fade out
-
-//Transition to new room
 </string>
           </argument>
         </arguments>
