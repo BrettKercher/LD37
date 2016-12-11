@@ -94,17 +94,19 @@ if state == scrStateEnemyWandering {
 script_execute(state)
 
 //engage in combat
-if place_meeting(x, y, objMan) and !inCombat {
-    combatTarget = instance_place(x,y,objMan)
-    inCombat = true
-    state = scrStateEnemyCombat
-    idleTime = 0
+if instance_exists(objMan) {
+    if place_meeting(x, y, objMan) and !inCombat {
+        combatTarget = instance_place(x,y,objMan)
+        inCombat = true
+        state = scrStateEnemyCombat
+        idleTime = 0
+    }
 }
 
 //attacking stop
 if attacking = true {
     hspeed = 0
-    image_speed = .06
+    image_speed = .1
 }
 
 //die when dead
@@ -147,6 +149,9 @@ if combatTarget != noone {
     hspeed = lengthdir_x(len, dir)
     //triggers counterattack 
     with combatTarget {
+        if energy &lt;= 10 {
+            instance_destroy()
+        }
         if canAttack = true{
             state = scrStateCombat
             idleTime = 0

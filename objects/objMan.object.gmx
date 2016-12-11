@@ -149,7 +149,7 @@ if state = scrStateWandering {
 script_execute(state)
 
 //energy down
-energy -= .01
+energy -= 1
 if energy &lt;= 0 {
     energy = 0
 }
@@ -333,7 +333,7 @@ tool = noone;
           <argument>
             <kind>1</kind>
             <string>draw_self()
-draw_text(x,y,canAttack)
+draw_text(x,y,energy)
 </string>
           </argument>
         </arguments>

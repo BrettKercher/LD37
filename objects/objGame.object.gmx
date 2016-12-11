@@ -263,8 +263,10 @@ if selected != noone {
     //inspire man
     if instance_exists(objMan) {
         with objGame.selected {
-            state = scrStateInspired
-            show_debug_message("Inspired")
+            if !attacking {
+                state = scrStateInspired
+                show_debug_message("Inspired")
+            }
         }
     }
 }
@@ -324,12 +326,18 @@ draw_text(0 , 32, "Rock:" + string(resources[ROCK]));
 draw_text(0 , 64, "Food:" + string(resources[FOOD]));
 draw_set_alpha(1);
 
-var sprnum = sprite_get_number(sprEnergyBar)
-var size = ds_list_size(manList)
-var buffer = sprite_get_height(sprEnergyBar)
-for (i = 0; i &lt; size; i++) {
-   var next = ds_list_find_value(manList, i);
-   draw_sprite_ext(sprEnergyBar,sprnum-ceil(sprnum*(next.energy/next.fullEnergy)),view_wport - 10,0+((2*i+1)*buffer),1,1,0,next.image_blend, 1 - fadeAlpha)
+if instance_exists(objMan) {
+    var sprnum = sprite_get_number(sprEnergyBar)
+    var size = ds_list_size(manList)
+    var buffer = sprite_get_height(sprEnergyBar)
+    for (i = 0; i &lt; size; i++) {
+        var next = ds_list_find_value(manList, i);
+        if next.energy = 0 {
+            draw_sprite_ext(sprEnergyBar,sprnum - 1,view_wport - 10,0+((2*i+1)*buffer),1,1,0,next.image_blend, 1 - fadeAlpha)
+        } else {
+            draw_sprite_ext(sprEnergyBar,sprnum-ceil(sprnum*(next.energy/next.fullEnergy)),view_wport - 10,0+((2*i+1)*buffer),1,1,0,next.image_blend, 1 - fadeAlpha)
+        }
+    }
 }
 
 draw_set_alpha(endOfDayAlpha);

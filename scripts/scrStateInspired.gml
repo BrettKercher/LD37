@@ -1,6 +1,6 @@
 
 //find waypoint, move towards it
-if objGame.selected == self and instance_exists(objWaypoint) {
+if objGame.selected == self and instance_exists(objWaypoint) and !attacking{
     target = waypoint.x
     idleTime = 0
     dir = point_direction(x, y, target, y)
