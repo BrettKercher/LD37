@@ -83,6 +83,10 @@
     </scripts>
     <script>scripts\scrDropResources.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnElRioLobo</font>
+    <font>fonts\fnArial</font>
+  </fonts>
   <objects name="objects">
     <object>objects\objGame</object>
     <object>objects\objMouse</object>

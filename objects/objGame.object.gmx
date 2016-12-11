@@ -52,13 +52,44 @@ zoomSpeed = 5
 
 //If not noone, begin transitioning to new room
 newRoom = noone;
+
 fadeAlpha = 0;
 fadeDirection = 0;  //1 for in, -1 for out, 0 for nothing
 fadeOut = true; //true for in, false for out
 fadeSpeed = 0.01;
+
+endOfDayAlpha = 0;
+endOfDayDirection = 0;
+endOfDaySpeed = 0.05;
+
 endOfDay = false;
-endOfDayScreenTime = 2 * room_speed;
+endOfDayScreenTime = .5 * room_speed;
+fadeScreenTime = 2.5 * room_speed;
 roomTransitionSurface = surface_create(room_width, room_height);
+needsResourcePlacement = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>endOfDayDirection = -1;
 </string>
           </argument>
         </arguments>
@@ -140,7 +171,8 @@ if(fadeDirection == 1)
         else if(endOfDay)
         {
             fadeDirection = 0;
-            scrPlaceResources();
+            endOfDayDirection = 1;
+            needsResourcePlacement = true;
             objNightCycle.currentTime = objNightCycle.dawnStartTime;
             if(room == Outside)
             {
@@ -149,7 +181,7 @@ if(fadeDirection == 1)
             else {
                 room_restart();
             }
-            alarm[0] = endOfDayScreenTime;
+            alarm[0] = fadeScreenTime;
         }
     }
 }
@@ -169,6 +201,25 @@ else if(fadeDirection == -1)
         {
             endOfDay = false;
         }
+    }
+}
+
+if(endOfDayDirection == 1)
+{
+    endOfDayAlpha += fadeSpeed;
+    if(endOfDayAlpha &gt;= 1.0)
+    {
+        endOfDayDirection = 0;
+        alarm[1] = endOfDayScreenTime;
+    }
+}
+else if(endOfDayDirection == -1)
+{
+    //Use alpha speed here to sync with black fade
+    endOfDayAlpha -= fadeSpeed;
+    if(endOfDayAlpha &lt;= 0.0)
+    {
+        endOfDayDirection = 0;
     }
 }
 
@@ -240,6 +291,11 @@ if selected != noone {
           <argument>
             <kind>1</kind>
             <string>randomize();
+
+if(room == Outside and needsResourcePlacement)
+{
+    scrPlaceResources();
+}
 </string>
           </argument>
         </arguments>
@@ -262,11 +318,11 @@ if selected != noone {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-draw_text(0 , 0, "Wood:" + string(resources[WOOD]));
+            <string>draw_set_alpha(1 - fadeAlpha);
+draw_text(0, 0, "Wood:" + string(resources[WOOD]));
 draw_text(0 , 32, "Rock:" + string(resources[ROCK]));
 draw_text(0 , 64, "Food:" + string(resources[FOOD]));
-
+draw_set_alpha(1);
 
 var sprnum = sprite_get_number(sprEnergyBar)
 var size = ds_list_size(manList)
@@ -276,6 +332,15 @@ for (i = 0; i &lt; size; i++) {
    draw_sprite_ext(sprEnergyBar,sprnum-ceil(sprnum*(next.energy/next.fullEnergy)),view_wport - 10,0+((2*i+1)*buffer),1,1,0,next.image_blend, 1 - fadeAlpha)
 }
 
+draw_set_alpha(endOfDayAlpha);
+draw_set_color(c_white);
+draw_set_halign(fa_center);
+draw_set_font(fnElRioLobo);
+draw_text(view_wport[0] / 2, view_hport[0] / 2, "Hey man, the day is over");
+draw_set_font(fnArial);
+draw_set_halign(fa_left);
+draw_set_color(c_black);
+draw_set_alpha(1);
 </string>
           </argument>
         </arguments>
