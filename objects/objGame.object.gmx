@@ -29,12 +29,20 @@
 selected = noone
 scrollSpeed = 4 * (60/room_speed)
 
+//keeps track of all the men for their health bars
 manList = ds_list_create()
 
+//resource sprite array for UI
+resSpr[0] = sprWood
+resSpr[1] = sprRocks
+resSpr[2] = sprCarrots
+
+//resource count
 resources[WOOD] = 9990;
 resources[ROCK] = 9990;
 resources[FOOD] = 9990;
 
+//tool count
 tools[AXE] = 0;
 tools[PICK] = 0;
 tools[SPEAR] = 0;
@@ -250,7 +258,7 @@ else if(endOfDayDirection == -1)
             <kind>1</kind>
             <string>
 //inspires if someone is selected
-if selected != noone {
+if instance_exists(objMan) and selected != noone {
     //delete existing waypoints for the selected dude
     if instance_exists(objWaypoint) {
         with objWaypoint {
@@ -341,7 +349,7 @@ if instance_exists(objMan) {
     var sprnum = sprite_get_number(sprEnergyBar)
     var size = ds_list_size(manList)
     var buffer = sprite_get_height(sprEnergyBar)
-    for (i = 0; i &lt; size; i++) {
+    for (var i = 0; i &lt; size; i++) {
         var next = ds_list_find_value(manList, i);
         if next.energy = 0 {
             draw_sprite_ext(sprEnergyBar,sprnum - 1,view_wport - 10,0+((2*i+1)*buffer),1,1,0,next.image_blend, 1 - fadeAlpha)

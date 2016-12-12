@@ -12,16 +12,4 @@ if waypoint != noone {
     }
     waypoint = noone
 }
-//faces the enemy
-dir = point_direction(x, y, combatTarget.x, combatTarget.y)
-if abs(dir - 0) < 45 {
-    image_xscale = 1
-} else {
-    image_xscale = -1
-}
-
-//begins attack
-if place_meeting(x,y, objEnemy) {
-    attacking = true
-}
 

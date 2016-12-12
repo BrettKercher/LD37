@@ -6,6 +6,9 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
+    <sprites name="UISprites">
+      <sprite>sprites\sprUIBox</sprite>
+    </sprites>
     <sprites name="WaypointSprites">
       <sprite>sprites\sprWaypoint</sprite>
     </sprites>

@@ -144,64 +144,32 @@ image_speed = 0
 
 if combatTarget != noone {
     //does damage and follows the target
-    combatTarget.energy -= damage
+    if place_meeting(x,y,combatTarget) {
+        combatTarget.energy -= damage
+    }
     var len = normalSpeed
     dir = point_direction(x, y, combatTarget.x, combatTarget.y)
     hspeed = lengthdir_x(len, dir)
     //triggers counterattack 
-    with combatTarget {
-        if energy &lt;= 10 {
+    if combatTarget.energy &lt;= 10 {
+        state = scrStateEnemyIdle
+        hspeed = 0
+        inCombat = false
+        with combatTarget {
             scrManDeath()
         }
-        if canAttack = true{
-            state = scrStateCombat
-            idleTime = 0
-            combatTarget = other
+        combatTarget = noone
+    } else {
+        with combatTarget {
+            if canAttack = true{
+                state = scrStateCombat
+                idleTime = 0
+                combatTarget = other
+                attacking = true
+            }
         }
     } 
 }
-
-//go back to idle
-state = scrStateEnemyIdle
-hspeed = 0
-inCombat = false
-combatTarget = noone
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_self()
-
-var sprnum = sprite_get_number(sprEnergyBar)
-var sprh = sprite_get_height(sprEnergyBar)/2
-var sprw = sprite_get_width(sprEnergyBar)/2
-if energy &lt; fullEnergy or inCombat {
-    if energy = 0 {
-        draw_sprite_ext(sprEnergyBar,sprnum - 1,x - sprw/2,y - (2*sprh),.5,.5,0, image_blend, 1)
-    } else {
-        draw_sprite_ext(sprEnergyBar,sprnum-ceil(sprnum*(energy/fullEnergy)),x + sprw/2, y - (2*sprh),.5,.5,0,image_blend, 1)
-    }
-}
-
 </string>
           </argument>
         </arguments>
