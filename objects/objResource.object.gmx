@@ -86,6 +86,7 @@ if place_meeting(x, y, objMan) {
 } else {
     //loses gathering percent when they leave, to an extent
     gatherPercent --
+    beingGathered = false
     if gatherPercent &lt;= 0 {
         gatherPercent = 0
     }
@@ -125,7 +126,18 @@ if place_meeting(x, y, objBucket) {
           <argument>
             <kind>1</kind>
             <string>draw_self()
-draw_text(x,y,gatherPercent)
+
+var sprnum = sprite_get_number(sprEnergyBar)
+var sprh = sprite_get_height(sprEnergyBar)/2
+var sprw = sprite_get_width(sprEnergyBar)/2
+if beingGathered {
+    if gatherPercent = 0 {
+        draw_sprite_ext(sprEnergyBar,sprnum - 1,x - sprw/2,y - (2*sprh),.5,.5,0, image_blend, 1)
+    } else {
+        draw_sprite_ext(sprEnergyBar,sprnum-ceil(sprnum*(gatherPercent/100)),x + sprw/2, y - (2*sprh),.5,.5,0,image_blend, 1)
+    }
+}
+
 </string>
           </argument>
         </arguments>

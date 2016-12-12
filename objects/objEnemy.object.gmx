@@ -194,10 +194,12 @@ combatTarget = noone
 var sprnum = sprite_get_number(sprEnergyBar)
 var sprh = sprite_get_height(sprEnergyBar)/2
 var sprw = sprite_get_width(sprEnergyBar)/2
-if energy = 0 {
-    draw_sprite_ext(sprEnergyBar,sprnum - 1,x - sprw/2,y - (2*sprh),.5,.5,0, image_blend, 1)
-} else {
-    draw_sprite_ext(sprEnergyBar,sprnum-ceil(sprnum*(energy/fullEnergy)),x + sprw/2, y - (2*sprh),.5,.5,0,image_blend, 1)
+if energy &lt; fullEnergy or inCombat {
+    if energy = 0 {
+        draw_sprite_ext(sprEnergyBar,sprnum - 1,x - sprw/2,y - (2*sprh),.5,.5,0, image_blend, 1)
+    } else {
+        draw_sprite_ext(sprEnergyBar,sprnum-ceil(sprnum*(energy/fullEnergy)),x + sprw/2, y - (2*sprh),.5,.5,0,image_blend, 1)
+    }
 }
 
 </string>

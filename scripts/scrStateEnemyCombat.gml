@@ -7,7 +7,7 @@ if instance_exists(objMan) {
     hspeed = lengthdir_x(len, dir)
     
     //disengage if far away
-    if point_distance(x,y, combatTarget.x, combatTarget.y) >= 64 {
+    if point_distance(x,y, combatTarget.x, combatTarget.y) >= 96 {
     state = scrStateEnemyIdle
     inCombat = false
     hspeed = 0

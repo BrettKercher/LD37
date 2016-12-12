@@ -36,8 +36,9 @@ if (abs(x - target) <= 5 or collided) {
     target = noone
     if place_meeting(x, y, objResource) {
         var res = instance_place(x, y, objResource);
-        if(res.requiredTool == noone or res.requiredTool == tool)
+        if(res.requiredTool == noone or res.requiredTool == tool) and !res.beingGathered
         {
+            res.beingGathered = true
             state = scrStateGathering;
             idleTime = 0;
             show_debug_message("Gathering");
