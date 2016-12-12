@@ -30,6 +30,7 @@
 toolType = AXE;
 numTools = objGame.tools[AXE];
 image_index = clamp(numTools, 0, 2);
+
 </string>
           </argument>
         </arguments>
@@ -54,6 +55,11 @@ image_index = clamp(numTools, 0, 2);
             <kind>1</kind>
             <string>numTools = objGame.tools[AXE];
 image_index = clamp(numTools, 0, 2);
+if !objGame.hasBoughtAxe {
+    sprite_index = sprEmptyAxeBox
+} else {
+    sprite_index = sprAxeBox
+}
 </string>
           </argument>
         </arguments>

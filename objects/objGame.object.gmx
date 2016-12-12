@@ -31,6 +31,10 @@ scrollSpeed = 4 * (60/room_speed)
 
 manList = ds_list_create()
 
+hasBoughtAxe = false;
+hasBoughtPick = false;
+hasBoughtSpear = false;
+
 //for drawing the UI
 sprArray[0] = sprWood
 sprArray[1] = sprRocks

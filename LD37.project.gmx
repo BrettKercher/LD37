@@ -63,9 +63,14 @@
     </sprites>
     <sprite>sprites\sprMouse</sprite>
     <sprite>sprites\sprGround</sprite>
-    <sprite>sprites\sprPickBox</sprite>
-    <sprite>sprites\sprAxeBox</sprite>
-    <sprite>sprites\sprSpearBox</sprite>
+    <sprites name="ResourceBoxes">
+      <sprite>sprites\sprEmptyPickBox</sprite>
+      <sprite>sprites\sprEmptySpearBox</sprite>
+      <sprite>sprites\sprEmptyAxeBox</sprite>
+      <sprite>sprites\sprAxeBox</sprite>
+      <sprite>sprites\sprSpearBox</sprite>
+      <sprite>sprites\sprPickBox</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>

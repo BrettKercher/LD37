@@ -64,6 +64,7 @@ event_inherited()
 event_inherited()
 if image_index = 0 {
     objGame.tools[AXE] ++
+    objGame.hasBoughtAxe = true
 }
 
 </string>
