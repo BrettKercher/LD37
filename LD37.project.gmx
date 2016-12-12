@@ -26,6 +26,8 @@
     </sprites>
     <sprites name="RoomSprites">
       <sprites name="Smoke Menu">
+        <sprite>sprites\sprImmortality</sprite>
+        <sprite>sprites\sprGourmet</sprite>
         <sprite>sprites\sprStew</sprite>
         <sprite>sprites\sprPickButton</sprite>
         <sprite>sprites\sprBedButton</sprite>
@@ -37,6 +39,7 @@
         <sprite>sprites\sprSmokeMenu</sprite>
       </sprites>
       <sprite>sprites\sprRoomOutside</sprite>
+      <sprite>sprites\sprRoomOutsideBack</sprite>
       <sprite>sprites\sprRoomInside</sprite>
       <sprite>sprites\sprBucket</sprite>
       <sprite>sprites\sprIdol</sprite>
@@ -84,6 +87,7 @@
       <script>scripts\scrStateEnemyWandering.gml</script>
     </scripts>
     <scripts name="ManStates">
+      <script>scripts\scrStateCrafting.gml</script>
       <script>scripts\scrStateCombat.gml</script>
       <script>scripts\scrStateIdle.gml</script>
       <script>scripts\scrStateInspired.gml</script>
@@ -140,6 +144,8 @@
       <objects name="SmokeMenuObjects">
         <object>objects\objButtonParent</object>
         <object>objects\objPickButton</object>
+        <object>objects\objImmortalityButton</object>
+        <object>objects\objGourmetButton</object>
         <object>objects\objGlassButton</object>
         <object>objects\objBedButton</object>
         <object>objects\objStewButton</object>

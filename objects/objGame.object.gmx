@@ -311,7 +311,7 @@ if selected != noone {
     //inspire man
     if instance_exists(objMan) {
         with objGame.selected {
-            if !attacking {
+            if !attacking and !crafting{
                 state = scrStateInspired
                 show_debug_message("Inspired")
             }

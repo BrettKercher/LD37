@@ -31,6 +31,10 @@ image_alpha = 0
 image_xscale = 0
 image_yscale = 0
 
+doneCrafting = false;
+canCraft = true;
+queueItem = noone;
+
 menuButton[0] = objAxeButton
 menuButton[1] = objPickButton
 menuButton[2] = objSpearButton
@@ -39,14 +43,14 @@ menuButton[4] = objBrickButton
 menuButton[5] = objBedButton
 menuButton[6] = objArtButton
 menuButton[7] = objGlassButton
-menuButton[8] = objAxeButton
+menuButton[8] = objGourmetButton
 menuButton[9] = objAxeButton
 menuButton[10] = objAxeButton
 menuButton[11] = objAxeButton
 menuButton[12] = objAxeButton
 menuButton[13] = objAxeButton
 menuButton[14] = objAxeButton
-menuButton[15] = objAxeButton
+menuButton[15] = objImmortalityButton
 
 buttonBuffer = 7
 buttonCount = array_length_1d(menuButton)
@@ -90,6 +94,7 @@ for (var i = 0; i &lt; buttonCount; i ++) {
           <argument>
             <kind>1</kind>
             <string>
+//opening and closing "animation"
 if open {
     image_xscale += .02
     image_yscale += .02
@@ -103,13 +108,68 @@ if open {
     }
 }
 
+//brings up buttons
 if image_alpha = 1 {
     for (i = 0; i &lt; buttonCount; i ++) {
         instance_activate_object(button[i])
     }
 }
-
+//stops it from growing forever
 scrImageClamp()
+
+//this part is triggered by the end of the crafting animation on the man
+if doneCrafting = true {
+    canCraft = true
+    doneCrafting = false
+    objGame.resources[WOOD] -= queueItem.woodCost;
+    objGame.resources[ROCK] -= queueItem.rockCost;
+    objGame.resources[FOOD] -= queueItem.foodCost;
+    objGame.resources[SAP] -= queueItem.sapCost;
+    objGame.resources[GEM] -= queueItem.gemCost;
+    objGame.resources[FUR] -= queueItem.furCost;
+    objGame.resources[ECTO] -= queueItem.ectoCost
+    switch (queueItem){
+        case objPickButton.id:
+            objGame.tools[PICK] ++
+            objGame.hasBoughtPick = true
+            break;
+        case objAxeButton.id:
+            objGame.tools[AXE] ++
+            objGame.hasBoughtAxe = true
+            break;
+        case objSpearButton.id:
+            objGame.tools[SPEAR] ++
+            objGame.hasBoughtSpear = true
+            break;
+        case objGlassButton.id:
+            objGame.glassCount++
+            objIdol.image_index = objGame.glassCount
+            break;
+        case objBedButton.id:
+            objGame.newPersonCount++;
+            break;
+        case objStewButton.id:
+            with objMan {
+                energy += (fullEnergy - energy) /2
+            }
+            break;
+        case objArtButton.id:
+            objGame.artCount ++
+            objRoomInside.image_index = objGame.artCount
+            break;
+        case objBrickButton.id:
+            objGame.brickCount ++
+            break;
+        case objGourmetButton.id:
+            with objMan {
+                energy = fullEnergy
+            }
+            default:
+            show_debug_message("here")
+            break;
+    }
+}
+    
 </string>
           </argument>
         </arguments>

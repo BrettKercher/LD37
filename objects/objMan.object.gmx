@@ -47,6 +47,7 @@ normalSpeed = 3 * (60/room_speed)
 wanderSpeed = .5 * (60/room_speed)
 
 //for state/statechange
+crafting = false
 state = scrStateIdle
 idleTime = 0
 interactingWith = noone;
@@ -276,6 +277,13 @@ if state = scrStateCombat {
     if combatTarget != noone {
         combatTarget.energy -= damage
     }
+} else if state == scrStateCrafting {
+    crafting = false
+    sprite_index = sprMan
+    image_speed = 0
+    image_index = 0
+    objSmokeMenu.doneCrafting = true
+    state = scrStateIdle
 }
 
 </string>
@@ -339,13 +347,30 @@ if(tool != noone)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self()
+            <string>var sprnum = sprite_get_number(sprEnergyBar)
+var sprNum = sprite_get_number(sprManGathering)
+var sprh = sprite_get_height(sprEnergyBar)
+var sprw = sprite_get_width(sprEnergyBar)
 if state = scrStateRemovingGate {
-    var sprnum = sprite_get_number(sprEnergyBar)
-    var sprh = sprite_get_height(sprEnergyBar)
-    var sprw = sprite_get_width(sprEnergyBar)
     draw_sprite_ext(sprEnergyBar,sprnum-ceil(sprnum*(actionDelay/gateDestroyDelayTime)), x + sprw/4, y - sprh,.5,.5,0,c_white, 1)
+} else if state = scrStateCrafting {
+    draw_sprite_ext(sprEnergyBar,sprnum-ceil(sprnum*(image_index/sprNum)), x + sprw/4, y - sprh,.5,.5,0,c_white, 1)
 }
+
+//draws a tool
+var sprw = sprite_get_width(sprite_index)/2;
+switch (tool) {
+    case PICK:
+        draw_sprite(sprPickButton,0,x - sprw,y)
+        break;
+    case AXE:
+        draw_sprite(sprAxeButton,0,x - sprw,y)
+        break;
+    case SPEAR:
+        draw_sprite(sprSpearButton,0,x - sprw,y)
+        break;
+}
+draw_self()
 </string>
           </argument>
         </arguments>

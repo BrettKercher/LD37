@@ -113,6 +113,11 @@ if attacking = true {
 
 //die when dead
 if energy &lt;= 0 {
+    var ecto = instance_create(x,y,objResource)
+    with ecto {
+        type = ECTO
+        sprite_index = sprEcto
+    }
     instance_destroy()
 }
 

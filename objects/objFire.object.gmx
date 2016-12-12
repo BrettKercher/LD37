@@ -49,7 +49,9 @@
           <argument>
             <kind>1</kind>
             <string>
-objSmokeMenu.open = !objSmokeMenu.open
+if objSmokeMenu.canCraft = true {
+    objSmokeMenu.open = !objSmokeMenu.open
+}
 
 </string>
           </argument>
