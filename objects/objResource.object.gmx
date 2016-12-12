@@ -64,7 +64,15 @@ if place_meeting(x, y, objMan) {
     var gatherer = instance_place(x,y, objMan)
     if gatherer.state == scrStateGathering {
         //gains gathering percent when player is there
-        gatherPercent ++
+        if((gatherer.tool == AXE and type == WOOD)
+            or (gatherer.tool == PICK and type == ROCK)
+            or (gatherer.tool == SPEAR and type == FOOD)) {
+            gatherPercent += 2;
+        }
+        else {
+            gatherPercent ++;
+        }
+        
     }
     //once it hits 100%, give player the resource
     if (gatherPercent &gt;= 100) {
