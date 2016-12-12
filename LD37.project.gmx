@@ -104,11 +104,13 @@
     <script>scripts\scrCreateResource.gml</script>
     <script>scripts\scrSpawnSpooksters.gml</script>
     <script>scripts\scrDoEndOfDay.gml</script>
+    <script>scripts\scrTextBox.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnElRioLobo</font>
     <font>fonts\fnArial</font>
     <font>fonts\fnPixelated</font>
+    <font>fonts\fnPixelatedSmaller</font>
   </fonts>
   <objects name="objects">
     <object>objects\objGame</object>
@@ -123,6 +125,7 @@
     <object>objects\objAxeBox</object>
     <object>objects\objPickBox</object>
     <object>objects\objSpearBox</object>
+    <object>objects\objTextBox</object>
     <objects name="ResourcePlacement">
       <object>objects\objChurchZoneMarker</object>
       <object>objects\objResourceSpawner</object>
@@ -146,7 +149,7 @@
       <object>objects\objRoomOutside</object>
     </objects>
     <objects name="Menu">
-      <object>objects\objMenu</object>
+      <object>objects\objSettings</object>
       <object>objects\objPlay</object>
       <object>objects\objTutorial</object>
       <object>objects\objTitle</object>
