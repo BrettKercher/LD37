@@ -1,5 +1,6 @@
 ///scrStateEnemyIdle
 
+sprite_index = sprEnemy
 //counts up idle time
 idleTime ++
 

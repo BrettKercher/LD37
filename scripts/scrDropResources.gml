@@ -9,4 +9,5 @@ while !ds_stack_empty(held) {
         player = noone
     }
     weight -- 
+    canAttack = true
 }

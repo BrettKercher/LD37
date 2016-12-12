@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>randomize();
 selected = noone
-scrollSpeed = 4 * (60/room_speed)
+scrollSpeed = 3 * (60/room_speed)
 
 //for drawing the energy UI
 manList = ds_list_create()
@@ -183,11 +183,13 @@ spooksterSpawnChance[NIGHT] = 0.03;
             <string>
 scrGetKeyboardInput();
 
+var scrollIntensity = view_wview / viewwMin
+
 //scroll view
 if right {
-    view_xview += scrollSpeed
+    view_xview += scrollSpeed * scrollIntensity
 } else if left {
-    view_xview -= scrollSpeed
+    view_xview -= scrollSpeed * scrollIntensity
 }
 
 //zoom view

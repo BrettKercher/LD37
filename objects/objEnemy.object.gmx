@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>
-image_speed = 0
+image_speed = .1
 damage = 10
 dir = 0
 state = scrStateEnemyIdle
@@ -36,11 +36,38 @@ idleTime = 0
 y = room_height - 32 - sprite_get_width(sprite_index);
 
 //combat stuff
+canAttack = true
 inCombat = false
 attacking = false
 combatTarget = noone;
 fullEnergy = 20
 energy = fullEnergy
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///attack cd
+
+canAttack = true
 
 </string>
           </argument>
@@ -105,10 +132,17 @@ if instance_exists(objMan) {
     }
 }
 
+//facing
+if hspeed &lt; 0 {
+    image_xscale = 1
+} else if hspeed &gt; 0 {
+    image_xscale = -1
+}
+
 //attacking stop
 if attacking = true {
     hspeed = 0
-    image_speed = .1
+    sprite_index = sprEnemyAttacking
 }
 
 //die when dead
@@ -145,46 +179,50 @@ if energy &lt;= 0 {
           <argument>
             <kind>1</kind>
             <string>
-attacking = false
-image_speed = 0
-
-if combatTarget != noone {
-    //does damage and follows the target
-    if place_meeting(x,y,combatTarget) {
-        combatTarget.energy -= damage
-    }
-    var len = normalSpeed
-    dir = point_direction(x, y, combatTarget.x, combatTarget.y)
-    hspeed = lengthdir_x(len, dir)
-    //triggers counterattack 
-    if combatTarget.energy &lt;= 10 {
-        state = scrStateEnemyIdle
-        hspeed = 0
-        inCombat = false
-        with combatTarget {
-            if objGame.selected == self {
-                with objIndicator { instance_destroy() }
-                objGame.selected = noone
+if sprite_index = sprEnemyAttacking {
+    attacking = false
+    if combatTarget != noone {
+        //does damage and follows the target
+        if place_meeting(x,y,combatTarget) {
+            combatTarget.energy -= damage
+        }
+        canAttack = false
+        alarm[1] = 60 * (60/room_speed)
+        var len = normalSpeed
+        dir = point_direction(x, y, combatTarget.x, combatTarget.y)
+        hspeed = lengthdir_x(len, dir)
+        //triggers counterattack 
+        if combatTarget.energy &lt;= 10 {
+            state = scrStateEnemyIdle
+            sprite_index = sprEnemy
+            image_index = 0
+            hspeed = 0
+            inCombat = false
+            with combatTarget {
+                if objGame.selected == self {
+                    with objIndicator { instance_destroy() }
+                    objGame.selected = noone
+                }
+                with objWaypoint {
+                    show_debug_message("here")
+                    if owner == other {
+                        instance_destroy()
+                    }
+                }
+                scrManDeath()
             }
-            with objWaypoint {
-                show_debug_message("here")
-                if owner == other {
-                    instance_destroy()
+            combatTarget = noone
+        } else {
+            with combatTarget {
+                if canAttack = true{
+                    state = scrStateCombat
+                    idleTime = 0
+                    combatTarget = other
+                    attacking = true
                 }
             }
-            scrManDeath()
-        }
-        combatTarget = noone
-    } else {
-        with combatTarget {
-            if canAttack = true{
-                state = scrStateCombat
-                idleTime = 0
-                combatTarget = other
-                attacking = true
-            }
-        }
-    } 
+        } 
+    }
 }
 </string>
           </argument>

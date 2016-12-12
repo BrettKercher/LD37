@@ -8,20 +8,25 @@
   <sprites name="sprites">
     <sprites name="UISprites">
       <sprite>sprites\sprUIBox</sprite>
+      <sprite>sprites\sprStoryBoard1</sprite>
+      <sprite>sprites\sprStoryBoard2</sprite>
+      <sprite>sprites\sprStoryBoard3</sprite>
+      <sprite>sprites\sprStoryBoard4</sprite>
     </sprites>
     <sprites name="WaypointSprites">
       <sprite>sprites\sprWaypoint</sprite>
     </sprites>
     <sprites name="EnemySprites">
       <sprite>sprites\sprEnemy</sprite>
+      <sprite>sprites\sprEnemyAttacking</sprite>
     </sprites>
     <sprites name="ManSprites">
       <sprite>sprites\sprIndicator</sprite>
       <sprite>sprites\sprEnergyBar</sprite>
       <sprite>sprites\sprManGathering</sprite>
       <sprite>sprites\sprManAttacking</sprite>
-      <sprite>sprites\sprManCollecting</sprite>
       <sprite>sprites\sprMan</sprite>
+      <sprite>sprites\sprManCollecting</sprite>
       <sprite>sprites\sprLightSourceGlow</sprite>
     </sprites>
     <sprites name="RoomSprites">
