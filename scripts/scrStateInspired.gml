@@ -20,6 +20,7 @@ if (abs(x - target) <= 5 or collided) {
                 other.idleTime = 0;
                 other.interactingWith = instance_position(x, y, objGate);
                 other.actionDelay = other.gateDestroyDelayTime;
+                other.energy -= 10
                 other.hspeed = 0;
                 other.image_index = 0;
                 other.image_speed = 0;
