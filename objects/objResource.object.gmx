@@ -31,6 +31,7 @@ requiredTool = noone;
 beingGathered = false
 player = noone;
 image_speed = 0;
+tierTwo = false;
 
 //Default to wood. Chanced when placed via scrPlaceResources
 type = WOOD;
@@ -66,22 +67,55 @@ if place_meeting(x, y, objMan) {
         gatherPercent ++
     }
     //once it hits 100%, give player the resource
-    if gatherPercent &gt;= 100 {
-        with gatherer {
-            weight ++
-            energy -= 10
-            ds_stack_push(held, other.id)
-            other.y = y - 32*ds_stack_size(held) - 2
-            state = scrStateIdle
-            if objGame.selected = id {
-                sprite_index = sprManCollectingSelected
-            } else {
-                sprite_index = sprManCollecting
+    if (gatherPercent &gt;= 100) {
+        if(!tierTwo)
+        {
+            with gatherer {
+                weight ++
+                energy -= 10
+                ds_stack_push(held, other.id)
+                other.y = y - 32*ds_stack_size(held) - 2
+                state = scrStateIdle
+                if objGame.selected = id {
+                    sprite_index = sprManCollectingSelected
+                } else {
+                    sprite_index = sprManCollecting
+                }
+            }
+            //turns into box
+            image_index = 1
+            player = gatherer
+        }
+        //Tier two resources spawn 3 tier 1 resources
+        else
+        {
+            with gatherer {
+                state = scrStateIdle;
+                energy -= 10;
+            }
+            instance_destroy();
+            var r;
+            for(var i = 0; i &lt; 3; i++)
+            {
+                r = instance_create(x, y, objResource);
+                r.type = type;
+                if(type == WOOD)
+                {
+                    r.sprite_index = sprWood;
+                }
+                else if(type == ROCK)
+                {
+                    r.sprite_index = sprRocks;
+                }
+                else if(type == FOOD)
+                {
+                    r.sprite_index = sprCarrots;
+                }
+                
+                r.x = x + (32 * (i - 1));
+                r.y = room_height - 32 - sprite_get_width(sprite_index);
             }
         }
-        //turns into box
-        image_index = 1
-        player = gatherer
     }
 } else {
     //loses gathering percent when they leave, to an extent

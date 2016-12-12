@@ -183,7 +183,7 @@ for(i = 0; i < ds_list_size(spawners);  i++)
             resource.sprite_index = sprCarrots;
         }
     }
-    
+    resource.tierTwo = isTierTwo;
     resource.type = resourceType;
     resource.y = room_height - 32 - sprite_get_height(resource.sprite_index);
 }
