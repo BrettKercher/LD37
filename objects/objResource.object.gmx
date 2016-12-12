@@ -86,7 +86,6 @@ if place_meeting(x, y, objMan) {
             image_index = 1
             player = gatherer
         }
-        //Tier two resources spawn 3 tier 1 resources
         else
         {
             with gatherer {
@@ -94,26 +93,20 @@ if place_meeting(x, y, objMan) {
                 energy -= 10;
             }
             instance_destroy();
-            var r;
-            for(var i = 0; i &lt; 3; i++)
+            
+            scrCreateResource(type, x - 32);
+            
+            if(type == WOOD)
             {
-                r = instance_create(x, y, objResource);
-                r.type = type;
-                if(type == WOOD)
-                {
-                    r.sprite_index = sprWood;
-                }
-                else if(type == ROCK)
-                {
-                    r.sprite_index = sprRocks;
-                }
-                else if(type == FOOD)
-                {
-                    r.sprite_index = sprCarrots;
-                }
-                
-                r.x = x + (32 * (i - 1));
-                r.y = room_height - 32 - sprite_get_width(sprite_index);
+                scrCreateResource(SAP, x );
+            }
+            else if(type == ROCK)
+            {
+                scrCreateResource(GEM, x );
+            }
+            else if(type == FOOD)
+            {
+                scrCreateResource(FUR, x );
             }
         }
     }

@@ -47,6 +47,9 @@
       <sprite>sprites\sprWildlife</sprite>
       <sprite>sprites\sprAxeGate</sprite>
       <sprite>sprites\sprPickGate</sprite>
+      <sprite>sprites\sprSap</sprite>
+      <sprite>sprites\sprGem</sprite>
+      <sprite>sprites\sprFur</sprite>
     </sprites>
     <sprite>sprites\sprMouse</sprite>
     <sprite>sprites\sprGround</sprite>
@@ -83,6 +86,7 @@
       <script>scripts\scrZoomView.gml</script>
     </scripts>
     <script>scripts\scrDropResources.gml</script>
+    <script>scripts\scrCreateResource.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnElRioLobo</font>

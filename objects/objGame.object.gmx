@@ -31,9 +31,12 @@ scrollSpeed = 4 * (60/room_speed)
 
 manList = ds_list_create()
 
-resources[WOOD] = 9990;
-resources[ROCK] = 9990;
-resources[FOOD] = 9990;
+resources[WOOD] = 99;
+resources[ROCK] = 99;
+resources[FOOD] = 99;
+resources[SAP] = 99;
+resources[GEM] = 99;
+resources[FUR] = 99;
 
 tools[AXE] = 0;
 tools[PICK] = 0;
