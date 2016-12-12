@@ -55,6 +55,12 @@
       <sprite>sprites\sprGem</sprite>
       <sprite>sprites\sprFur</sprite>
     </sprites>
+    <sprites name="MenuSprites">
+      <sprite>sprites\sprPlayOption</sprite>
+      <sprite>sprites\sprTutorialOn</sprite>
+      <sprite>sprites\sprTutorialOff</sprite>
+      <sprite>sprites\sprTitle</sprite>
+    </sprites>
     <sprite>sprites\sprMouse</sprite>
     <sprite>sprites\sprGround</sprite>
     <sprite>sprites\sprPickBox</sprite>
@@ -91,6 +97,7 @@
     </scripts>
     <script>scripts\scrDropResources.gml</script>
     <script>scripts\scrCreateResource.gml</script>
+    <script>scripts\scrSpawnSpooksters.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnElRioLobo</font>
@@ -131,10 +138,17 @@
       <object>objects\objIdol</object>
       <object>objects\objRoomOutside</object>
     </objects>
+    <objects name="Menu">
+      <object>objects\objMenu</object>
+      <object>objects\objPlay</object>
+      <object>objects\objTutorial</object>
+      <object>objects\objTitle</object>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\Outside</room>
+    <room>rooms\Menu</room>
     <room>rooms\Inside</room>
+    <room>rooms\Outside</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
