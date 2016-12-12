@@ -42,8 +42,6 @@ tools[AXE] = 0;
 tools[PICK] = 0;
 tools[SPEAR] = 0;
 
-scrPlaceResources()
-
 //view parameters
 viewwMin = view_wview/2
 viewhMin = view_hview/2
@@ -72,7 +70,27 @@ endOfDay = false;
 endOfDayScreenTime = .5 * room_speed;
 fadeScreenTime = 2.5 * room_speed;
 roomTransitionSurface = surface_create(room_width, room_height);
-needsResourcePlacement = false;
+needsResourcePlacement = true;
+
+spooksterCount = 0;
+maxSpooksterCount = 4;
+spooksterSpawnTimer = 0;
+
+spooksterSpawnCooldown = 30 * room_speed;   //min time between spawns
+spooksterSpawnTimer = 0;                    //only check for spawn once a second
+spooksterCount = 0;
+
+//Max number of ghosts per time of day
+maxSpooksterCount[DAWN]     = 1;
+maxSpooksterCount[DAY]      = 2;
+maxSpooksterCount[DUSK]     = 3;
+maxSpooksterCount[NIGHT]    = 4;
+
+//Chance to spawn ghost per second
+spooksterSpawnChance[DAWN]  = 0.015;
+spooksterSpawnChance[DAY]   = 0.02; 
+spooksterSpawnChance[DUSK]  = 0.025; 
+spooksterSpawnChance[NIGHT] = 0.03;
 </string>
           </argument>
         </arguments>
@@ -156,6 +174,8 @@ scrZoomView()
 
 //cant go that far
 scrClampView()
+
+scrSpawnSpooksters();
 
 //resest the game
 if restart {
