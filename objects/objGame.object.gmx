@@ -67,8 +67,8 @@ newRoom = noone;
 //How many new guys to add at end of day
 newPersonCount = 0;
 
-fadeAlpha = 0;
-fadeDirection = 0;  //1 for in, -1 for out, 0 for nothing
+fadeAlpha = 1;
+fadeDirection = -1;  //1 for in, -1 for out, 0 for nothing
 fadeOut = true; //true for in, false for out
 fadeSpeed = 0.01;
 
@@ -79,7 +79,7 @@ endOfDaySpeed = 0.05;
 endOfDay = false;
 endOfDayScreenTime = .5 * room_speed;
 fadeScreenTime = 2.5 * room_speed;
-roomTransitionSurface = surface_create(room_width, room_height);
+roomTransitionSurface = surface_create(3200, 1024);
 needsResourcePlacement = true;
 
 spooksterCount = 0;
@@ -226,8 +226,9 @@ else if(fadeDirection == -1)
     fadeAlpha -= fadeSpeed;
     if(fadeAlpha &lt;= 0.0)
     {
+        fadeAlpha = 0;
         fadeDirection = 0;
-        //If newRoom != room, idol was clicked again during fade in
+        
         if(newRoom == room)
         {
             newRoom = noone;
@@ -397,8 +398,12 @@ if instance_exists(objMan) {
 draw_set_alpha(endOfDayAlpha);
 draw_set_color(c_white);
 draw_set_halign(fa_center);
-draw_set_font(fnElRioLobo);
-draw_text(view_wport[0] / 2, view_hport[0] / 2, "Hey man, the day is over");
+draw_set_font(fnPixelated);
+
+var hh = string_height("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+draw_text(view_wport[0] / 2, view_hport[0] / 2, "A New Day Begins");
+draw_text_transformed(view_wport[0] / 2, (view_hport[0] / 2) + (2*hh), "Your tools were destroyed during the night", 0.5, 0.5, 0);
+
 draw_set_font(fnArial);
 draw_set_halign(fa_left);
 draw_set_color(c_black);
