@@ -35,6 +35,7 @@ manList = ds_list_create()
 //improvements
 artCount = 0
 brickCount = 0
+glassCount = 0
 
 //for drawing the UI
 sprArray[0] = sprWood

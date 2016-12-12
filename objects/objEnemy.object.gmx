@@ -157,6 +157,16 @@ if combatTarget != noone {
         hspeed = 0
         inCombat = false
         with combatTarget {
+            if objGame.selected == self {
+                with objIndicator { instance_destroy() }
+                objGame.selected = noone
+            }
+            with objWaypoint {
+                show_debug_message("here")
+                if owner == other {
+                    instance_destroy()
+                }
+            }
             scrManDeath()
         }
         combatTarget = noone

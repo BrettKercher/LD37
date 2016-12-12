@@ -42,6 +42,7 @@ dir = 0
 waypoint = noone
 collided = false
 distanceHome = point_distance(x, y, objDoor.x, objDoor.y)
+weak = false;
 normalSpeed = 3 * (60/room_speed)
 wanderSpeed = .5 * (60/room_speed)
 
@@ -152,6 +153,11 @@ script_execute(state)
 energy -= .01
 if energy &lt;= 0 {
     energy = 0
+}
+if energy &lt;= 10 {
+    weak = true;  
+} else {
+    weak = false;
 }
 
 //facing

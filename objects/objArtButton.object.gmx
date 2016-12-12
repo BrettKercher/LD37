@@ -26,24 +26,55 @@
           <argument>
             <kind>1</kind>
             <string>
-woodCost = 0
+woodCost = 1
 rockCost = 0
-foodCost = 2
+foodCost = 1
 sapCost = 1
 gemCost = 0
 furCost = 1
 ectoCost = 0
 
 //for mouseover UI
-txt[0] = 2
+txt[0] = 1
 txt[1] = 1
 txt[2] = 1
+txt[3] = 1
 
-spr[0] = sprCarrots
-spr[1] = sprSap
-spr[2] = sprFur
+spr[0] = sprWood
+spr[1] = sprCarrots
+spr[2] = sprSap
+spr[3] = sprFur
 
 event_inherited()
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+event_inherited()
+
+if objGame.artCount = 2 {
+    image_index = 1
+}
+
 </string>
           </argument>
         </arguments>

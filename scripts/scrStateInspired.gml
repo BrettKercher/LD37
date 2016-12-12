@@ -4,8 +4,13 @@ if objGame.selected == self and instance_exists(objWaypoint) and !attacking{
     target = waypoint.x
     idleTime = 0
     dir = point_direction(x, y, target, y)
-    hspeed = lengthdir_x((normalSpeed/(2*weight)), dir)
+    if !weak {
+        hspeed = lengthdir_x((normalSpeed/(2*weight)), dir)
+    } else {
+        hspeed = lengthdir_x((wanderSpeed/(2*weight)), dir)
+    }
     image_speed = animationSpeed
+
 }
 
 //destroy it when there
@@ -37,7 +42,7 @@ if (abs(x - target) <= 5 or collided) {
     target = noone
     if place_meeting(x, y, objResource) {
         var res = instance_place(x, y, objResource);
-        if(res.requiredTool == noone or res.requiredTool == tool and !res.beingGathered)
+        if(res.requiredTool == noone or res.requiredTool == tool and !res.beingGathered and !weak)
         {
             res.beingGathered = true
             state = scrStateGathering;

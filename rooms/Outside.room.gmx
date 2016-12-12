@@ -116,7 +116,6 @@
     <instance objName="objGround" x="1984" y="992" name="inst_283FB914" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGround" x="2016" y="992" name="inst_E34F61B8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGround" x="2048" y="992" name="inst_C94C7982" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objRoomOutside" x="1600" y="896" name="inst_F30DFA7D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBucket" x="1536" y="992" name="inst_9808DA16" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objNightCycle" x="0" y="0" name="inst_4FB1EFE6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objIdol" x="1600" y="832" name="inst_7C000A0A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -185,6 +184,7 @@
     <instance objName="objResourceSpawner" x="2912" y="960" name="inst_0635DC44" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objResourceSpawner" x="3008" y="960" name="inst_84B733AC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objResourceSpawner" x="3104" y="960" name="inst_74EFA58A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEnemy" x="1848" y="960" name="inst_657695A4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

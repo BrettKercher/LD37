@@ -5,7 +5,11 @@ if instance_exists(objBucket) {
     var bwidth = sprite_get_width(sprBucket);
     target = irandom_range(objBucket.x - sprBucket/4, objBucket.x + sprBucket/4)
     dir = point_direction(x, y, target, y)
-    hspeed = lengthdir_x((normalSpeed/(2*weight)), dir)
+    if !weak {
+        hspeed = lengthdir_x((normalSpeed/(2*weight)), dir)
+    } else {
+        hspeed = lengthdir_x((wanderSpeed/(2*weight)), dir)
+    }
     image_speed = animationSpeed
 }
 //droppin' off

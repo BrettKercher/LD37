@@ -18,6 +18,7 @@
     <sprites name="ManSprites">
       <sprite>sprites\sprIndicator</sprite>
       <sprite>sprites\sprEnergyBar</sprite>
+      <sprite>sprites\sprManGathering</sprite>
       <sprite>sprites\sprManAttacking</sprite>
       <sprite>sprites\sprManCollecting</sprite>
       <sprite>sprites\sprMan</sprite>
@@ -29,13 +30,14 @@
         <sprite>sprites\sprPickButton</sprite>
         <sprite>sprites\sprBedButton</sprite>
         <sprite>sprites\sprAxeButton</sprite>
-        <sprite>sprites\sprSculpture</sprite>
+        <sprite>sprites\sprGlass</sprite>
         <sprite>sprites\sprArt</sprite>
         <sprite>sprites\sprBricks</sprite>
         <sprite>sprites\sprSpearButton</sprite>
         <sprite>sprites\sprSmokeMenu</sprite>
       </sprites>
       <sprite>sprites\sprRoomOutside</sprite>
+      <sprite>sprites\sprRoomInside</sprite>
       <sprite>sprites\sprBucket</sprite>
       <sprite>sprites\sprIdol</sprite>
       <sprite>sprites\sprFire</sprite>
@@ -138,6 +140,7 @@
       <objects name="SmokeMenuObjects">
         <object>objects\objButtonParent</object>
         <object>objects\objPickButton</object>
+        <object>objects\objGlassButton</object>
         <object>objects\objBedButton</object>
         <object>objects\objStewButton</object>
         <object>objects\objAxeButton</object>
@@ -151,6 +154,7 @@
       <object>objects\objBucket</object>
       <object>objects\objIdol</object>
       <object>objects\objRoomOutside</object>
+      <object>objects\objRoomInside</object>
     </objects>
     <objects name="Menu">
       <object>objects\objSettings</object>

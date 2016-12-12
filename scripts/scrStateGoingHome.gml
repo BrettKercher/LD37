@@ -4,7 +4,11 @@
 if instance_exists(objDoor) {
     target = objDoor.x
     dir = point_direction(x, y, target, y)
-    hspeed = lengthdir_x((normalSpeed/(2*weight)), dir)
+    if !weak {
+        hspeed = lengthdir_x((normalSpeed/(2*weight)), dir)
+    } else {
+        hspeed = lengthdir_x((wanderSpeed/(2*weight)), dir)
+    }
     image_speed = animationSpeed
 }
 
