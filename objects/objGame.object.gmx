@@ -365,6 +365,7 @@ if(room == Outside)
           <argument>
             <kind>1</kind>
             <string>draw_set_alpha(1 - fadeAlpha);
+
 //drawing resource UI
 var buffer = 4
 draw_sprite(sprUIBox, 0, buffer, buffer)
