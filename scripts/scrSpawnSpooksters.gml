@@ -10,7 +10,6 @@ if(room == Outside)
     {
         spooksterSpawnTimer = 0;
         var rand = random(1);
-        show_debug_message(rand);
         if(spooksterCount < maxSpooksterCount[objNightCycle.phase] and rand < spooksterSpawnChance[objNightCycle.phase])
         {
             //spawn spookster

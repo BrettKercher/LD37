@@ -83,10 +83,7 @@ nightSurface = surface_create(room_width, room_height);
 
 if(currentTime &gt; midnight)
 {
-    objGame.fadeDirection = 1;
-    objGame.endOfDay = true;
-    currentTime = 0;
-    dayNumber++;
+    scrDoEndOfDay();
 }
 
 if(phase == DAWN)
@@ -247,10 +244,7 @@ if(room == Outside) and surface_exists(nightSurface)
             <kind>1</kind>
             <string>///End Day early
 
-objGame.fadeDirection = 1;
-objGame.endOfDay = true;
-currentTime = 0;
-dayNumber++;
+scrDoEndOfDay();
 </string>
           </argument>
         </arguments>
