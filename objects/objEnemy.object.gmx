@@ -175,6 +175,36 @@ if combatTarget != noone {
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+draw_self()
+var sprnum = sprite_get_number(sprEnergyBar)
+var sprh = sprite_get_height(sprEnergyBar)
+var sprw = sprite_get_width(sprEnergyBar)
+if energy &lt; fullEnergy or inCombat {
+    draw_sprite_ext(sprEnergyBar,sprnum-ceil(sprnum*(energy/fullEnergy)), x + sprw/4, y - sprh,.5,.5,0,image_blend, 1)
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>

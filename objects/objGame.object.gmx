@@ -31,12 +31,22 @@ scrollSpeed = 4 * (60/room_speed)
 
 manList = ds_list_create()
 
+//for drawing the UI
+sprArray[0] = sprWood
+sprArray[1] = sprRocks
+sprArray[2] = sprCarrots
+sprArray[3] = sprSap
+sprArray[4] = sprGem
+sprArray[5] = sprFur
+sprArray[6] = sprEcto
+
 resources[WOOD] = 99;
 resources[ROCK] = 99;
 resources[FOOD] = 99;
 resources[SAP] = 99;
 resources[GEM] = 99;
 resources[FUR] = 99;
+resources[ECTO] = 99;
 
 tools[AXE] = 0;
 tools[PICK] = 0;
@@ -335,9 +345,19 @@ if(room == Outside)
           <argument>
             <kind>1</kind>
             <string>draw_set_alpha(1 - fadeAlpha);
-draw_text(0, 0, "Wood:" + string(resources[WOOD]));
-draw_text(0 , 32, "Rock:" + string(resources[ROCK]));
-draw_text(0 , 64, "Food:" + string(resources[FOOD]));
+//drawing resource UI
+var buffer = 4
+draw_sprite(sprUIBox, 0, buffer, buffer)
+var len = array_length_1d(sprArray)
+var sprh = sprite_get_height(sprWood)
+var sprw = sprite_get_width(sprWood)
+for (i = 0; i &lt; len; i++) {
+    var next = sprArray[i]
+    var othernext = resources[i]
+    draw_sprite(next, 0, buffer*(i+2) + (sprw/2)*(2*i+1), buffer*2)
+    draw_set_colour(c_white)
+    draw_text(buffer*(i+2) + sprw*i, buffer*2, othernext)
+}  
 draw_set_alpha(1);
 
 if instance_exists(objMan) {

@@ -51,6 +51,7 @@
       <sprite>sprites\sprAxeGate</sprite>
       <sprite>sprites\sprPickGate</sprite>
       <sprite>sprites\sprSap</sprite>
+      <sprite>sprites\sprEcto</sprite>
       <sprite>sprites\sprGem</sprite>
       <sprite>sprites\sprFur</sprite>
     </sprites>

@@ -651,13 +651,14 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="13">
+    <constants number="14">
       <constant name="WOOD">0</constant>
       <constant name="ROCK">1</constant>
       <constant name="FOOD">2</constant>
       <constant name="SAP">3</constant>
       <constant name="GEM">4</constant>
       <constant name="FUR">5</constant>
+      <constant name="ECTO">6</constant>
       <constant name="DAWN">0</constant>
       <constant name="DAY">1</constant>
       <constant name="DUSK">2</constant>

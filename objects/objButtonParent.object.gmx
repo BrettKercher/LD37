@@ -167,9 +167,26 @@ if image_index = 0 {
           <argument>
             <kind>1</kind>
             <string>draw_self()
+
 if drawTooltip = true {
-    draw_sprite(sprUIBox, 0, x+sprite_width, y+sprite_height)
-}
+    var boxstartx = x+sprite_width/3 * 2
+    var boxstarty = y+sprite_height/3 * 2
+    var buffer = 4
+    var sprh = sprite_get_height(sprWood)
+    var sprw = sprite_get_width(sprWood)
+    var len = array_length_1d(spr)
+    var imgnum = sprite_get_number(sprUIBox)
+    draw_sprite(sprUIBox, imgnum - len, boxstartx, boxstarty)
+    for (i = 0; i &lt; len; i++) {
+        var next = spr[i]
+        var othernext = txt[i]
+        draw_sprite(next, 0, boxstartx + buffer*(i+1) + (sprw/2)*(2*i+1), boxstarty + buffer)
+        draw_set_colour(c_white)
+        draw_text(boxstartx + buffer*2 + (sprw/2)*(2*i+1), boxstarty + buffer, othernext)
+    }    
+} 
+
+draw_set_colour(c_black)
 </string>
           </argument>
         </arguments>

@@ -30,6 +30,13 @@ woodCost = 3
 rockCost = 0
 foodCost = 2
 
+//for mouseover UI
+txt[0] = 3
+txt[1] = 2
+
+spr[0] = sprWood
+spr[1] = sprCarrots
+
 event_inherited()
 </string>
           </argument>
