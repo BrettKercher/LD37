@@ -16,13 +16,11 @@
       <sprite>sprites\sprEnemy</sprite>
     </sprites>
     <sprites name="ManSprites">
+      <sprite>sprites\sprIndicator</sprite>
       <sprite>sprites\sprEnergyBar</sprite>
       <sprite>sprites\sprManAttacking</sprite>
-      <sprite>sprites\sprManAttackingSelected</sprite>
       <sprite>sprites\sprManCollecting</sprite>
-      <sprite>sprites\sprManCollectingSelected</sprite>
       <sprite>sprites\sprMan</sprite>
-      <sprite>sprites\sprManSelected</sprite>
       <sprite>sprites\sprLightSourceGlow</sprite>
     </sprites>
     <sprites name="RoomSprites">
@@ -31,6 +29,9 @@
         <sprite>sprites\sprPickButton</sprite>
         <sprite>sprites\sprBedButton</sprite>
         <sprite>sprites\sprAxeButton</sprite>
+        <sprite>sprites\sprSculpture</sprite>
+        <sprite>sprites\sprArt</sprite>
+        <sprite>sprites\sprBricks</sprite>
         <sprite>sprites\sprSpearButton</sprite>
         <sprite>sprites\sprSmokeMenu</sprite>
       </sprites>
@@ -113,6 +114,7 @@
     <font>fonts\fnPixelatedSmaller</font>
   </fonts>
   <objects name="objects">
+    <object>objects\objIndicator</object>
     <object>objects\objGame</object>
     <object>objects\objMouse</object>
     <object>objects\objGround</object>
@@ -140,6 +142,8 @@
         <object>objects\objStewButton</object>
         <object>objects\objAxeButton</object>
         <object>objects\objSpearButton</object>
+        <object>objects\objArtButton</object>
+        <object>objects\objBrickButton</object>
         <object>objects\objSmokeMenu</object>
       </objects>
       <object>objects\objFire</object>

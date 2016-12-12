@@ -26,16 +26,22 @@
           <argument>
             <kind>1</kind>
             <string>
-woodCost = 3
+woodCost = 2
 rockCost = 0
 foodCost = 2
+sapCost = 0
+gemCost = 0
+furCost = 2
+ectoCost = 0
 
 //for mouseover UI
-txt[0] = 3
+txt[0] = 2
 txt[1] = 2
+txt[2] = 2
 
 spr[0] = sprWood
 spr[1] = sprCarrots
+spr[2] = sprFur
 
 event_inherited()
 </string>

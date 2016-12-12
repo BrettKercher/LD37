@@ -29,11 +29,12 @@
 selected = noone
 scrollSpeed = 4 * (60/room_speed)
 
+//for drawing the energy UI
 manList = ds_list_create()
 
-hasBoughtAxe = false;
-hasBoughtPick = false;
-hasBoughtSpear = false;
+//improvements
+artCount = 0
+brickCount = 0
 
 //for drawing the UI
 sprArray[0] = sprWood
@@ -44,6 +45,7 @@ sprArray[4] = sprGem
 sprArray[5] = sprFur
 sprArray[6] = sprEcto
 
+//resource count
 resources[WOOD] = 99;
 resources[ROCK] = 99;
 resources[FOOD] = 99;
@@ -52,6 +54,10 @@ resources[GEM] = 99;
 resources[FUR] = 99;
 resources[ECTO] = 99;
 
+//tool stuff
+hasBoughtAxe = false;
+hasBoughtPick = false;
+hasBoughtSpear = false;
 tools[AXE] = 0;
 tools[PICK] = 0;
 tools[SPEAR] = 0;

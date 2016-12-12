@@ -84,11 +84,7 @@ if place_meeting(x, y, objMan) {
                 ds_stack_push(held, other.id)
                 other.y = y - 32*ds_stack_size(held) - 2
                 state = scrStateIdle
-                if objGame.selected = id {
-                    sprite_index = sprManCollectingSelected
-                } else {
-                    sprite_index = sprManCollecting
-                }
+                sprite_index = sprManCollecting
             }
             //turns into box
             image_index = 1

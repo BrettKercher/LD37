@@ -141,6 +141,10 @@ if image_index = 0 {
     objGame.resources[WOOD] -= woodCost;
     objGame.resources[ROCK] -= rockCost;
     objGame.resources[FOOD] -= foodCost;
+    objGame.resources[SAP] -= sapCost;
+    objGame.resources[GEM] -= gemCost;
+    objGame.resources[FUR] -= furCost;
+    objGame.resources[ECTO] -= ectoCost
 }
 
 

@@ -216,28 +216,18 @@ glowIntensity = clamp(glowIntensity, baseGlowIntensity - maxFlickerRange, baseGl
             <string>
 if objGame.selected != self {
     //everyone else loses selection visual and returns to correct depth
-    with objMan {
-        if ds_stack_empty(held) {
-            sprite_index = sprMan
-        } else {
-            sprite_index = sprManCollecting
+        with objIndicator {
+            instance_destroy()
         }
         depth = -2
-    }
-    //selection visual engaged, plus depth change to keep them in front
-    if ds_stack_empty(held) {
-        sprite_index = sprManSelected
-    } else {
-        sprite_index = sprManCollectingSelected
-    }
+    var ind = instance_create(x,y-1,objIndicator);
+    ind.owner = self
     depth --
     //become selected
     objGame.selected = self
 } else if state != scrStateInspired {
-    if ds_stack_empty(held) {
-        sprite_index = sprMan
-    } else {
-        sprite_index = sprManCollecting
+    with objIndicator {
+        instance_destroy()
     }
     depth = -2
     objGame.selected = noone
@@ -268,11 +258,7 @@ if objGame.selected != self {
             <string>
 //deals damage at end of attack animation
 if state = scrStateCombat {
-    if objGame.selected == self {
-        sprite_index = sprManSelected
-    } else {
-        sprite_index = sprMan
-    }
+    sprite_index = sprMan
     image_speed = 0
     image_index = 0
     attacking = false

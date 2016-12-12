@@ -29,6 +29,10 @@
 woodCost = 1
 rockCost = 1
 foodCost = 0
+sapCost = 0
+gemCost = 0
+furCost = 0
+ectoCost = 0
 
 //for mouseover UI
 txt[0] = 1
