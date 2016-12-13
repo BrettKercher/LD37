@@ -13,9 +13,11 @@
       <sprite>sprites\sprStoryBoard3</sprite>
       <sprite>sprites\sprStoryBoard4</sprite>
       <sprite>sprites\sprWinner</sprite>
+      <sprite>sprites\sprLoser</sprite>
       <sprite>sprites\sprWinImortal</sprite>
       <sprite>sprites\sprSun</sprite>
       <sprite>sprites\sprTimeLine</sprite>
+      <sprite>sprites\sprRestart</sprite>
     </sprites>
     <sprites name="WaypointSprites">
       <sprite>sprites\sprWaypoint</sprite>
@@ -183,7 +185,9 @@
       <object>objects\objStoryBoard3</object>
       <object>objects\objStoryBoard4</object>
       <object>objects\objWinner</object>
+      <object>objects\objLoser</object>
       <object>objects\objWinImortal</object>
+      <object>objects\objRestart</object>
     </objects>
   </objects>
   <rooms name="rooms">
@@ -191,6 +195,7 @@
     <room>rooms\Inside</room>
     <room>rooms\Outside</room>
     <room>rooms\WinRoom</room>
+    <room>rooms\LoseRoom</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
