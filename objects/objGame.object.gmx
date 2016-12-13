@@ -37,6 +37,8 @@ artCount = 0
 brickCount = 0
 glassCount = 0
 
+win = false;
+
 //for drawing the UI
 sprArray[0] = sprWood
 sprArray[1] = sprRocks
@@ -231,6 +233,10 @@ if(fadeDirection == 1)
                 room_restart();
             }
             alarm[0] = fadeScreenTime;
+        }
+        else if(win)
+        {
+            room_goto(WinRoom);
         }
     }
 }
