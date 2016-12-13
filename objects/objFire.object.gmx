@@ -50,9 +50,10 @@ textBox = noone
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>if textBox != noone {
 with textBox {
     instance_destroy()
+}
 }
 
 </string>

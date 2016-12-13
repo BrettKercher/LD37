@@ -28,6 +28,7 @@
             <string>///Initialize
 drawToolTip = false
 toolTipMessage = "inside &lt;-&gt; outside"
+textBox = noone
 
 image_speed = 0;
 
@@ -63,8 +64,10 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with textBox {
+            <string>if textBox != noone {
+with textBox {
     instance_destroy()
+}
 }
 
 </string>
@@ -90,7 +93,7 @@ else
           <argument>
             <kind>1</kind>
             <string>
-if objSmokeMenu.open = false {
+if room = Outside or (room == Inside and objSmokeMenu.open = false) {
     drawTooltip = true
     
     var sprw = sprite_get_width(sprIdol)
