@@ -12,6 +12,8 @@
       <sprite>sprites\sprStoryBoard2</sprite>
       <sprite>sprites\sprStoryBoard3</sprite>
       <sprite>sprites\sprStoryBoard4</sprite>
+      <sprite>sprites\sprWinner</sprite>
+      <sprite>sprites\sprWinImortal</sprite>
     </sprites>
     <sprites name="WaypointSprites">
       <sprite>sprites\sprWaypoint</sprite>
@@ -178,12 +180,15 @@
       <object>objects\objStoryBoard2</object>
       <object>objects\objStoryBoard3</object>
       <object>objects\objStoryBoard4</object>
+      <object>objects\objWinner</object>
+      <object>objects\objWinImortal</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\Menu</room>
     <room>rooms\Inside</room>
     <room>rooms\Outside</room>
+    <room>rooms\WinRoom</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

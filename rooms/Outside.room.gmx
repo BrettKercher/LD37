@@ -184,7 +184,6 @@
     <instance objName="objResourceSpawner" x="2912" y="960" name="inst_0635DC44" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objResourceSpawner" x="3008" y="960" name="inst_84B733AC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objResourceSpawner" x="3104" y="960" name="inst_74EFA58A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objEnemy" x="1848" y="960" name="inst_657695A4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

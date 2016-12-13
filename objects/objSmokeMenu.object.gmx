@@ -169,6 +169,11 @@ if doneCrafting = true {
             default:
             show_debug_message("here")
             break;
+        case objImmortalityButton.id:
+            objGame.fadeDirection = 1;
+            objGame.win = true;
+            open = false;
+            break;
     }
 }
     
