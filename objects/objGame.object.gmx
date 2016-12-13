@@ -202,12 +202,6 @@ scrClampView()
 
 scrSpawnSpooksters();
 
-//resest the game
-if restart {
-    room_restart()
-}
-
-
 if(fadeDirection == 1)
 {
     fadeAlpha += fadeSpeed;

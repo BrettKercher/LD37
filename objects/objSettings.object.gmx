@@ -32,7 +32,10 @@ insideTextBox = noone;
 outsideTextBox = noone;
 
 insideText = "i can use this fire to communicate"
-outsideText = "this window can act as a beacon to call travellers home ## i can inspire a man to greatness if i show them the way  ## try clicking on him and using rmb for that"
+outsideText = "i can inspire a man to greatness if i show them the way  
+# try clicking on him and using rmb for that
+# sleep for the day by pressing f
+# if a traveller is hit with no energy left, they die"
 </string>
           </argument>
         </arguments>
@@ -105,7 +108,8 @@ outsideText = "this window can act as a beacon to call travellers home ## i can 
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if tutorial {  
+            <string>
+if tutorial {  
     if room == Inside and insideTutorial {
         insideTutorial = false
         alarm[0] = 10 * room_speed
@@ -113,7 +117,8 @@ outsideText = "this window can act as a beacon to call travellers home ## i can 
     } else if room == Outside and outsideTutorial = true {
         outsideTutorial = false
         alarm[1] = 10 * room_speed
-        outsideTextBox = scrTextBox(outsideText, objIdol.x, objIdol.y, 6000, c_black, fnPixelatedSmallest)
+        outsideTextBox = scrTextBox(outsideText, objIdol.x - 100, objIdol.y, 6000, c_black, fnPixelatedSmallest)
+        outsideTextBox.depth = -100
     }
 }
 </string>
