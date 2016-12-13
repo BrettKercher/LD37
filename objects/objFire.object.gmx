@@ -77,10 +77,12 @@ with textBox {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var sprw = sprite_get_width(sprFire)
-var sprh = sprite_get_height(sprFire);
-textBox = scrTextBox(toolTipMessage , x + sprw/2, y - sprh/2, 200, c_black, fnPixelatedSmallest)
-textBox.depth = -100
+            <string>if objSmokeMenu.open = false {
+    var sprw = sprite_get_width(sprFire)
+    var sprh = sprite_get_height(sprFire);
+    textBox = scrTextBox(toolTipMessage , x + sprw/2, y - sprh/2, 200, c_black, fnPixelatedSmallest)
+    textBox.depth = -100
+}
 </string>
           </argument>
         </arguments>

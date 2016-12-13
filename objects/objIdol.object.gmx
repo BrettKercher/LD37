@@ -89,12 +89,15 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>drawTooltip = true
-
-var sprw = sprite_get_width(sprIdol)
-var sprh = sprite_get_height(sprIdol);
-textBox = scrTextBox(toolTipMessage , x + sprw/2, y + sprh/2, 200, c_black, fnPixelatedSmallest)
-textBox.depth = -100
+            <string>
+if objSmokeMenu.open = false {
+    drawTooltip = true
+    
+    var sprw = sprite_get_width(sprIdol)
+    var sprh = sprite_get_height(sprIdol);
+    textBox = scrTextBox(toolTipMessage , x + sprw/2, y + sprh/2, 200, c_black, fnPixelatedSmallest)
+    textBox.depth = -100
+}
 </string>
           </argument>
         </arguments>
