@@ -30,7 +30,13 @@ textBox = noone
 depth = -10
 image_speed = 0
 drawTooltip = false
-if objGame.resources[WOOD] &lt; woodCost or objGame.resources[ROCK] &lt; rockCost or objGame.resources[FOOD] &lt; foodCost {
+if objGame.resources[WOOD] &lt; woodCost or 
+objGame.resources[ROCK] &lt; rockCost or 
+objGame.resources[FOOD] &lt; foodCost or
+objGame.resources[GEM] &lt; gemCost or
+objGame.resources[SAP] &lt; sapCost or
+objGame.resources[FUR] &lt; furCost or
+objGame.resources[ECTO] &lt; ectoCost {
     image_index = 1
 }
 </string>

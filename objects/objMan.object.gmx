@@ -155,7 +155,7 @@ energy -= .01
 if energy &lt;= 0 {
     energy = 0
 }
-if energy &lt;= 10 {
+if energy &lt;= 0 {
     weak = true;  
 } else {
     weak = false;
