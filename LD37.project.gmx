@@ -123,6 +123,7 @@
     <font>fonts\fnArial</font>
     <font>fonts\fnPixelated</font>
     <font>fonts\fnPixelatedSmaller</font>
+    <font>fonts\fnPixelatedSmallest</font>
   </fonts>
   <objects name="objects">
     <object>objects\objIndicator</object>

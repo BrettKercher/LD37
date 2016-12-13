@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>
+toolTipMessage = "for interior decorators at heart"
+
 woodCost = 1
 rockCost = 0
 foodCost = 1

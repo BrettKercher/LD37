@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>
+toolTipMessage = "chops trees opens doors"
+
 woodCost = 1
 rockCost = 1
 foodCost = 0

@@ -121,7 +121,7 @@ drawTooltip = true
 var sprw = sprite_get_width(sprWood)
 var sprh = sprite_get_height(sprWood)
 var sprh2 = sprite_get_height(sprUIBox)
-textBox = scrTextBox(toolTipMessage , x + sprw, y + sprh + sprh2, 200, c_black)
+textBox = scrTextBox(toolTipMessage , x + sprw, y + sprh + sprh2, 200, c_black, fnPixelatedSmallest)
 
 </string>
           </argument>
