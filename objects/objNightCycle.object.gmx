@@ -159,7 +159,15 @@ if(phase == NIGHT)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var tempTime = currentTime;
+            <string>
+//drawing timline
+draw_sprite(sprTimeLine, 0, view_wport/2, 0)
+var sprw = sprite_get_width(sprTimeLine)
+var sprh = sprite_get_height(sprTimeLine);
+draw_sprite(sprSun,0, view_wport/2 - sprw/2 + sprw*(objNightCycle.currentTime/objNightCycle.midnight), sprh/2)
+
+/*
+var tempTime = currentTime;
 var AmPm = "AM";
 
 if(tempTime &gt;= noon)

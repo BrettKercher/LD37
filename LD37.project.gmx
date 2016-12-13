@@ -14,6 +14,8 @@
       <sprite>sprites\sprStoryBoard4</sprite>
       <sprite>sprites\sprWinner</sprite>
       <sprite>sprites\sprWinImortal</sprite>
+      <sprite>sprites\sprSun</sprite>
+      <sprite>sprites\sprTimeLine</sprite>
     </sprites>
     <sprites name="WaypointSprites">
       <sprite>sprites\sprWaypoint</sprite>
