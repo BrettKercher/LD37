@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-3</depth>
+  <depth>-999</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -28,7 +28,7 @@
             <string>///Initialize
 
 //How fast time goes by
-timeScale = 10;
+timeScale = 15;
 dayNumber = 1;
 
 dawnStartTime = 16200 / 60;  //4:30am
@@ -226,6 +226,7 @@ if(room == Outside) and surface_exists(nightSurface)
         draw_set_blend_mode(bm_normal);
     }
     surface_reset_target();
+    
     draw_surface_ext(nightSurface, 0, 0, 1, 1, 0, c_white, alpha);
 }
 </string>

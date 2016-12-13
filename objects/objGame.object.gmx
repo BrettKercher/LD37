@@ -29,6 +29,8 @@
 selected = noone
 scrollSpeed = 3 * (60/room_speed)
 
+justStarting = true;
+
 //for drawing the energy UI
 manList = ds_list_create()
 
@@ -89,6 +91,7 @@ endOfDayAlpha = 0;
 endOfDayDirection = 0;
 endOfDaySpeed = 0.05;
 
+isNewDay = false;
 endOfDay = false;
 endOfDayScreenTime = .5 * room_speed;
 fadeScreenTime = 2.5 * room_speed;
@@ -351,10 +354,14 @@ if(room == Outside)
         scrPlaceResources();
         needsResourcePlacement = false;
     }
-    while(newPersonCount &gt; 0)
+    if(isNewDay)
     {
-        instance_create(objDoor.x,objDoor.y,objMan);
-        newPersonCount--;
+        isNewDay = false;
+        while(newPersonCount &gt; 0)
+        {
+            instance_create(objDoor.x,objDoor.y,objMan);
+            newPersonCount--;
+        }
     }
 }
 </string>
