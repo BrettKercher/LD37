@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>toolTipMessage = "expect a visitor # in the morning"
+
 woodCost = 2
 rockCost = 0
 foodCost = 2

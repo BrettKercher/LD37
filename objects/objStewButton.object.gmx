@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>
+toolTipMessage = "refills some energy"
+
 woodCost = 0
 rockCost = 0
 foodCost = 2

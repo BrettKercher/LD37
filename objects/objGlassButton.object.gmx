@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>
+toolTipMessage = "fixes window"
+
 woodCost = 1
 rockCost = 0
 foodCost = 0
