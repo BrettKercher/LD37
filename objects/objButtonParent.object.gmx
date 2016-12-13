@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>
+textBox = noone
 depth = -10
 image_speed = 0
 drawTooltip = false
@@ -86,6 +87,9 @@ if objGame.resources[WOOD] &lt; woodCost or objGame.resources[ROCK] &lt; rockCos
 image_xscale = 1
 image_yscale = 1
 drawTooltip = false
+with textBox {
+    instance_destroy()
+}
 
 </string>
           </argument>
@@ -113,6 +117,11 @@ drawTooltip = false
 image_xscale = 1.2
 image_yscale = 1.2
 drawTooltip = true
+
+var sprw = sprite_get_width(sprWood)
+var sprh = sprite_get_height(sprWood)
+var sprh2 = sprite_get_height(sprUIBox)
+textBox = scrTextBox(toolTipMessage , x + sprw, y + sprh + sprh2, 200, c_black)
 
 </string>
           </argument>
@@ -183,7 +192,7 @@ if drawTooltip = true {
         draw_sprite(next, 0, boxstartx + buffer*(i+1) + (sprw/2)*(2*i+1), boxstarty + buffer)
         draw_set_colour(c_white)
         draw_text(boxstartx + buffer*2 + (sprw/2)*(2*i+1), boxstarty + buffer, othernext)
-    }    
+    }
 } 
 
 draw_set_colour(c_black)
