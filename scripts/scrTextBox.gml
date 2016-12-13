@@ -1,4 +1,4 @@
-///scrTextBox(Text, x, y, speed, color)
+///scrTextBox(Text, x, y, speed, color, font)
 xCoord = argument1;
 yCoord = argument2;
 
@@ -9,7 +9,7 @@ with(textObj) {
 
     padding = 16;
     maxLength = room_width;
-    font = fnPixelatedSmaller;
+    font = argument5;
     text = argument0;
     spd = argument3;
     color = argument4;
