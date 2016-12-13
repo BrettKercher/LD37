@@ -6,6 +6,11 @@ with(objResource)
     instance_destroy();
 }
 
+with(objGate)
+{
+    instance_destroy();
+}
+
 //Get church boundaries
 var churchLeftX = instance_find(objChurchZoneMarker, 0).x;
 var churchRightX = instance_find(objChurchZoneMarker, 1).x;

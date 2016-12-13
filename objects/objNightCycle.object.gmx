@@ -28,7 +28,7 @@
             <string>///Initialize
 
 //How fast time goes by
-timeScale = 15;
+timeScale = 10;
 dayNumber = 1;
 
 dawnStartTime = 16200 / 60;  //4:30am
