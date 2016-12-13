@@ -105,14 +105,16 @@ outsideText = "this window can act as a beacon to call travellers home ## i can 
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if room == Inside and insideTutorial {
-    insideTutorial = false
-    alarm[0] = 10 * room_speed
-    insideTextBox = scrTextBox(insideText, objFire.x, objFire.y, 6000, c_black, fnPixelatedSmallest)
-} else if room == Outside and outsideTutorial = true {
-    outsideTutorial = false
-    alarm[1] = 10 * room_speed
-    outsideTextBox = scrTextBox(outsideText, objIdol.x, objIdol.y, 6000, c_black, fnPixelatedSmallest)
+            <string>if tutorial {  
+    if room == Inside and insideTutorial {
+        insideTutorial = false
+        alarm[0] = 10 * room_speed
+        insideTextBox = scrTextBox(insideText, objFire.x, objFire.y, 6000, c_black, fnPixelatedSmallest)
+    } else if room == Outside and outsideTutorial = true {
+        outsideTutorial = false
+        alarm[1] = 10 * room_speed
+        outsideTextBox = scrTextBox(outsideText, objIdol.x, objIdol.y, 6000, c_black, fnPixelatedSmallest)
+    }
 }
 </string>
           </argument>
