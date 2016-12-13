@@ -1,4 +1,4 @@
-///scrTextBox(Text, x, y, speed)
+///scrTextBox(Text, x, y, speed, color)
 xCoord = argument1;
 yCoord = argument2;
 
@@ -12,6 +12,7 @@ with(textObj) {
     font = fnPixelatedSmaller;
     text = argument0;
     spd = argument3;
+    color = argument4;
     
     textLength = string_length(text);
     fontSize = font_get_size(font);
@@ -24,6 +25,6 @@ with(textObj) {
     boxHeight = textHeight + (padding * 2);
 }
 
-
+return textObj;
 
 

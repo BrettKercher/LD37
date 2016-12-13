@@ -69,7 +69,7 @@ else {
 //Render textbox
 draw_set_font(font);
 
-draw_set_color(c_navy);
+draw_set_color(color);
 draw_set_alpha(alpha - 0.1);
 draw_rectangle(x, y, x + boxWidth, y + boxHeight, 0);
 draw_set_alpha(alpha);

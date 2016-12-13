@@ -9,5 +9,9 @@ with objGame {
     }
 }
 
+with objMan {
+    energy = fullEnergy;
+}
+
 currentTime = 0;
 dayNumber++;
