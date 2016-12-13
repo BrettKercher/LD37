@@ -186,7 +186,7 @@ spooksterSpawnChance[NIGHT] = 0.03;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(!instance_exists(objNightCycle))
+            <string>if(room == Outside and !instance_exists(objNightCycle))
 {
     instance_create(0,0,objNightCycle);
 }
