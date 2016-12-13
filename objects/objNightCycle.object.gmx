@@ -45,7 +45,7 @@ dayAlpha = 0.0;
 duskAlpha = 0.5;
 nightAlpha = 0.7;
 
-transitionSpeed = 0.00025;
+transitionSpeed = 0.00075;
 
 //Start at Dawn
 alpha = dawnAlpha;

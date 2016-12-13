@@ -29,7 +29,8 @@
 selected = noone
 scrollSpeed = 3 * (60/room_speed)
 
-justStarting = true;
+justStartingInside = true;
+justStartingOutside = true;
 
 //for drawing the energy UI
 manList = ds_list_create()
@@ -185,7 +186,11 @@ spooksterSpawnChance[NIGHT] = 0.03;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>if(!instance_exists(objNightCycle))
+{
+    instance_create(0,0,objNightCycle);
+}
+
 scrGetKeyboardInput();
 
 var scrollIntensity = view_wview / viewwMin
