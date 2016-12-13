@@ -62,12 +62,34 @@ mainShouldFade = false;
             <string>
 if(fadeDirection == 1)
 {
-    introPics[currentPic].image_alpha += 0.01;
-    
-    if(introPics[currentPic].image_alpha &gt;= 1)
+    with(introPics[currentPic])
     {
-        introPics[currentPic].image_alpha = 1;
-        fadeDirection = 0;
+        image_alpha += 0.01;
+        
+        if(image_alpha &gt;= 1)
+        {
+            image_alpha = 1;
+            other.fadeDirection = 0;
+            alarm[0] = 1 * room_speed;
+        }
+    }
+}
+else if(fadeDirection == -1)
+{
+    with(introPics[currentPic])
+    {
+        image_alpha -= 0.01;
+        
+        if(image_alpha &lt;= 0)
+        {
+            image_alpha = 0;
+            other.currentPic++;
+            if(other.currentPic &gt;= other.numPics)
+            {
+                room_goto(Inside);
+            }
+            other.fadeDirection = 1;
+        }
     }
 }
 
@@ -76,6 +98,44 @@ if(mainShouldFade)
     objPlay.image_alpha -= 0.01;
     objTitle.image_alpha -= 0.01;
     objTutorial.image_alpha -= 0.01;
+    if(objPlay.image_alpha &lt;= 0)
+    {
+        mainShouldFade = false;
+        fadeDirection = 1;
+        currentPic = 0;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="53">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(currentPic &gt; -1 and currentPic &lt; numPics)
+{
+    introPics[currentPic].image_alpha = 0;
+    currentPic++;
+    if(currentPic &gt;= numPics)
+    {
+        room_goto(Inside);
+    }
+    fadeDirection = 1;
 }
 </string>
           </argument>
