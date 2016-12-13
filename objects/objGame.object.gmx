@@ -355,6 +355,7 @@ if(room == Outside)
     if(needsResourcePlacement)
     {
         scrPlaceResources();
+        needsResourcePlacement = false;
     }
     while(newPersonCount &gt; 0)
     {
