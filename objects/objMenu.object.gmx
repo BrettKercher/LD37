@@ -35,9 +35,9 @@ introPics[1] = objStoryBoard2;
 introPics[2] = objStoryBoard3;
 introPics[3] = objStoryBoard4;
 
-introText[0] = "# i have watched these hills for travellers ## this is the first in many seasons";
-introText[1] = "# people lived here once ##  they worshipped me ## now, i am almost forgotten";
-introText[2] = "# the heat of life gives me strength ## i will help this traveller ## he will need it";
+introText[0] = "# i have watched these hills for travelers ## this is the first in many seasons";
+introText[1] = "# people lived here once ##  they worshiped me ## now, i am almost forgotten";
+introText[2] = "# the heat of life gives me strength ## i will help this traveler ## he will need it";
 introText[3] = "# there is danger afoot";
 
 mainAlpha = 1;
