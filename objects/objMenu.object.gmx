@@ -35,6 +35,11 @@ introPics[1] = objStoryBoard2;
 introPics[2] = objStoryBoard3;
 introPics[3] = objStoryBoard4;
 
+introText[0] = "this is man";
+introText[1] = "man find church";
+introText[2] = "man build fire in church";
+introText[3] = "oooooo spooky";
+
 mainAlpha = 1;
 mainShouldFade = false;
 </string>
@@ -137,6 +142,42 @@ if(mainShouldFade)
     }
     fadeDirection = 1;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_font(fnPixelatedSmaller);
+draw_set_color(c_white);
+draw_set_halign(fa_center);
+
+if(currentPic &gt;= 0 and currentPic &lt; numPics)
+{
+    draw_set_alpha(introPics[currentPic].image_alpha);
+    draw_text(room_width / 2, (room_height / 2) + (sprite_get_height(introPics[currentPic].sprite_index)), introText[currentPic]);
+}
+
+draw_set_halign(fa_left);
+draw_set_alpha(1);
+draw_set_color(c_black);
+draw_set_font(fnArial);
 </string>
           </argument>
         </arguments>
