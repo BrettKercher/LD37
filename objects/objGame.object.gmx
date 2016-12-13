@@ -379,6 +379,7 @@ if(room == Outside)
           <argument>
             <kind>1</kind>
             <string>draw_set_alpha(1 - fadeAlpha);
+draw_set_font(fnPixelatedSmallest)
 
 //drawing resource UI
 var buffer = 4

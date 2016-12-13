@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>
-toolTipMessage = "digs gems opens doors"
+toolTipMessage = "digs gems # opens doors"
 
 woodCost = 1
 rockCost = 1

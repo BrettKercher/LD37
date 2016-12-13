@@ -221,6 +221,7 @@ glowIntensity = clamp(glowIntensity, baseGlowIntensity - maxFlickerRange, baseGl
           <argument>
             <kind>1</kind>
             <string>
+if room = Outside {
 if objGame.selected != self {
     //everyone else loses selection visual and returns to correct depth
         with objIndicator {
@@ -239,7 +240,7 @@ if objGame.selected != self {
     depth = -2
     objGame.selected = noone
 }
-
+}
 </string>
           </argument>
         </arguments>
