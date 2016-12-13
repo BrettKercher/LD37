@@ -172,6 +172,11 @@
       <object>objects\objPlay</object>
       <object>objects\objTutorial</object>
       <object>objects\objTitle</object>
+      <object>objects\objMenu</object>
+      <object>objects\objStoryBoard1</object>
+      <object>objects\objStoryBoard2</object>
+      <object>objects\objStoryBoard3</object>
+      <object>objects\objStoryBoard4</object>
     </objects>
   </objects>
   <rooms name="rooms">

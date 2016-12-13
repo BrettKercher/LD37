@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>
 image_speed = 0
-image_blend = choose(c_aqua, c_lime, c_orange)
+image_blend = choose(c_aqua, c_lime, c_orange, c_blue, c_maroon, c_yellow, c_silver)
 animationSpeed = .1
 
 //for energy/ energy UI
