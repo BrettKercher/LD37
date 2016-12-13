@@ -44,13 +44,15 @@ menuButton[5] = objBedButton
 menuButton[6] = objArtButton
 menuButton[7] = objGlassButton
 menuButton[8] = objGourmetButton
+/*
 menuButton[9] = objAxeButton
 menuButton[10] = objAxeButton
 menuButton[11] = objAxeButton
 menuButton[12] = objAxeButton
 menuButton[13] = objAxeButton
 menuButton[14] = objAxeButton
-menuButton[15] = objImmortalityButton
+*/
+menuButton[9] = objImmortalityButton
 
 buttonBuffer = 7
 buttonCount = array_length_1d(menuButton)

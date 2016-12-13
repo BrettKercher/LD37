@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Initialize
+drawToolTip = false
+toolTipMessage = "inside &lt;-&gt; outside"
 
 image_speed = 0;
 
@@ -39,6 +41,60 @@ else
 }
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with textBox {
+    instance_destroy()
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>drawTooltip = true
+
+var sprw = sprite_get_width(sprIdol)
+var sprh = sprite_get_height(sprIdol);
+textBox = scrTextBox(toolTipMessage , x + sprw/2, y + sprh/2, 200, c_black, fnPixelatedSmallest)
+textBox.depth = -100
 </string>
           </argument>
         </arguments>
