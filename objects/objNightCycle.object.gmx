@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-3</depth>
+  <depth>-999</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -46,7 +46,7 @@ dayAlpha = 0.0;
 duskAlpha = 0.5;
 nightAlpha = 0.7;
 
-transitionSpeed = 0.00025;
+transitionSpeed = 0.00075;
 
 //Start at Dawn
 alpha = dawnAlpha;
@@ -204,6 +204,7 @@ if(room == Outside) and surface_exists(nightSurface)
         draw_set_blend_mode(bm_normal);
     }
     surface_reset_target();
+    
     draw_surface_ext(nightSurface, 0, 0, 1, 1, 0, c_white, alpha);
 }
 </string>
