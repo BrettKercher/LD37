@@ -7,6 +7,7 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="UISprites">
+      <sprite>sprites\sprSun</sprite>
       <sprite>sprites\sprUIBox</sprite>
       <sprite>sprites\sprStoryBoard1</sprite>
       <sprite>sprites\sprStoryBoard2</sprite>
@@ -15,7 +16,6 @@
       <sprite>sprites\sprWinner</sprite>
       <sprite>sprites\sprLoser</sprite>
       <sprite>sprites\sprWinImortal</sprite>
-      <sprite>sprites\sprSun</sprite>
       <sprite>sprites\sprTimeLine</sprite>
       <sprite>sprites\sprRestart</sprite>
     </sprites>
@@ -78,9 +78,7 @@
       <sprite>sprites\sprTutorialOff</sprite>
       <sprite>sprites\sprTitle</sprite>
     </sprites>
-    <sprite>sprites\sprMouse</sprite>
-    <sprite>sprites\sprGround</sprite>
-    <sprites name="ResourceBoxes">
+    <sprites name="ToolBoxes">
       <sprite>sprites\sprEmptyPickBox</sprite>
       <sprite>sprites\sprEmptySpearBox</sprite>
       <sprite>sprites\sprEmptyAxeBox</sprite>
@@ -88,6 +86,8 @@
       <sprite>sprites\sprSpearBox</sprite>
       <sprite>sprites\sprPickBox</sprite>
     </sprites>
+    <sprite>sprites\sprMouse</sprite>
+    <sprite>sprites\sprGround</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -114,6 +114,7 @@
       <script>scripts\scrClampView.gml</script>
       <script>scripts\scrZoomView.gml</script>
     </scripts>
+    <script>scripts\scrGUIButton.gml</script>
     <script>scripts\scrManDeath.gml</script>
     <script>scripts\scrImageClamp.gml</script>
     <script>scripts\scrGetKeyboardInput.gml</script>
@@ -133,6 +134,7 @@
   </fonts>
   <objects name="objects">
     <object>objects\objIndicator</object>
+    <object>objects\objWaypointIndicator</object>
     <object>objects\objGame</object>
     <object>objects\objMouse</object>
     <object>objects\objGround</object>
@@ -141,16 +143,19 @@
     <object>objects\objNightCycle</object>
     <object>objects\objResource</object>
     <object>objects\objWaypoint</object>
-    <object>objects\objToolBox</object>
-    <object>objects\objAxeBox</object>
-    <object>objects\objPickBox</object>
-    <object>objects\objSpearBox</object>
+    <object>objects\objWanderBoundary</object>
     <object>objects\objTextBox</object>
     <objects name="ResourcePlacement">
       <object>objects\objChurchZoneMarker</object>
       <object>objects\objResourceSpawner</object>
       <object>objects\objGateMarker</object>
       <object>objects\objGate</object>
+    </objects>
+    <objects name="ToolBoxes">
+      <object>objects\objPickBox</object>
+      <object>objects\objSpearBox</object>
+      <object>objects\objAxeBox</object>
+      <object>objects\objToolBox</object>
     </objects>
     <objects name="RoomObjects">
       <objects name="SmokeMenuObjects">

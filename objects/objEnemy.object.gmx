@@ -94,7 +94,6 @@ canAttack = true
             <string>///wandering -&gt; idle
 if state == scrStateEnemyWandering {
     state = scrStateEnemyIdle
-    hspeed = 0
 }
 
 </string>
@@ -180,27 +179,27 @@ if energy &lt;= 0 {
             <kind>1</kind>
             <string>
 if sprite_index = sprEnemyAttacking {
+    sprite_index = sprEnemy
     attacking = false
+    canAttack = false
+    alarm[1] = 120 * (60/room_speed)
     if combatTarget != noone {
         //does damage and follows the target
         if place_meeting(x,y,combatTarget) {
             combatTarget.energy -= damage
         }
-        canAttack = false
-        alarm[1] = 60 * (60/room_speed)
         var len = normalSpeed
         dir = point_direction(x, y, combatTarget.x, combatTarget.y)
         hspeed = lengthdir_x(len, dir)
         //triggers counterattack 
         if combatTarget.energy &lt;= 10 {
             state = scrStateEnemyIdle
-            sprite_index = sprEnemy
-            image_index = 0
-            hspeed = 0
             inCombat = false
             with combatTarget {
                 if objGame.selected == self {
-                    with objIndicator { instance_destroy() }
+                    with objIndicator { 
+                        instance_destroy() 
+                    }
                     objGame.selected = noone
                 }
                 with objWaypoint {
@@ -254,6 +253,8 @@ var sprw = sprite_get_width(sprEnergyBar)
 if energy &lt; fullEnergy or inCombat {
     draw_sprite_ext(sprEnergyBar,sprnum-ceil(sprnum*(energy/fullEnergy)), x + sprw/4, y - sprh,.5,.5,0,image_blend, 1)
 }
+
+draw_text(x,y,idleTime)
 </string>
           </argument>
         </arguments>

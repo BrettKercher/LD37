@@ -1,39 +1,18 @@
 ///scrStateIdle
+//counts up idle time
+idleTime ++
 
-if(room == Outside)
-{
-    //counts up idle time
-    idleTime ++
-    
-    //at critical mass, changes state
-    //if you have resource, go drop it off
-    if ds_stack_size(held) > 0 and idleTime >= 300 {
-        state = scrStateReturning
-        idleTime = 0
-    //if you don't, wander around
-    } else if idleTime >= 300 {
-        state = scrStateWandering
-        alarm[0] = irandom_range(60, 180)
-        idleTime = 0
-        //wander around home
-        if distanceHome < sprite_get_width(sprRoomOutside) {
-            dir = choose(180, 0)
-        //if youre home, stay around there
-        } else if distanceHome < 2*sprite_get_width(sprRoomOutside){
-            dir = point_direction(x, y, objDoor.x, objDoor.y)
-        //if youre far away, make sure you arent about to walk out of the room
-        } else {
-            if (x < 200) {
-                dir = 0
-            } else if ((room_width - x) < 200) {
-                dir = 180
-            } else {
-                //random direction if you aren't in danger of escaping
-                dir = choose(0, 180)
-            }
-        }
-    }
-}
+//at critical mass, changes state
+//if you have resource, go drop it off
+if ds_stack_size(held) > 0 and idleTime >= 300 {
+    state = scrStateReturning
+    idleTime = 0
+//if you don't, wander around (alarm returns to idle after)
+} else if idleTime >= 300 {
+    state = scrStateWandering
+    alarm[0] = irandom_range(60, 180)
+    idleTime = 0
+}  
     
 //keeps them from overlapping too much
 if place_meeting(x, y, objMan) {
@@ -50,6 +29,18 @@ if place_meeting(x, y, objMan) {
 } else {
     hspeed = 0
 }
+
+//find the closest boundary to make sure you don't go past it
+nearestBound = instance_nearest(x,y,objWanderBoundary)
+var distanceToBound = point_distance(x, y, nearestBound.x, nearestBound.y)
+//if you're not close to a bound, do whatever (90 is the furthest you can wander)
+if distanceToBound > 90 {
+    dir = choose(180, 0)
+//if you're close to a bound, turn around
+} else if distanceToBound < 90 {
+    dir = point_direction(nearestBound.x, nearestBound.y, x, y)
+}
+
 
 //if youre idle on the bucket, just shifts you straight to returning if you have something
 if place_meeting(x, y, objBucket) and !ds_stack_empty(held) {

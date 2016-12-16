@@ -29,9 +29,6 @@
 selected = noone
 scrollSpeed = 3 * (60/room_speed)
 
-//for drawing the energy UI
-manList = ds_list_create()
-
 //improvements
 artCount = 0
 brickCount = 0
@@ -40,6 +37,9 @@ glassCount = 0
 win = false;
 
 //for drawing the UI
+//energy bars
+manList = ds_list_create()
+//resource list
 sprArray[0] = sprWood
 sprArray[1] = sprRocks
 sprArray[2] = sprCarrots
@@ -47,15 +47,18 @@ sprArray[3] = sprSap
 sprArray[4] = sprGem
 sprArray[5] = sprFur
 sprArray[6] = sprEcto
+//food
+stewCount = 0
+gourmetCount = 0
 
 //resource count
-resources[WOOD] = 0;
-resources[ROCK] = 0;
-resources[FOOD] = 0;
-resources[SAP] = 0;
-resources[GEM] = 0;
-resources[FUR] = 0;
-resources[ECTO] = 0;
+resources[WOOD] = 99;
+resources[ROCK] = 99;
+resources[FOOD] = 99;
+resources[SAP] = 99;
+resources[GEM] = 99;
+resources[FUR] = 99;
+resources[ECTO] = 99;
 
 //tool stuff
 hasBoughtAxe = false;
@@ -200,6 +203,7 @@ scrZoomView()
 //cant go that far
 scrClampView()
 
+//spawns spooksters
 scrSpawnSpooksters();
 
 if(fadeDirection == 1)
@@ -302,6 +306,9 @@ if selected != noone {
     if instance_exists(objWaypoint) {
         with objWaypoint {
             if owner == objGame.selected {
+                with myIndicator {
+                    instance_destroy()
+                }
                 instance_destroy()
             }
         }
@@ -397,6 +404,21 @@ for (i = 0; i &lt; len; i++) {
 }  
 draw_set_alpha(1);
 
+//draws available food
+sprh = sprite_get_height(sprUIBox)
+if scrGUIButton(sprStew, sprGourmet, buffer, sprh + 2*buffer, buffer, objGame.stewCount, objGame.gourmetCount) = STEW {
+    with objMan {
+        energy += (fullEnergy - energy)/2
+        objGame.stewCount--
+    }
+} else if scrGUIButton(sprStew, sprGourmet, buffer, sprh + 2*buffer, buffer, objGame.stewCount, objGame.gourmetCount) = GOURMET {
+    with objMan {
+        energy = fullEnergy
+        objGame.gourmetCount--
+    }
+}
+
+//draws health bars for living men
 if instance_exists(objMan) {
     var sprnum = sprite_get_number(sprEnergyBar)
     var size = ds_list_size(manList)

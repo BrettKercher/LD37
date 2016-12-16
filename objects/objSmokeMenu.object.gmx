@@ -151,9 +151,7 @@ if doneCrafting = true {
             objGame.newPersonCount++;
             break;
         case objStewButton.id:
-            with objMan {
-                energy += (fullEnergy - energy) /2
-            }
+            objGame.stewCount++
             break;
         case objArtButton.id:
             objGame.artCount ++
@@ -163,9 +161,7 @@ if doneCrafting = true {
             objGame.brickCount ++
             break;
         case objGourmetButton.id:
-            with objMan {
-                energy = fullEnergy
-            }
+            objGame.gourmetCount++
             default:
             show_debug_message("here")
             break;

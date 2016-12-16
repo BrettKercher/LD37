@@ -1,5 +1,6 @@
 ///scrStateWandering
 
+//start moving, unless you hit a door you can't open
 if(!collided)
 {
     var len = wanderSpeed

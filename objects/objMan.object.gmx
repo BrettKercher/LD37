@@ -41,7 +41,7 @@ weight = 1
 dir = 0
 waypoint = noone
 collided = false
-distanceHome = point_distance(x, y, objDoor.x, objDoor.y)
+nearestBound = instance_nearest(x,y,objWanderBoundary);
 weak = false;
 normalSpeed = 3 * (60/room_speed)
 wanderSpeed = .5 * (60/room_speed)
@@ -322,6 +322,7 @@ target = noone;
 waypoint = noone;
 ds_stack_clear(held);
 
+/* lets you take tools inside to stop one from disappearing
 if(tool != noone)
 {
     objGame.tools[tool]++;

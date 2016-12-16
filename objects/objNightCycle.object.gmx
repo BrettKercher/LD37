@@ -31,7 +31,8 @@
 timeScale = 10;
 dayNumber = 1;
 
-dawnStartTime = 16200 / 60;  //4:30am
+//dawnStartTime = 16200 / 60;  //4:30am now that we don't use analog clock, you don't have to start at any time other than 0
+dawnStartTime = 0
 dayStartTime = 32400 / 60;   //9:00am
 duskStartTime = 59400 / 60;  //4:30pm
 nightStartTime = 75600 / 60; //9:00pm
@@ -161,35 +162,12 @@ if(phase == NIGHT)
             <kind>1</kind>
             <string>
 //drawing timline
+draw_set_alpha(1 - objGame.fadeAlpha)
 draw_sprite(sprTimeLine, 0, view_wport/2, 0)
 var sprw = sprite_get_width(sprTimeLine)
 var sprh = sprite_get_height(sprTimeLine);
 draw_sprite(sprSun,0, view_wport/2 - sprw/2 + sprw*(objNightCycle.currentTime/objNightCycle.midnight), sprh/2)
-
-/*
-var tempTime = currentTime;
-var AmPm = "AM";
-
-if(tempTime &gt;= noon)
-{
-    tempTime -= noon;
-    AmPm = "PM";
-}
-
-var hours = floor(tempTime / 60);
-var minutes = floor(tempTime - (hours * 60));
-
-if(hours == 0)
-{
-    hours = 12;
-}
-
-var timeString = string_format(minutes, 2, 0);
-timeString = string_replace(timeString, ' ', '0');
-
-draw_set_alpha(1 - objGame.fadeAlpha);
-draw_text(0 , 96, string(hours) + ":" + timeString + AmPm);
-draw_set_alpha(1);
+draw_set_alpha(1)
 
 </string>
           </argument>

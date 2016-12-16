@@ -651,7 +651,7 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="14">
+    <constants number="16">
       <constant name="WOOD">0</constant>
       <constant name="ROCK">1</constant>
       <constant name="FOOD">2</constant>
@@ -666,6 +666,8 @@
       <constant name="AXE">0</constant>
       <constant name="PICK">1</constant>
       <constant name="SPEAR">2</constant>
+      <constant name="STEW">0</constant>
+      <constant name="GOURMET">1</constant>
     </constants>
   </ConfigConstants>
 </Config>

@@ -26,8 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>
-image_alpha = .3
+image_alpha = .6
 image_speed = .3 * (60/room_speed)
+byPlayer = false
 
 owner = noone
 

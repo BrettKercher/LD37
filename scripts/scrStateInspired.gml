@@ -9,8 +9,12 @@ if objGame.selected == self and instance_exists(objWaypoint) and !attacking  and
     } else {
         hspeed = lengthdir_x((wanderSpeed/(2*weight)), dir)
     }
+    if ds_stack_empty(held) {
+        sprite_index = sprMan
+    } else {
+        sprite_index = sprManCollecting
+    }
     image_speed = animationSpeed
-
 }
 
 //destroy it when there
@@ -33,6 +37,9 @@ if (abs(x - target) <= 5 or collided) {
                 instance_destroy();
                 exit;
             }
+        }
+        with myIndicator {
+            instance_destroy()
         }
         instance_destroy()
     }
