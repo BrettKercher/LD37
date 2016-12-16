@@ -32,9 +32,6 @@ scrollSpeed = 3 * (60/room_speed)
 justStartingInside = true;
 justStartingOutside = true;
 
-//for drawing the energy UI
-manList = ds_list_create()
-
 //improvements
 artCount = 0
 brickCount = 0
