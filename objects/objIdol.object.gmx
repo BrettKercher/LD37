@@ -135,7 +135,6 @@ if (room == Outside or (room == Inside and !objSmokeMenu.open)) {
     {
         nextRoom = Outside;
     }
-    objGame.selected = noone;
     objGame.newRoom = nextRoom;
     objGame.fadeDirection = 1;
     //Start returning everyone home
@@ -150,11 +149,20 @@ if (room == Outside or (room == Inside and !objSmokeMenu.open)) {
             scrDropResources();
         }
     }
-    
-    //Remove all waypoints
+    //no one is selected anymore
+    objGame.selected = noone;
+    //Remove all waypoints and indicators
+    with(objWaypointIndicator)
+    {
+        instance_destroy()
+    }
     with(objWaypoint)
     {
-        instance_destroy();
+        instance_destroy()
+    }
+    with(objIndicator)
+    {
+        instance_destroy()
     }
 }
 

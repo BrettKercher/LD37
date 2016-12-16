@@ -229,7 +229,7 @@ if objGame.selected != self {
             instance_destroy()
         }
         depth = -2
-    var ind = instance_create(x,y-1,objIndicator);
+    var ind = instance_create(x,y,objIndicator);
     ind.owner = self
     depth --
     //become selected

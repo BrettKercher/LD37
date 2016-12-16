@@ -53,7 +53,9 @@ owner = noone
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = owner.x
+            <string>if owner != noone {
+    x = owner.x
+}
 </string>
           </argument>
         </arguments>
