@@ -4,10 +4,9 @@ with objGame {
     fadeDirection = 1;
     endOfDay = true;
     isNewDay = true;
-    for(var i = 0; i < array_length_1d(tools); i++)
-    {
-        tools[i] = 0;
-    }
+    objGame.stored[AXE] = 0
+    objGame.stored[PICK] = 0
+    objGame.stored[SPEAR] = 0
 }
 
 with objMan {

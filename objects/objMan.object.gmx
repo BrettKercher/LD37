@@ -56,6 +56,7 @@ gateDestroyDelayTime = 2 * room_speed;
 
 //combat
 damage = 10
+spearDamage = 20
 combatTarget = noone;
 canAttack = true
 attacking = false
@@ -162,6 +163,11 @@ if energy &lt;= 0 {
     weak = false;
 }
 
+//tool damage
+if tool = SPEAR {
+    damage = spearDamage
+}
+
 //facing
 if hspeed &lt; 0 {
     image_xscale = -1
@@ -223,24 +229,24 @@ glowIntensity = clamp(glowIntensity, baseGlowIntensity - maxFlickerRange, baseGl
             <kind>1</kind>
             <string>
 if room = Outside {
-if objGame.selected != self {
-    //everyone else loses selection visual and returns to correct depth
+    if objGame.selected != self {
+        //everyone else loses selection visual and returns to correct depth
+            with objIndicator {
+                instance_destroy()
+            }
+            depth = -2
+        var ind = instance_create(x,y,objIndicator);
+        ind.owner = self
+        depth --
+        //become selected
+        objGame.selected = self
+    } else if state != scrStateInspired {
         with objIndicator {
             instance_destroy()
         }
         depth = -2
-    var ind = instance_create(x,y,objIndicator);
-    ind.owner = self
-    depth --
-    //become selected
-    objGame.selected = self
-} else if state != scrStateInspired {
-    with objIndicator {
-        instance_destroy()
+        objGame.selected = noone
     }
-    depth = -2
-    objGame.selected = noone
-}
 }
 </string>
           </argument>
@@ -279,6 +285,7 @@ if state = scrStateCombat {
     if combatTarget != noone {
         combatTarget.energy -= damage
     }
+//reconfigures basic variables after crafting state ends
 } else if state == scrStateCrafting {
     crafting = false
     sprite_index = sprMan
@@ -322,12 +329,6 @@ target = noone;
 waypoint = noone;
 ds_stack_clear(held);
 
-/* lets you take tools inside to stop one from disappearing
-if(tool != noone)
-{
-    objGame.tools[tool]++;
-    tool = noone;
-}
 </string>
           </argument>
         </arguments>
@@ -350,7 +351,8 @@ if(tool != noone)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var sprnum = sprite_get_number(sprEnergyBar)
+            <string>//draws a progress bar for breaking walls and crafting and equipping
+var sprnum = sprite_get_number(sprEnergyBar)
 var sprNum = sprite_get_number(sprManGathering)
 var sprh = sprite_get_height(sprEnergyBar)
 var sprw = sprite_get_width(sprEnergyBar)
@@ -361,6 +363,7 @@ if state = scrStateRemovingGate {
 }
 
 //draws a tool
+draw_set_alpha(1 - objGame.fadeAlpha)
 var sprw = sprite_get_width(sprite_index)/2;
 switch (tool) {
     case PICK:
@@ -373,7 +376,11 @@ switch (tool) {
         draw_sprite(sprSpearButton,0,x - sprw,y)
         break;
 }
+draw_set_alpha(1)
+
 draw_self()
+draw_text(x,y,tool)
+
 </string>
           </argument>
         </arguments>

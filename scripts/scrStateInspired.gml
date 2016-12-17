@@ -63,9 +63,14 @@ if (abs(x - target) <= 5 or collided) {
         }
     } 
     else if(place_meeting(x, y, objToolBox)) {
-        state = scrStateEquipping;
-        idleTime = 0;
-        show_debug_message("Equipping");
+        //only starts equipping if you even can
+        var hit = instance_place(x,y,objToolBox)
+        if hit.sprite_index != hit.emptySprite and (tool == hit.toolType or tool == noone) and ds_stack_empty(held){
+            state = scrStateEquipping;
+            hit.beingEquipped = true
+            idleTime = 0;
+            show_debug_message("Equipping");
+        }
     } 
     else {
         state = scrStateIdle

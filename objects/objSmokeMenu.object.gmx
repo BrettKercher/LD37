@@ -132,16 +132,16 @@ if doneCrafting = true {
     objGame.resources[ECTO] -= queueItem.ectoCost
     switch (queueItem){
         case objPickButton.id:
-            objGame.tools[PICK] ++
-            objGame.hasBoughtPick = true
+            objGame.stored[PICK] ++
+            objGame.bought[PICK] = true
             break;
         case objAxeButton.id:
-            objGame.tools[AXE] ++
-            objGame.hasBoughtAxe = true
+            objGame.stored[AXE] ++
+            objGame.bought[AXE] = true
             break;
         case objSpearButton.id:
-            objGame.tools[SPEAR] ++
-            objGame.hasBoughtSpear = true
+            objGame.stored[SPEAR] ++
+            objGame.bought[SPEAR] = true
             break;
         case objGlassButton.id:
             objGame.glassCount++

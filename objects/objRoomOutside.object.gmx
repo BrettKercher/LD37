@@ -79,6 +79,7 @@ image_speed = 0;
             <string>
 draw_sprite(sprRoomOutsideBack, 0, x, y)
 draw_self()
+draw_sprite(sprBucketSign, 0, objBucket.x, objBucket.y)
 
 </string>
           </argument>

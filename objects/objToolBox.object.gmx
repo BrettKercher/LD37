@@ -26,10 +26,137 @@
           <argument>
             <kind>1</kind>
             <string>
+//basic variable init
+beingEquipped = false
+equipPercent = 0
+fullEquip = 50
 depth = 2
 image_speed = 0;
 image_index = 0;
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+//when in contact with equipping man, gets equipped
+if place_meeting(x, y, objMan) {
+    var equipper = instance_place(x,y, objMan)
+    if equipper.state == scrStateEquipping {
+        //gains equip percent when player is there
+        equipPercent ++;
+    }   
+} else {
+    equipPercent = 0
+    beingEquipped = false
+}
+
+//once it hits 100%, give player the resource
+if (equipPercent &gt;= fullEquip) and beingEquipped = true {
+    if equipper != noone and objGame.stored[toolType] &gt; 0 and equipper.tool == noone {
+        objGame.stored[toolType]--;
+        objGame.held[toolType]++
+        image_index = clamp(objGame.stored[toolType], 0, 2);
+        equipper.tool = toolType;
+    }
+    else if(equipper != noone and equipper.tool == toolType) {
+        objGame.stored[toolType]++;
+        objGame.held[equipper.tool]--
+        image_index = clamp(objGame.stored[toolType], 0, 2);
+        equipper.tool = noone;
+    }
+    with equipper {
+        state = scrStateIdle;
+        sprite_index = sprMan
+        image_speed = 0
+        image_index = 0
+    }
+    equipPercent = 0
+    beingEquipped = false;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+//decides what sprite/subimage to use
+image_index = clamp(objGame.stored[toolType], 0, 2);
+if !objGame.bought[toolType] {
+    sprite_index = emptySprite
+} else {
+    sprite_index = storedSprite
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self()
+draw_text(x,y,equipPercent)
+
+var sprnum = sprite_get_number(sprEnergyBar)
+var sprh = sprite_get_height(sprEnergyBar)/2
+var sprw = sprite_get_width(sprEnergyBar)/2
+if beingEquipped {
+    if equipPercent = 0 {
+        draw_sprite_ext(sprEnergyBar,sprnum - 1,x - sprw/2,y - (2*sprh),.5,.5,0, image_blend, 1)
+    } else {
+        draw_sprite_ext(sprEnergyBar,sprnum-ceil(sprnum*(equipPercent/50)),x + sprw/2, y - (2*sprh),.5,.5,0,image_blend, 1)
+    }
+}
 </string>
           </argument>
         </arguments>

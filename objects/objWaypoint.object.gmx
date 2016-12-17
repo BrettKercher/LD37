@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>
-//variable inti
+//variable init
 image_alpha = .6
 image_blend = objGame.selected.image_blend
 owner = objGame.selected
@@ -55,20 +55,24 @@ if place_meeting(x, y, objResource) {
     }
     x = hit.x
 }
+
+//same for a toolbox, but only if a tool has been built
 else if place_meeting(x, y, objToolBox) {
     var hit = instance_place(x, y, objToolBox);
-    switch (hit.toolType) {
-        case AXE:
-            image_index = 1
-            break;
-        case PICK:
-            image_index = 2
-            break;
-        case SPEAR:
-            image_index = 3
-            break;
-    }
-    x = hit.x
+        if hit.sprite_index = hit.emptySprite and ds_stack_empty(objGame.selected.held){
+        switch (hit.toolType) {
+            case AXE:
+                image_index = 1
+                break;
+            case PICK:
+                image_index = 2
+                break;
+            case SPEAR:
+                image_index = 3
+                break;
+        }
+        x = hit.x
+        }
 }
 
 if place_meeting(x, y, objEnemy) {

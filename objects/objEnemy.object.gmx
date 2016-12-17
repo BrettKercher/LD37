@@ -203,8 +203,10 @@ if sprite_index = sprEnemyAttacking {
                     objGame.selected = noone
                 }
                 with objWaypoint {
-                    show_debug_message("here")
                     if owner == other {
+                        with myIndicator {
+                            instance_destroy()
+                        }
                         instance_destroy()
                     }
                 }

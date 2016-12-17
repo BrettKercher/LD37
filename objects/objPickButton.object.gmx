@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>
-toolTipMessage = "digs gems # opens doors"
+toolTipMessage = "get rocks faster #digs gems #opens doors"
 
 woodCost = 1
 rockCost = 1
@@ -49,7 +49,7 @@ event_inherited()
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -66,9 +66,12 @@ event_inherited()
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited()
-if drawTooltip {
-    //scrTextBox("just a test homie", x,y, 200)
+            <string>
+event_inherited()
+if objGame.stored[PICK] &lt; 2{
+    image_index = 0
+} else {
+    image_index = 1
 }
 </string>
           </argument>

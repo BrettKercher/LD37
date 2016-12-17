@@ -64,12 +64,16 @@ resources[FUR] = 99;
 resources[ECTO] = 99;
 
 //tool stuff
-hasBoughtAxe = false;
-hasBoughtPick = false;
-hasBoughtSpear = false;
-tools[AXE] = 0;
-tools[PICK] = 0;
-tools[SPEAR] = 0;
+bought[AXE] = false;
+bought[PICK] = false;
+bought[SPEAR] = false;
+stored[AXE] = 0;
+stored[PICK] = 0;
+stored[SPEAR] = 0;
+held[AXE] = 0;
+held[PICK] = 0;
+held[SPEAR] = 0;
+
 
 //view parameters
 viewwMin = view_wview/2
@@ -196,6 +200,7 @@ spooksterSpawnChance[NIGHT] = 0.03;
 
 scrGetKeyboardInput();
 
+//scroll faster the farther out you have zoomed
 var scrollIntensity = view_wview / viewwMin
 
 //scroll view
@@ -452,7 +457,7 @@ draw_set_font(fnPixelated);
 
 var hh = string_height("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 draw_text(view_wport[0] / 2, view_hport[0] / 2, "A New Day Begins");
-draw_text_transformed(view_wport[0] / 2, (view_hport[0] / 2) + (2*hh), "Your tools were destroyed during the night", 0.5, 0.5, 0);
+draw_text_transformed(view_wport[0] / 2, (view_hport[0] / 2) + (2*hh), "tools left outside were lost during the night", 0.5, 0.5, 0);
 
 draw_set_font(fnArial);
 draw_set_halign(fa_left);

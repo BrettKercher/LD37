@@ -27,8 +27,10 @@
             <kind>1</kind>
             <string>
 gatherPercent = 0
-requiredTool = noone;
+fullGather = 100
 beingGathered = false
+
+requiredTool = noone;
 player = noone;
 image_speed = 0;
 tierTwo = false;
@@ -67,7 +69,7 @@ if place_meeting(x, y, objMan) {
         if((gatherer.tool == AXE and type == WOOD)
             or (gatherer.tool == PICK and type == ROCK)
             or (gatherer.tool == SPEAR and type == FOOD)) {
-            gatherPercent += 2;
+            gatherPercent += 10;
         }
         else {
             gatherPercent ++;
@@ -75,7 +77,7 @@ if place_meeting(x, y, objMan) {
         
     }
     //once it hits 100%, give player the resource
-    if (gatherPercent &gt;= 100) {
+    if (gatherPercent &gt;= fullGather) {
         if(!tierTwo)
         {
             with gatherer {

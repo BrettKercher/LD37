@@ -52,6 +52,7 @@
       <sprite>sprites\sprRoomOutside</sprite>
       <sprite>sprites\sprRoomOutsideBack</sprite>
       <sprite>sprites\sprRoomInside</sprite>
+      <sprite>sprites\sprBucketSign</sprite>
       <sprite>sprites\sprBucket</sprite>
       <sprite>sprites\sprIdol</sprite>
       <sprite>sprites\sprFire</sprite>
@@ -152,25 +153,25 @@
       <object>objects\objGate</object>
     </objects>
     <objects name="ToolBoxes">
+      <object>objects\objToolBox</object>
       <object>objects\objPickBox</object>
       <object>objects\objSpearBox</object>
       <object>objects\objAxeBox</object>
-      <object>objects\objToolBox</object>
     </objects>
     <objects name="RoomObjects">
       <objects name="SmokeMenuObjects">
+        <object>objects\objSmokeMenu</object>
         <object>objects\objButtonParent</object>
         <object>objects\objPickButton</object>
-        <object>objects\objImmortalityButton</object>
-        <object>objects\objGourmetButton</object>
-        <object>objects\objGlassButton</object>
-        <object>objects\objBedButton</object>
-        <object>objects\objStewButton</object>
         <object>objects\objAxeButton</object>
         <object>objects\objSpearButton</object>
-        <object>objects\objArtButton</object>
+        <object>objects\objStewButton</object>
+        <object>objects\objGourmetButton</object>
+        <object>objects\objBedButton</object>
         <object>objects\objBrickButton</object>
-        <object>objects\objSmokeMenu</object>
+        <object>objects\objGlassButton</object>
+        <object>objects\objArtButton</object>
+        <object>objects\objImmortalityButton</object>
       </objects>
       <object>objects\objFire</object>
       <object>objects\objDoor</object>

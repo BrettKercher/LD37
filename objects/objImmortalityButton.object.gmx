@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>toolTipMessage = "only if # my room # is rebuilt"
+            <string>toolTipMessage = "only if #my room #is rebuilt"
 
 woodCost = 0
 rockCost = 0

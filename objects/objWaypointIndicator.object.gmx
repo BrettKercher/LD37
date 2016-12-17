@@ -78,8 +78,9 @@ owner = noone
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-image_blend = owner.image_blend
+            <string>if owner != noone {
+    image_blend = owner.image_blend
+}
 draw_self()
 
 </string>
