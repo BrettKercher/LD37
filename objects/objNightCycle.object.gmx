@@ -30,28 +30,31 @@
 //How fast time goes by
 timeScale = 10;
 dayNumber = 1;
+  
+startTime[DAWN] = 0;
+startTime[DAY] = 360;   
+startTime[DUSK] = 720;
+startTime[NIGHT] = 1080; 
+startTime[NIGHT+1] = 1440;
 
-//dawnStartTime = 16200 / 60;  //4:30am now that we don't use analog clock, you don't have to start at any time other than 0
-dawnStartTime = 0
-dayStartTime = 32400 / 60;   //9:00am
-duskStartTime = 59400 / 60;  //4:30pm
-nightStartTime = 75600 / 60; //9:00pm
-
-midnight = 86400 / 60;
-noon = 43200 / 60;
+colourSet[DAWN] = make_colour_rgb(209,206,176)
+colourSet[DAY] = make_colour_rgb(111,196,210)
+colourSet[DUSK] = make_colour_rgb(50,130,200)
+colourSet[NIGHT] = make_colour_rgb(43,106,166)
+colourSet[NIGHT+1] = make_colour_rgb(22,25,74)
 
 //Darkness values
-dawnAlpha = 0.4;
-dayAlpha = 0.0;
-duskAlpha = 0.5;
-nightAlpha = 0.7;
+alphaSet[DAWN] = 0.6;
+alphaSet[DAY] = 0.1;
+alphaSet[DUSK] = 0.1;
+alphaSet[NIGHT] = 0.6;
 
 transitionSpeed = 0.00075;
 
 //Start at Dawn
-alpha = dawnAlpha;
 phase = DAWN;
-currentTime = dawnStartTime;
+alpha = alphaSet[phase];
+currentTime = startTime[phase];
 
 //Texture to overlay
 nightSurface = surface_create(room_width, room_height);
@@ -77,24 +80,32 @@ nightSurface = surface_create(room_width, room_height);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(!objGame.endOfDay)
+            <string>
+//NOTHING STOPS THE CRUSHING EMBRACE OF TIME
+if(!objGame.endOfDay)
 {
     currentTime += (1 / room_speed) * timeScale;
 }
 
-if(currentTime &gt; midnight)
+//ends the day at the conclusion of night phase
+if(currentTime &gt; startTime[NIGHT+1])
 {
     scrDoEndOfDay();
 }
 
+//changes skybox color
+var mergePercent = (currentTime-startTime[phase])/(startTime[phase + 1]-startTime[phase]);
+background_blend[0] = merge_colour(colourSet[phase], colourSet[phase + 1], mergePercent)
+
+//day phase alpha transitions
 if(phase == DAWN)
 {
-    if(alpha &gt; dawnAlpha)
+    if(alpha &gt; alphaSet[phase])
     {
         alpha -= transitionSpeed
     }
     
-    if(currentTime &gt; dayStartTime)
+    if(currentTime &gt; startTime[phase + 1])
     {
         phase = DAY;
     }
@@ -102,12 +113,12 @@ if(phase == DAWN)
 
 if(phase == DAY)
 {
-    if(alpha &gt; dayAlpha)
+    if(alpha &gt; alphaSet[phase])
     {
         alpha -= transitionSpeed
     }
     
-    if(currentTime &gt; duskStartTime)
+    if(currentTime &gt; startTime[phase + 1])
     {
         phase = DUSK;
     }
@@ -115,12 +126,12 @@ if(phase == DAY)
 
 if(phase == DUSK)
 {
-    if(alpha &lt; duskAlpha)
+    if(alpha &lt; alphaSet[phase])
     {
         alpha += transitionSpeed
     }
     
-    if(currentTime &gt; nightStartTime)
+    if(currentTime &gt; startTime[phase + 1])
     {
         phase = NIGHT;
     }
@@ -128,16 +139,12 @@ if(phase == DUSK)
 
 if(phase == NIGHT)
 {
-    if(alpha &lt; nightAlpha)
+    if(alpha &lt; alphaSet[phase])
     {
         alpha += transitionSpeed
     }
-    
-    if(currentTime &gt; dawnStartTime and currentTime &lt; nightStartTime)
-    {
-        phase = DAWN;
-    }
 }
+
 </string>
           </argument>
         </arguments>
@@ -166,7 +173,14 @@ draw_set_alpha(1 - objGame.fadeAlpha)
 draw_sprite(sprTimeLine, 0, view_wport/2, 0)
 var sprw = sprite_get_width(sprTimeLine)
 var sprh = sprite_get_height(sprTimeLine);
-draw_sprite(sprSun,0, view_wport/2 - sprw/2 + sprw*(objNightCycle.currentTime/objNightCycle.midnight), sprh/2)
+draw_sprite(sprSun,0, view_wport/2 - sprw/2 + sprw*(currentTime/startTime[NIGHT+1]), sprh/2)
+draw_text(view_wport/2 - sprw/2 + sprw*(currentTime/startTime[NIGHT+1]), sprh/2, string(dayNumber))
+
+//draws end day button
+if scrGUIButton(sprEndDayButton, view_wport/2, sprh) {
+    scrDoEndOfDay();
+}
+
 draw_set_alpha(1)
 
 </string>
@@ -207,31 +221,6 @@ if(room == Outside) and surface_exists(nightSurface)
     
     draw_surface_ext(nightSurface, 0, 0, 1, 1, 0, c_white, alpha);
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="70">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///End Day early
-
-scrDoEndOfDay();
 </string>
           </argument>
         </arguments>

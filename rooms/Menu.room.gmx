@@ -53,7 +53,7 @@
   <instances>
     <instance objName="objMouse" x="224" y="64" name="inst_44708ADE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSettings" x="0" y="0" name="inst_46F216B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objPlay" x="480" y="384" name="inst_19A729CD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objPlay" x="480" y="320" name="inst_19A729CD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTutorial" x="480" y="448" name="inst_6F6792B1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTitle" x="480" y="96" name="inst_1D56CE24" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMenu" x="0" y="32" name="inst_B5AA8EF1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -61,6 +61,8 @@
     <instance objName="objStoryBoard2" x="832" y="256" name="inst_2FCA9369" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objStoryBoard3" x="832" y="352" name="inst_8A9A2049" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objStoryBoard4" x="832" y="448" name="inst_37E4283C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCutscene" x="480" y="384" name="inst_8A4D795E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objControls" x="640" y="224" name="inst_A01DE55E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

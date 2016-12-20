@@ -55,13 +55,13 @@ stewCount = 0
 gourmetCount = 0
 
 //resource count
-resources[WOOD] = 99;
-resources[ROCK] = 99;
-resources[FOOD] = 99;
-resources[SAP] = 99;
-resources[GEM] = 99;
-resources[FUR] = 99;
-resources[ECTO] = 99;
+resources[WOOD] = 3;
+resources[ROCK] = 1;
+resources[FOOD] = 2;
+resources[SAP] = 0;
+resources[GEM] = 0;
+resources[FUR] = 2;
+resources[ECTO] = 0;
 
 //tool stuff
 bought[AXE] = false;
@@ -80,6 +80,7 @@ viewwMin = view_wview/2
 viewhMin = view_hview/2
 viewwMax = view_wview*2
 viewhMax = view_hview*2
+setParallax = true
 
 //smaller = faster
 zoomSpeed = 5
@@ -216,6 +217,13 @@ scrZoomView()
 //cant go that far
 scrClampView()
 
+//background parallax
+if room == Outside {
+    for (var i = 0; background_visible[i]; i++) {
+        background_x[i] = parallax[i] * view_xview
+    }
+}
+
 //spawns spooksters
 scrSpawnSpooksters();
 
@@ -235,7 +243,19 @@ if(fadeDirection == 1)
             fadeDirection = 0;
             endOfDayDirection = 1;
             needsResourcePlacement = true;
-            objNightCycle.currentTime = objNightCycle.dawnStartTime;
+            //changes the night/day cycle stuff to happen during the screen transition
+            //so it's less obvious
+            with objNightCycle {
+                phase = DAWN
+                currentTime = startTime[phase];
+                background_colour = colourSet[phase]
+                dayNumber++;
+            }
+            //same with refilling energy
+            with objMan {
+                energy = fullEnergy;
+                weak = false;
+            }
             if(room == Outside)
             {
                 room_goto(Inside);
@@ -380,6 +400,14 @@ if(room == Outside)
             newPersonCount--;
         }
     }
+    //parallax factor = the stored x position of the background (set in room view)
+    if setParallax = true {
+        setParallax = false
+        parallax[0] = 0
+        for (var i = 0; background_visible[i]; i++) {
+            parallax[i] = background_x[i] / 100
+        }
+    }
 }
 </string>
           </argument>
@@ -418,17 +446,16 @@ for (i = 0; i &lt; len; i++) {
     draw_sprite(next, 0, buffer*(i+2) + (sprw/2)*(2*i+1), buffer*2)
     draw_set_colour(c_white)
     draw_text(buffer*(i+2) + sprw*i, buffer*2, othernext)
-}  
-draw_set_alpha(1);
+}
 
 //draws available food
 sprh = sprite_get_height(sprUIBox)
-if scrGUIButton(sprStew, sprGourmet, buffer, sprh + 2*buffer, buffer, objGame.stewCount, objGame.gourmetCount) = STEW {
+if scrGUIFood(sprStew, sprGourmet, buffer, sprh + 2*buffer, buffer, objGame.stewCount, objGame.gourmetCount) = STEW {
     with objMan {
         energy += (fullEnergy - energy)/2
         objGame.stewCount--
     }
-} else if scrGUIButton(sprStew, sprGourmet, buffer, sprh + 2*buffer, buffer, objGame.stewCount, objGame.gourmetCount) = GOURMET {
+} else if scrGUIFood(sprStew, sprGourmet, buffer, sprh + 2*buffer, buffer, objGame.stewCount, objGame.gourmetCount) = GOURMET {
     with objMan {
         energy = fullEnergy
         objGame.gourmetCount--
@@ -449,6 +476,8 @@ if instance_exists(objMan) {
         }
     }
 }
+
+draw_set_alpha(1);
 
 draw_set_alpha(endOfDayAlpha);
 draw_set_color(c_white);

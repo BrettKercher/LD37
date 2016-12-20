@@ -145,7 +145,6 @@ if !objGame.bought[toolType] {
           <argument>
             <kind>1</kind>
             <string>draw_self()
-draw_text(x,y,equipPercent)
 
 var sprnum = sprite_get_number(sprEnergyBar)
 var sprh = sprite_get_height(sprEnergyBar)/2

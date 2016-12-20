@@ -98,6 +98,9 @@ if place_meeting(x, y, objMan) {
         {
             with gatherer {
                 state = scrStateIdle;
+                sprite_index = sprManCollecting
+                image_speed = 0
+                image_index = 0
                 energy -= 10;
             }
             instance_destroy();

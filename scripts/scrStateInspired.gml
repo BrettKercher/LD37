@@ -34,6 +34,9 @@ if (abs(x - target) <= 5 or collided) {
                 other.image_index = 0;
                 other.image_speed = 0;
                 show_debug_message("Removing Gate");
+                with myIndicator {
+                    instance_destroy()
+                }
                 instance_destroy();
                 exit;
             }

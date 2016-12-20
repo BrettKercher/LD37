@@ -25,17 +25,58 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>tutorial = true;
+            <string>
+//changed by clicking menu options
+tutorial = true;
+cutscene = true
+
+//only give the tutorial once
 insideTutorial = true;
 outsideTutorial = true;
+toolTutorial = false;
+alreadyToolTutorial = false;
+toolTextBox = noone;
 insideTextBox = noone;
 outsideTextBox = noone;
 
-insideText = "i can use this fire to communicate"
+insideText = "i can use this fire to communicate
+#(space to dismiss)"
 outsideText = "i can inspire a man to greatness if i show them the way  
-# try clicking on him and using rmb for that
-# sleep for the day by pressing f
-# if a traveller is hit with no energy left, they die"
+#he must gather resources first-- as many at once as he can hold
+#but if he is injured with no energy left, he will die
+#(space to dismiss)"
+toolText = "these will be useful--
+#but tools left out at night will not last till morning
+#(space to dismiss)"
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///stops tool tutorial
+
+with toolTextBox {
+    instance_destroy()
+}
+toolTextBox = noone
 </string>
           </argument>
         </arguments>
@@ -58,9 +99,12 @@ outsideText = "i can inspire a man to greatness if i show them the way
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with outsideTextBox {
+            <string>///stops outside tutorial
+
+with outsideTextBox {
     instance_destroy()
 }
+outsideTextBox = noone
 </string>
           </argument>
         </arguments>
@@ -83,9 +127,37 @@ outsideText = "i can inspire a man to greatness if i show them the way
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with insideTextBox {
+            <string>//stops inside tutorial
+
+with insideTextBox {
     instance_destroy()
 }
+insideTextBox = noone
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+scrDestroyTutorialBox()
+
 </string>
           </argument>
         </arguments>
@@ -113,13 +185,45 @@ outsideText = "i can inspire a man to greatness if i show them the way
         insideTutorial = false
         alarm[0] = 10 * room_speed
         insideTextBox = scrTextBox(insideText, objFire.x, objFire.y, 6000, c_black, fnPixelatedSmallest)
+        insideTextBox.depth = -100
     } else if room == Outside and outsideTutorial = true {
         outsideTutorial = false
-        alarm[1] = 10 * room_speed
+        alarm[1] = 20 * room_speed
         outsideTextBox = scrTextBox(outsideText, objIdol.x - 100, objIdol.y, 6000, c_black, fnPixelatedSmallest)
         outsideTextBox.depth = -100
+    } else if room == Outside and toolTutorial = true {
+        toolTutorial = false
+        alarm[2] = 10*room_speed
+        toolTextBox = scrTextBox(toolText, objSpearBox.x, objSpearBox.y - 128, 6000, c_black, fnPixelatedSmallest) 
+        toolTextBox.depth = -100
+        view_xview = toolTextBox.x - 32
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+scrDestroyTutorialBox()
+
 </string>
           </argument>
         </arguments>

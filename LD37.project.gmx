@@ -9,14 +9,8 @@
     <sprites name="UISprites">
       <sprite>sprites\sprSun</sprite>
       <sprite>sprites\sprUIBox</sprite>
-      <sprite>sprites\sprStoryBoard1</sprite>
-      <sprite>sprites\sprStoryBoard2</sprite>
-      <sprite>sprites\sprStoryBoard3</sprite>
-      <sprite>sprites\sprStoryBoard4</sprite>
-      <sprite>sprites\sprWinner</sprite>
-      <sprite>sprites\sprLoser</sprite>
-      <sprite>sprites\sprWinImortal</sprite>
       <sprite>sprites\sprTimeLine</sprite>
+      <sprite>sprites\sprEndDayButton</sprite>
       <sprite>sprites\sprRestart</sprite>
     </sprites>
     <sprites name="WaypointSprites">
@@ -34,6 +28,9 @@
       <sprite>sprites\sprMan</sprite>
       <sprite>sprites\sprManCollecting</sprite>
       <sprite>sprites\sprLightSourceGlow</sprite>
+      <sprite>sprites\sprPick</sprite>
+      <sprite>sprites\sprAxe</sprite>
+      <sprite>sprites\sprSpear</sprite>
     </sprites>
     <sprites name="RoomSprites">
       <sprites name="Smoke Menu">
@@ -74,9 +71,19 @@
       <sprite>sprites\sprFur</sprite>
     </sprites>
     <sprites name="MenuSprites">
+      <sprite>sprites\sprStoryBoard1</sprite>
+      <sprite>sprites\sprStoryBoard2</sprite>
+      <sprite>sprites\sprStoryBoard3</sprite>
+      <sprite>sprites\sprStoryBoard4</sprite>
+      <sprite>sprites\sprControls</sprite>
+      <sprite>sprites\sprWinner</sprite>
+      <sprite>sprites\sprWinImortal</sprite>
+      <sprite>sprites\sprLoser</sprite>
       <sprite>sprites\sprPlayOption</sprite>
       <sprite>sprites\sprTutorialOn</sprite>
       <sprite>sprites\sprTutorialOff</sprite>
+      <sprite>sprites\sprCutsceneOn</sprite>
+      <sprite>sprites\sprCutsceneOff</sprite>
       <sprite>sprites\sprTitle</sprite>
     </sprites>
     <sprites name="ToolBoxes">
@@ -90,7 +97,13 @@
     <sprite>sprites\sprMouse</sprite>
     <sprite>sprites\sprGround</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bgrSkyOutside</background>
+    <background>background\bgrSkyInside</background>
+    <background>background\bgrFarMountains</background>
+    <background>background\bgrMountains</background>
+    <background>background\bgrBushes</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="EnemyStates">
@@ -116,6 +129,7 @@
       <script>scripts\scrZoomView.gml</script>
     </scripts>
     <script>scripts\scrGUIButton.gml</script>
+    <script>scripts\scrGUIFood.gml</script>
     <script>scripts\scrManDeath.gml</script>
     <script>scripts\scrImageClamp.gml</script>
     <script>scripts\scrGetKeyboardInput.gml</script>
@@ -124,6 +138,8 @@
     <script>scripts\scrCreateResource.gml</script>
     <script>scripts\scrSpawnSpooksters.gml</script>
     <script>scripts\scrDoEndOfDay.gml</script>
+    <script>scripts\scrRoomTransition.gml</script>
+    <script>scripts\scrDestroyTutorialBox.gml</script>
     <script>scripts\scrTextBox.gml</script>
   </scripts>
   <fonts name="fonts">
@@ -184,12 +200,14 @@
       <object>objects\objSettings</object>
       <object>objects\objPlay</object>
       <object>objects\objTutorial</object>
+      <object>objects\objCutscene</object>
       <object>objects\objTitle</object>
       <object>objects\objMenu</object>
       <object>objects\objStoryBoard1</object>
       <object>objects\objStoryBoard2</object>
       <object>objects\objStoryBoard3</object>
       <object>objects\objStoryBoard4</object>
+      <object>objects\objControls</object>
       <object>objects\objWinner</object>
       <object>objects\objLoser</object>
       <object>objects\objWinImortal</object>

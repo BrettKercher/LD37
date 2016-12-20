@@ -134,14 +134,32 @@ if doneCrafting = true {
         case objPickButton.id:
             objGame.stored[PICK] ++
             objGame.bought[PICK] = true
+            with objSettings {
+                if alreadyToolTutorial = false {
+                    toolTutorial = true
+                    alreadyToolTutorial = true
+                }
+            }
             break;
         case objAxeButton.id:
             objGame.stored[AXE] ++
             objGame.bought[AXE] = true
+            with objSettings {
+                if alreadyToolTutorial = false {
+                    toolTutorial = true
+                    alreadyToolTutorial = true
+                }
+            }
             break;
         case objSpearButton.id:
             objGame.stored[SPEAR] ++
             objGame.bought[SPEAR] = true
+            with objSettings {
+                if alreadyToolTutorial = false {
+                    toolTutorial = true
+                    alreadyToolTutorial = true
+                }
+            }
             break;
         case objGlassButton.id:
             objGame.glassCount++

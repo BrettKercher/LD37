@@ -7,7 +7,7 @@ var textObj = instance_create(xCoord, yCoord, objTextBox);
 
 with(textObj) {
 
-    padding = 16;
+    padding = 8;
     maxLength = room_width;
     font = argument5;
     text = argument0;

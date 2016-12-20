@@ -363,23 +363,20 @@ if state = scrStateRemovingGate {
 }
 
 //draws a tool
-draw_set_alpha(1 - objGame.fadeAlpha)
-var sprw = sprite_get_width(sprite_index)/2;
 switch (tool) {
     case PICK:
-        draw_sprite(sprPickButton,0,x - sprw,y)
+        draw_sprite_ext(sprPick,0,x,y,image_xscale,1,0,c_white,1-objGame.fadeAlpha)
         break;
     case AXE:
-        draw_sprite(sprAxeButton,0,x - sprw,y)
+        draw_sprite_ext(sprAxe,0,x,y,image_xscale,1,0,c_white,1-objGame.fadeAlpha)
         break;
     case SPEAR:
-        draw_sprite(sprSpearButton,0,x - sprw,y)
+        draw_sprite_ext(sprSpear,0,x,y,image_xscale,1,0,c_white,1-objGame.fadeAlpha)
         break;
 }
 draw_set_alpha(1)
 
 draw_self()
-draw_text(x,y,tool)
 
 </string>
           </argument>

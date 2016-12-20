@@ -155,7 +155,10 @@ textBox.depth = -100
 if image_index = 0 and objSmokeMenu.canCraft {
     objSmokeMenu.canCraft = false
     objSmokeMenu.queueItem = self
-    objMan.state = scrStateCrafting
+    var manNum = ds_list_size(objGame.manList) - 1;
+    var pos = irandom(manNum);
+    var crafter = ds_list_find_value(objGame.manList, pos);
+    crafter.state = scrStateCrafting
 }
 
 

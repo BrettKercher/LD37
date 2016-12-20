@@ -68,12 +68,14 @@ event_inherited()
           <argument>
             <kind>1</kind>
             <string>
-event_inherited()
 if objGame.stored[SPEAR] &lt; 2 {
     image_index = 0
 } else {
     image_index = 1
 }
+
+event_inherited()
+
 </string>
           </argument>
         </arguments>

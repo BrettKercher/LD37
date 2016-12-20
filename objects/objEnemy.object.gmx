@@ -256,7 +256,6 @@ if energy &lt; fullEnergy or inCombat {
     draw_sprite_ext(sprEnergyBar,sprnum-ceil(sprnum*(energy/fullEnergy)), x + sprw/4, y - sprh,.5,.5,0,image_blend, 1)
 }
 
-draw_text(x,y,idleTime)
 </string>
           </argument>
         </arguments>
